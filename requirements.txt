@@ -1,0 +1,6 @@
+opencv-python
+torch
+torchvision
+face_recognition
+numpy
+pandas

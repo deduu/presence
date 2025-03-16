@@ -1,0 +1,12 @@
+.venv/
+.vscode/
+__pycache__/
+*.pyc
+claude
+assets
+imagefolder/
+imagefolder1/
+temp/
+upload/
+.env
+Miscelleneous/
