@@ -10,35 +10,17 @@ from app.db.base import Base
 # Define GMT+7 timezone
 gmt_plus_7 = pytz.timezone('Asia/Bangkok')
 
-# People Table
-class Person(Base):
-    __tablename__ = 'people'
-    
-    person_id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, nullable=False)
-    date_of_birth = Column(DateTime, nullable=True)
-    address = Column(String, nullable=True)
-    contact_number = Column(String, nullable=True)
-
-    # Relationships
-    faces = relationship("Face", back_populates="person")
-
-
-# Update Face model to include person_id
+# Faces Table
 class Face(Base):
     __tablename__ = 'faces'
     
     face_id = Column(Integer, primary_key=True, index=True)
-    face_encoding = Column(LargeBinary, nullable=False)
+    face_encoding = Column(LargeBinary, nullable=False)  # Stored as bytes
     first_seen = Column(DateTime(timezone=True), nullable=False, default=lambda: datetime.datetime.now(gmt_plus_7))
     last_seen = Column(DateTime(timezone=True), nullable=False, default=lambda: datetime.datetime.now(gmt_plus_7))
-
-    person_id = Column(Integer, ForeignKey('people.person_id'), nullable=True)  # Allow anonymous faces
-
+    
     # Relationships
-    person = relationship("Person", back_populates="faces")
     image_records = relationship("ImageRecord", back_populates="face")
-
 
 # Image Records Table
 class ImageRecord(Base):

@@ -17,7 +17,7 @@ Base = declarative_base()
 DATABASE_URL = "postgresql+asyncpg://postgres:admin@localhost:5432/Presence"
 engine = create_async_engine(
     DATABASE_URL,
-    echo=True,
+    echo=False,
     pool_size=5,         # Minimum number of persistent connections in the pool
     max_overflow=15      # Allow up to 15 additional connections (total up to 20)
 )
