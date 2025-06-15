@@ -10,3 +10,4 @@ temp/
 upload/
 .env
 Miscelleneous/
+test*.py
