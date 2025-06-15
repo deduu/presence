@@ -1,20 +1,56 @@
-
-# schemas/person.py
-from pydantic import BaseModel
+# schemas/face.py
+from pydantic import BaseModel, Field
+from datetime import datetime
 from typing import Optional
+
+class FaceBase(BaseModel):
+    first_seen: datetime
+    last_seen: datetime
+
+class FaceCreate(FaceBase):
+    face_encoding: bytes
+
+class FaceInDB(FaceBase):
+    face_id: int
+    face_encoding: bytes
+
+    class Config:
+        orm_mode = True
+
+
+# schemas/image_record.py
+from pydantic import BaseModel
 from datetime import datetime
 
-class PersonBase(BaseModel):
-    name: str
-    date_of_birth: Optional[datetime] = None
-    address: Optional[str] = None
-    contact_number: Optional[str] = None
+class ImageRecordBase(BaseModel):
+    image_path: str
+    face_id: int
+    detection_time: datetime
 
-class PersonCreate(PersonBase):
+class ImageRecordCreate(ImageRecordBase):
     pass
 
-class PersonRead(PersonBase):
-    person_id: int
+class ImageRecordInDB(ImageRecordBase):
+    record_id: int
+
+    class Config:
+        orm_mode = True
+
+
+# schemas/image_count.py
+from pydantic import BaseModel
+from datetime import datetime
+
+class ImageCountBase(BaseModel):
+    image_path: str
+    face_count: int
+    processed_time: datetime
+
+class ImageCountCreate(ImageCountBase):
+    pass
+
+class ImageCountInDB(ImageCountBase):
+    image_id: int
 
     class Config:
         orm_mode = True
