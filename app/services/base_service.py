@@ -30,6 +30,27 @@ class BaseService:
             logger.error(f"Error fetching {self.model.__name__} by ID {item_id}: {e}")
             raise
 
+    async def list(self, filters:Dict= None)-> List[Any]:
+        try:
+            stmt = select(self.model)
+            if filters:
+                for key, value in filters.items():
+                    stmt = stmt.where(getattr(self.model, key) == value)
+            result = await self.db.execute(stmt)
+            return result.scalars().all()
+        except Exception as e:
+            logger.error(f"Error fetching {self.model.__name__}: {e}")
+            raise
+    
+    async def get (self, obj_id: int) -> Any:
+        try:
+            res = await self.db.get(self.model, obj_id)
+            if not res: raise ValueError(f"{self.model.__name__} {obj_id} not found")
+            return res
+        except Exception as e:
+            logger.error(f"Error fetching {self.model.__name__} by ID {obj_id}: {e}")
+            raise
+        
     async def get_all(self, skip: int = 0, limit: int = 100) -> List[Any]:
         try:
             stmt = select(self.model).offset(skip).limit(limit)

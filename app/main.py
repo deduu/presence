@@ -11,6 +11,9 @@ from app.db.base import session_manager
 from app.routers.face_router import router as face_router
 from app.api.v1.image_record_router import router as image_record_router
 from app.api.v1.image_count_router import router as image_count_router
+from app.api.v1.people_router import router as people_router
+from app.api.v1.dashboard_router import router as dashboard_router
+
 # from app.api.v1.report_router import router as report_router
 
 async def get_db_session():
@@ -42,6 +45,8 @@ app.add_middleware(
 )
 
 # Mount each router, passing the DB dependency
+app.include_router(dashboard_router, prefix="/dashboard", tags=["dashboard"], dependencies=[Depends(get_db_session)])
+app.include_router(people_router,    prefix="/people",    tags=["people"], dependencies=[Depends(get_db_session)])
 app.include_router(
     face_router,
     prefix="/faces",

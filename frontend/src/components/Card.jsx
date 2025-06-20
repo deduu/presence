@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 export default function Card({ title, value }) {
   return (
@@ -6,5 +6,5 @@ export default function Card({ title, value }) {
       <div className="text-gray-500">{title}</div>
       <div className="ml-auto text-2xl font-bold">{value}</div>
     </div>
-  )
+  );
 }

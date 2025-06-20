@@ -34,3 +34,5 @@ class ImageCountService(BaseService):
             await self.db.rollback()
             logger.error(f"Error inserting/updating image count for {image_path}: {e}")
             raise
+
+
