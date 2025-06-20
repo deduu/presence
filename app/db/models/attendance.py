@@ -49,6 +49,7 @@ class ImageRecord(Base):
     image_path = Column(String, nullable=False)
     face_id = Column(Integer, ForeignKey('faces.face_id'), nullable=False)
     detection_time = Column(DateTime(timezone=True), nullable=False)
+    face_location = Column(String, nullable=True) 
     
     # Relationships
     face = relationship("Face", back_populates="image_records")

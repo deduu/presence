@@ -7,17 +7,22 @@ from pydantic import BaseModel
 
 from app.db.base import session_manager
 from app.services.face_service import FaceService
+from app.services.image_record_service import ImageRecordService
 from app.schemas.common import FaceOut, ImageRecordOut
 
 async def get_db_session():
     async with session_manager.create_session() as session:
         yield session
 
+def get_image_record_service(db: AsyncSession = Depends(get_db_session)):
+    return ImageRecordService(db)
+
 router = APIRouter()
 
 # ---- dependency ----
-async def svc(session: AsyncSession = Depends(get_db_session())):
-    return FaceService(session)
+async def svc(session: AsyncSession = Depends(get_db_session), image_record_service: ImageRecordService = Depends(get_image_record_service)):
+    return FaceService(session, image_record_service)
+
 
 # ---- bodies ----
 class _AssociateBody(BaseModel):

@@ -47,6 +47,7 @@ async def recent_detections(session: AsyncSession = Depends(get_db_session), lim
             ImageRecord.record_id,
             ImageRecord.image_path,
             ImageRecord.detection_time,
+            ImageRecord.face_location, 
             Face.face_id,
             func.coalesce(Person.name, "Anonymous").label("person_name"),
         )
@@ -63,6 +64,7 @@ async def recent_detections(session: AsyncSession = Depends(get_db_session), lim
             "person_name":    r.person_name,
             "image_path":     r.image_path,
             "detection_time": r.detection_time,
+            "face_location":  r.face_location, 
         }
         for r in rows
     ]
