@@ -7,7 +7,7 @@ from app.schemas.common import ImageRecordCreate, ImageRecordInDB
 from app.services.image_record_service import ImageRecordService
 from app.db.base import session_manager
 
-router = APIRouter(prefix="/image-records", tags=["Image Records"])
+router = APIRouter()
 
 async def get_db_session():
     async with session_manager.create_session() as session:

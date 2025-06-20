@@ -15,6 +15,7 @@ class FaceService(BaseService):
     def __init__(self, db: AsyncSession):
         super().__init__(db, Face)
 
+    
     async def get_all_known_faces(self) -> Tuple[List[int], List[np.ndarray]]:
         try:
             result = await self.db.execute(select(Face))
@@ -27,18 +28,28 @@ class FaceService(BaseService):
             return [], []
     
     async def insert_new_face(self, encoding: np.ndarray, current_time: datetime):
-        encoding_bytes = encoding.tobytes()
-        face = Face(face_encoding=encoding_bytes, first_seen=current_time, last_seen=current_time)
-        self.db.add(face)
-        await self.db.commit()
-        await self.db.refresh(face)
-        return face
+        try:
+            encoding_bytes = encoding.tobytes()
+            face = Face(face_encoding=encoding_bytes, first_seen=current_time, last_seen=current_time)
+            self.db.add(face)
+            await self.db.commit()
+            await self.db.refresh(face)
+            return face
+        except Exception as e:
+            await self.db.rollback()
+            logger.error(f"Error inserting new face: {e}")
+            raise
 
     async def update_last_seen(self, face_id: int, current_time: datetime, encoding: Optional[np.ndarray] = None):
-        face = await self.get_by_id(face_id)
-        face.last_seen = current_time
-        if encoding is not None:
-            face.face_encoding = encoding.tobytes()
-        await self.db.commit()
-        await self.db.refresh(face)
-        return face
+        try:
+            face = await self.get_by_id(face_id)
+            face.last_seen = current_time
+            if encoding is not None:
+                face.face_encoding = encoding.tobytes()
+            await self.db.commit()
+            await self.db.refresh(face)
+            return face
+        except Exception as e:
+            await self.db.rollback()
+            logger.error(f"Error updating last_seen for face ID {face_id}: {e}")
+            raise
