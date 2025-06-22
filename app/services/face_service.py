@@ -10,6 +10,7 @@ from sqlalchemy.orm import joinedload
 from typing import List, Tuple, Optional, Dict, Any
 from fastapi import HTTPException, status
 from datetime import datetime
+from PIL import Image
 
 # Assuming these imports are correctly configured in your project
 from app.services.base_service import BaseService
@@ -236,6 +237,8 @@ class FaceService(BaseService):
             logger.warning(f"Could not load image for review: {image_path}")
             return None
 
+        img_height, img_width = rgb_image.shape[:2]  # shape = (height, width, channels)
+
         face_locations, face_encodings = self.image_processor.detect_faces(rgb_image)
         
         if not face_encodings:
@@ -274,7 +277,10 @@ class FaceService(BaseService):
                 'suggested_person_name': person_name,
                 'is_new_face_candidate': (matched_face_id is None), # True if no match found
                 'face_location': face_locations[i], # Tuple (top, right, bottom, left)
-                'face_encoding': face_encoding.tolist() # Convert numpy array to list for JSON serialization
+                'face_encoding': face_encoding.tolist(), # Convert numpy array to list for JSON serialization
+                'image_width': img_width,
+                'image_height': img_height,
+            
             })
         
         # --- Generate and save preview image ---
@@ -282,10 +288,13 @@ class FaceService(BaseService):
         os.makedirs(TEMP_IMAGE_STORAGE_ROOT, exist_ok=True)
         
         original_filename = os.path.basename(image_path)
+        logger.info(f"Original filename: {original_filename}")
+        original_base_filename = original_filename.split('_')[-1]
         # Append a unique suffix and then original name to avoid conflicts, ensure it's in temp folder
-        preview_filename = f"preview_{datetime.now().strftime('%Y%m%d%H%M%S%f')}_{original_filename}"
+        preview_filename = f"preview_{datetime.now().strftime('%Y%m%d%H%M%S%f')}_{original_base_filename}"
         preview_image_path_server = os.path.join(TEMP_IMAGE_STORAGE_ROOT, preview_filename)
         preview_image_url = os.path.join(PUBLIC_TEMP_IMAGE_URL_PREFIX, preview_filename) # Public URL for client
+        original_image_url = os.path.join(PUBLIC_TEMP_IMAGE_URL_PREFIX, original_filename)
 
         annotated_image_bgr = self.image_processor.annotate_faces(
             rgb_image=rgb_image,
@@ -303,6 +312,7 @@ class FaceService(BaseService):
             'original_image_path_server': image_path, # Path to the temporarily stored original file
             'preview_image_path_server': preview_image_path_server, # Path to the temporary annotated preview
             'preview_image_url': preview_image_url, # URL for client to view
+            'original_image_url': original_image_url, # URL for client to view original image
             'detection_time': detection_time,
             'face_detections': results_for_faces, # List of dictionaries for each face
             'num_faces_detected': len(face_encodings)

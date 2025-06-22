@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 const links = [
   // This is where you defined your array of links
   { to: "/dashboard", label: "Dashboard" },
+  { to: "/image-review", label: "Image Review" },
   { to: "/people", label: "People" },
   { to: "/faces", label: "Faces" },
   { to: "/image-records", label: "Image Records" },

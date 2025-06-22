@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
+import ImageReviewPage from "./features/imageReview/ImageReviewPage";
 import DashboardPage from "./features/dashboard/DashboardPage";
 import PeoplePage from "./features/people/PeoplePage";
 import FacesPage from "./features/faces/FacesPage";
@@ -16,6 +17,7 @@ export default function App() {
       <main className="flex-1 bg-gray-100 p-6 overflow-auto">
         <Routes>
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
+          <Route path="/image-review" element={<ImageReviewPage />} />
           <Route path="/people" element={<PeoplePage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/faces" element={<FacesPage />} />

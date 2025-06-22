@@ -1,0 +1,113 @@
+2025-06-22 20:10:27,174 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-06-22 20:10:27,515 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622201027462937_original_20250622201025705939_test2.jpeg
+2025-06-22 20:10:27,515 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622201027462937_original_20250622201025705939_test2.jpeg
+2025-06-22 20:18:03,133 - app.functions.image_processor - INFO - Detected 3 face(s).
+2025-06-22 20:18:03,168 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622201803139354_original_20250622201801022619_test.jpeg
+2025-06-22 20:18:03,169 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622201803139354_original_20250622201801022619_test.jpeg
+2025-06-22 20:18:08,527 - app.functions.image_processor - INFO - Detected 3 face(s).
+2025-06-22 20:18:08,566 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622201808533135_original_20250622201806533871_test.jpeg
+2025-06-22 20:18:08,567 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622201808533135_original_20250622201806533871_test.jpeg
+2025-06-22 20:55:34,529 - app.services.face_service - INFO - Face ID 1 associated with Person ID 1.
+2025-06-22 20:57:25,230 - app.services.face_service - INFO - Face ID 1 disassociated.
+2025-06-22 21:36:35,628 - app.functions.image_processor - INFO - Detected 3 face(s).
+2025-06-22 21:36:35,648 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622213635636492_original_20250622213634176784_PHR03.jpeg
+2025-06-22 21:36:35,649 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622213635636492_original_20250622213634176784_PHR03.jpeg
+2025-06-22 21:36:37,124 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-06-22 21:36:37,163 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622213637127010_original_20250622213635650481_test2.jpeg
+2025-06-22 21:36:37,164 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622213637127010_original_20250622213635650481_test2.jpeg
+2025-06-22 21:36:58,041 - app.functions.image_processor - INFO - Detected 3 face(s).
+2025-06-22 21:36:58,064 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622213658045613_original_20250622213656536105_PHR03.jpeg
+2025-06-22 21:36:58,065 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622213658045613_original_20250622213656536105_PHR03.jpeg
+2025-06-22 21:50:19,332 - app.functions.image_processor - INFO - Detected 3 face(s).
+2025-06-22 21:50:19,351 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622215019338226_original_20250622215017898844_PHR03.jpeg
+2025-06-22 21:50:19,352 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622215019338226_original_20250622215017898844_PHR03.jpeg
+2025-06-22 21:51:14,846 - app.functions.image_processor - INFO - Detected 3 face(s).
+2025-06-22 21:51:14,862 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622215114851492_original_20250622215113352834_PHR03.jpeg
+2025-06-22 21:51:14,862 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622215114851492_original_20250622215113352834_PHR03.jpeg
+2025-06-22 21:53:41,590 - app.functions.image_processor - INFO - Detected 3 face(s).
+2025-06-22 21:53:41,606 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622215341594574_original_20250622215340088555_PHR03.jpeg
+2025-06-22 21:53:41,607 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622215341594574_original_20250622215340088555_PHR03.jpeg
+2025-06-22 21:54:09,710 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-06-22 21:54:09,720 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622215409713360_original_20250622215409402172_a.PNG
+2025-06-22 21:54:09,720 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622215409713360_original_20250622215409402172_a.PNG
+2025-06-22 21:54:11,154 - app.functions.image_processor - INFO - Detected 3 face(s).
+2025-06-22 21:54:11,167 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622215411156759_original_20250622215409720857_PHR03.jpeg
+2025-06-22 21:54:11,167 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622215411156759_original_20250622215409720857_PHR03.jpeg
+2025-06-22 21:54:13,228 - app.functions.image_processor - INFO - Detected 3 face(s).
+2025-06-22 21:54:13,266 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622215413233965_original_20250622215411168761_test.jpeg
+2025-06-22 21:54:13,267 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622215413233965_original_20250622215411168761_test.jpeg
+2025-06-22 21:54:14,648 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-06-22 21:54:14,688 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622215414651319_original_20250622215413268643_test1.jpeg
+2025-06-22 21:54:14,689 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622215414651319_original_20250622215413268643_test1.jpeg
+2025-06-22 21:54:16,098 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-06-22 21:54:16,137 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622215416101590_original_20250622215414690230_test2.jpeg
+2025-06-22 21:54:16,138 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622215416101590_original_20250622215414690230_test2.jpeg
+2025-06-22 22:04:16,803 - app.functions.image_processor - INFO - Detected 3 face(s).
+2025-06-22 22:04:16,819 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622220416807538_original_20250622220415284838_PHR03.jpeg
+2025-06-22 22:04:16,820 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622220416807538_original_20250622220415284838_PHR03.jpeg
+2025-06-22 22:05:28,501 - app.functions.image_processor - INFO - Detected 3 face(s).
+2025-06-22 22:05:28,518 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622220528505971_original_20250622220527046607_PHR03.jpeg
+2025-06-22 22:05:28,518 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622220528505971_original_20250622220527046607_PHR03.jpeg
+2025-06-22 22:18:59,656 - app.functions.image_processor - INFO - Detected 3 face(s).
+2025-06-22 22:18:59,674 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622221859661465_original_20250622221858153383_PHR03.jpeg
+2025-06-22 22:18:59,675 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622221859661465_original_20250622221858153383_PHR03.jpeg
+2025-06-22 22:19:22,967 - app.functions.image_processor - INFO - Detected 3 face(s).
+2025-06-22 22:19:22,985 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622221922972684_original_20250622221921490138_PHR03.jpeg
+2025-06-22 22:19:22,985 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622221922972684_original_20250622221921490138_PHR03.jpeg
+2025-06-22 22:29:21,889 - app.functions.image_processor - INFO - Detected 3 face(s).
+2025-06-22 22:29:22,096 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622222922079126_original_20250622222920440576_PHR03.jpeg
+2025-06-22 22:29:22,096 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622222922079126_original_20250622222920440576_PHR03.jpeg
+2025-06-22 22:32:53,896 - app.functions.image_processor - INFO - Detected 3 face(s).
+2025-06-22 22:32:53,913 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622223253900379_original_20250622223252411815_PHR03.jpeg
+2025-06-22 22:32:53,913 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622223253900379_original_20250622223252411815_PHR03.jpeg
+2025-06-22 22:43:38,102 - app.functions.image_processor - INFO - Detected 3 face(s).
+2025-06-22 22:43:38,203 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622224338186581_PHR03.jpeg
+2025-06-22 22:43:38,203 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622224338186581_PHR03.jpeg
+2025-06-22 22:49:57,038 - app.functions.image_processor - INFO - Detected 3 face(s).
+2025-06-22 22:49:57,053 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622224957041959_PHR03.jpeg
+2025-06-22 22:49:57,054 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622224957041959_PHR03.jpeg
+2025-06-22 22:50:25,795 - app.functions.image_processor - INFO - Detected 3 face(s).
+2025-06-22 22:50:25,810 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622225025798897_PHR03.jpeg
+2025-06-22 22:50:25,810 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622225025798897_PHR03.jpeg
+2025-06-22 22:54:24,925 - app.functions.image_processor - INFO - Detected 3 face(s).
+2025-06-22 22:54:25,017 - app.services.face_service - INFO - Original filename: original_20250622225423464422_PHR03.jpeg
+2025-06-22 22:54:25,034 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622225425017114_PHR03.jpeg
+2025-06-22 22:54:25,035 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622225425017114_PHR03.jpeg
+2025-06-22 22:55:41,421 - app.functions.image_processor - INFO - Detected 3 face(s).
+2025-06-22 22:55:41,504 - app.services.face_service - INFO - Original filename: original_20250622225539937006_PHR03.jpeg
+2025-06-22 22:55:41,523 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622225541505152_PHR03.jpeg
+2025-06-22 22:55:41,523 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622225541505152_PHR03.jpeg
+2025-06-22 23:13:31,335 - app.functions.image_processor - INFO - Detected 3 face(s).
+2025-06-22 23:13:31,425 - app.services.face_service - INFO - Original filename: original_20250622231329892895_PHR03.jpeg
+2025-06-22 23:13:31,443 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622231331425257_PHR03.jpeg
+2025-06-22 23:13:31,443 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622231331425257_PHR03.jpeg
+2025-06-22 23:13:43,129 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-06-22 23:13:43,133 - app.services.face_service - INFO - Original filename: original_20250622231342839372_a.PNG
+2025-06-22 23:13:43,134 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622231343133218_a.PNG
+2025-06-22 23:13:43,135 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622231343133218_a.PNG
+2025-06-22 23:13:44,534 - app.functions.image_processor - INFO - Detected 3 face(s).
+2025-06-22 23:13:44,537 - app.services.face_service - INFO - Original filename: original_20250622231343135217_PHR03.jpeg
+2025-06-22 23:13:44,549 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622231344538973_PHR03.jpeg
+2025-06-22 23:13:44,549 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622231344538973_PHR03.jpeg
+2025-06-22 23:13:46,636 - app.functions.image_processor - INFO - Detected 3 face(s).
+2025-06-22 23:13:46,641 - app.services.face_service - INFO - Original filename: original_20250622231344550967_test.jpeg
+2025-06-22 23:13:46,673 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622231346642711_test.jpeg
+2025-06-22 23:13:46,674 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622231346642711_test.jpeg
+2025-06-22 23:13:48,071 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-06-22 23:13:48,073 - app.services.face_service - INFO - Original filename: original_20250622231346675991_test1.jpeg
+2025-06-22 23:13:48,108 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622231348075029_test1.jpeg
+2025-06-22 23:13:48,109 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622231348075029_test1.jpeg
+2025-06-22 23:13:49,455 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-06-22 23:13:49,457 - app.services.face_service - INFO - Original filename: original_20250622231348110379_test2.jpeg
+2025-06-22 23:13:49,493 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622231349457985_test2.jpeg
+2025-06-22 23:13:49,494 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622231349457985_test2.jpeg
+2025-06-22 23:15:31,984 - app.services.face_service - INFO - Face ID 1 associated with Person ID 1.
+2025-06-22 23:15:48,894 - app.functions.image_processor - INFO - Detected 3 face(s).
+2025-06-22 23:15:48,900 - app.services.face_service - INFO - Original filename: original_20250622231546903942_test.jpeg
+2025-06-22 23:15:48,933 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622231548901205_test.jpeg
+2025-06-22 23:15:48,933 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622231548901205_test.jpeg
+2025-06-22 23:16:12,558 - app.services.face_service - INFO - Face ID 1 disassociated.
+2025-06-22 23:16:27,393 - app.functions.image_processor - INFO - Detected 3 face(s).
+2025-06-22 23:16:27,399 - app.services.face_service - INFO - Original filename: original_20250622231625458553_test.jpeg
+2025-06-22 23:16:27,429 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622231627400399_test.jpeg
+2025-06-22 23:16:27,430 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250622231627400399_test.jpeg

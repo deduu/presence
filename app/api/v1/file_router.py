@@ -7,7 +7,6 @@ from fastapi import APIRouter, Depends, UploadFile, File, HTTPException, status
 from typing import List, Dict, Any, Optional, Tuple  
 from sqlalchemy.ext.asyncio import AsyncSession
 from app.utils.file_store import save_image
-from app.services.image_pipeline import ImagePipeline
 from app.db.base import session_manager
 from app.services.face_service import FaceService
 from app.services.image_record_service import ImageRecordService # Needed for FaceService dependency
@@ -222,6 +221,7 @@ async def upload_images_for_preview(
                 file_result["status"] = "success"
                 file_result["message"] = f"Processed {review_data['num_faces_detected']} face(s) for review."
                 file_result["preview_image_url"] = review_data['preview_image_url']
+                file_result["original_image_url"] = review_data['original_image_url']
                 file_result["face_detections"] = review_data['face_detections']
                 file_result['original_image_path_server'] = review_data['original_image_path_server']
                 file_result['preview_image_path_server'] = review_data['preview_image_path_server']
