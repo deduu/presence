@@ -28,4 +28,4 @@ dist-ssr
 app_data/permanent_images
 app_data/temporary_images
 
-app/myimage
+myimage
