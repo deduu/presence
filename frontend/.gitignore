@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# fikder
+.env
+app_data/permanent_images
+app_data/temporary_images
+
+app/myimage
