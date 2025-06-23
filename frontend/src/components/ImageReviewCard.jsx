@@ -1,6 +1,11 @@
 import React, { useRef, useEffect, useState } from "react";
 
-export default function ImageReviewCard({ file, onEditName }) {
+export default function ImageReviewCard({
+  file,
+  onEditName,
+  onDelete,
+  onEditTag,
+}) {
   const imgRef = useRef();
   const [imgDims, setImgDims] = useState({ width: 1, height: 1 });
 
@@ -23,6 +28,39 @@ export default function ImageReviewCard({ file, onEditName }) {
   return (
     <div className="border p-4 bg-white rounded shadow relative">
       <h2 className="font-semibold mb-2">{file.original_filename}</h2>
+      <div className="absolute top-2 left-2 text-sm bg-gray-800 text-white px-2 py-1 rounded">
+        {file.batch_tag || "No Tag"}
+      </div>
+
+      {/* Icon actions */}
+      <div className="absolute top-2 right-2 flex space-x-2">
+        {/* Zoom */}
+        <button
+          onClick={() => window.open(originalUrl, "_blank")}
+          className="bg-white p-1 rounded-full shadow hover:bg-gray-200"
+          title="View Full Image"
+        >
+          🔍
+        </button>
+
+        {/* Delete */}
+        <button
+          onClick={onDelete}
+          className="bg-white p-1 rounded-full shadow hover:bg-red-200"
+          title="Remove this image"
+        >
+          🗑
+        </button>
+
+        {/* Edit (placeholder for batch tag editing) */}
+        <button
+          onClick={onEditTag}
+          className="bg-white p-1 rounded-full shadow hover:bg-gray-200"
+          title="Edit Batch Tag"
+        >
+          ✏️
+        </button>
+      </div>
 
       {file.status === "success" && (
         <>

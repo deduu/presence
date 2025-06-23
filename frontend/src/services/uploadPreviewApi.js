@@ -16,7 +16,13 @@ export function useUploadPreview() {
       const response = await api.post("/uploads/upload-preview", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
-      setResults(response.data.processed_files || []);
+      const augmentedResults = response.data.processed_files.map((file) => ({
+        ...file,
+        batch_tag: file.batch_tag || "", // fallback for now
+      }));
+      setResults(augmentedResults);
+
+      // setResults(response.data.processed_files || []);
     } catch (err) {
       console.error("Error uploading files:", err);
     } finally {
@@ -24,5 +30,5 @@ export function useUploadPreview() {
     }
   };
 
-  return { results, uploadImages, loading };
+  return { results, uploadImages, loading, setResults };
 }
