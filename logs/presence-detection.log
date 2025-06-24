@@ -157,3 +157,21 @@
     For further information visit https://errors.pydantic.dev/2.9/v/model_type
 2025-06-24 15:45:57,554 - app.services.people_service - ERROR - Error listing people with face counts: 'int' object has no attribute '__dict__'
 2025-06-24 16:05:56,797 - app.services.people_service - ERROR - Error listing people with face counts: list index out of range
+2025-06-24 20:19:53,116 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-06-24 20:19:53,121 - app.services.face_service - INFO - Original filename: original_20250624201951436566_foto wedding.jpeg
+2025-06-24 20:19:53,168 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250624201953122770_foto wedding.jpeg
+2025-06-24 20:19:53,168 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250624201953122770_foto wedding.jpeg
+2025-06-24 20:22:26,264 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250624201951436566_foto wedding.jpeg
+2025-06-24 20:22:26,299 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250624201953122770_foto wedding.jpeg
+2025-06-24 20:30:23,910 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-06-24 20:30:23,924 - app.services.face_service - INFO - Original filename: original_20250624203022464565_foto wedding.jpeg
+2025-06-24 20:30:23,949 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250624203023925292_foto wedding.jpeg
+2025-06-24 20:30:23,950 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250624203023925292_foto wedding.jpeg
+2025-06-24 20:50:12,551 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-06-24 20:50:12,554 - app.services.face_service - INFO - Original filename: original_20250624205011212826_WhatsApp Image 2025-03-06 at 19.44.58.jpeg
+2025-06-24 20:50:12,584 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250624205012555440_WhatsApp Image 2025-03-06 at 19.44.58.jpeg
+2025-06-24 20:50:12,585 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250624205012555440_WhatsApp Image 2025-03-06 at 19.44.58.jpeg
+2025-06-24 21:22:09,773 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-06-24 21:22:09,780 - app.services.face_service - INFO - Original filename: original_20250624212208179518_foto wedding.jpeg
+2025-06-24 21:22:09,804 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250624212209780296_foto wedding.jpeg
+2025-06-24 21:22:09,805 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250624212209780296_foto wedding.jpeg

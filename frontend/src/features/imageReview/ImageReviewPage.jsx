@@ -19,8 +19,9 @@ export default function ImageReviewPage() {
   const [tagModalOpen, setTagModalOpen] = useState(false);
   const [editingTagFileIndex, setEditingTagFileIndex] = useState(null);
 
-  const { people: nameSuggestions, loading: peopleLoading } =
-    usePeopleSuggestions();
+  const { people, loading: peopleLoading } = usePeopleSuggestions();
+
+  const nameSuggestions = people.map((p) => p.name);
 
   const openEditTagModal = (fileIndex) => {
     setEditingTagFileIndex(fileIndex);
@@ -156,7 +157,7 @@ export default function ImageReviewPage() {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API_BASE_URL}/confirm-save`,
+        `${import.meta.env.VITE_API_BASE_URL}/uploads/confirm-save`,
         {
           method: "POST",
           headers: {
@@ -177,6 +178,17 @@ export default function ImageReviewPage() {
       alert(`❌ Error saving to DB: ${err.message}`);
     }
   };
+
+  // Compute the imageUrl before the return
+  const imageUrl = editingFace
+    ? import.meta.env.VITE_API_BASE_URL +
+      encodeURI(
+        results[editingFace.fileIndex].original_image_url.replace(/\\/g, "/")
+      )
+    : "";
+
+  // Log it for debugging
+  console.log("FaceEditModal imageUrl:", imageUrl);
 
   return (
     <div className="space-y-6">
@@ -292,13 +304,18 @@ export default function ImageReviewPage() {
               ].face_location
             : [0, 0, 0, 0]
         }
-        imageUrl={
+        faceCropUrl={
           editingFace
             ? import.meta.env.VITE_API_BASE_URL +
-              results[editingFace.fileIndex].original_image_url
+              encodeURI(
+                results[editingFace.fileIndex].original_image_url.replace(
+                  /\\/g,
+                  "/"
+                )
+              )
             : ""
         }
-        suggestions={nameSuggestions}
+        suggestions={people} // full person objects: [{ name, image_path }]
       />
 
       <EditTagModal

@@ -32,7 +32,9 @@ export default function PersonDetailPage() {
       console.log(
         "Detection Records:",
         r.data.map((rec) => ({
-          image_path: `${import.meta.env.VITE_API_BASE_URL}${rec.image_path}`,
+          image_path: `${
+            import.meta.env.VITE_API_BASE_URL
+          }/${rec.image_path.replaceAll("\\", "/")}`,
           detection_time: rec.detection_time,
         }))
       );
@@ -58,7 +60,9 @@ export default function PersonDetailPage() {
       <h1 className="text-2xl font-bold">{person.name}</h1>
       {person.image_path && (
         <img
-          src={`${import.meta.env.VITE_API_BASE_URL}${person.image_path}`}
+          src={`${
+            import.meta.env.VITE_API_BASE_URL
+          }${person.image_path.replaceAll("\\", "/")}`}
           alt="Person"
           className="w-32 h-32 object-cover border rounded mb-4"
         />
@@ -100,9 +104,12 @@ export default function PersonDetailPage() {
             accessor: "image_path",
             Cell: ({ row }) => (
               <img
-                src={`${
-                  import.meta.env.VITE_API_BASE_URL
-                }${row.original.image_path.replaceAll("\\", "/")}`}
+                src={`${import.meta.env.VITE_API_BASE_URL.replace(
+                  /\/$/,
+                  ""
+                )}/${row.original.image_path
+                  .replaceAll("\\", "/")
+                  .replace(/^\/+/, "")}`}
                 alt="Detected"
                 className="w-20 h-20 object-cover rounded"
               />
