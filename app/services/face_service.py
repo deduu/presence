@@ -2,8 +2,8 @@
 
 import numpy as np
 import logging
-import os # Added for path manipulation
-import shutil # Added for file copying/deleting
+import os  # Added for path manipulation
+import shutil  # Added for file copying/deleting
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func
 from sqlalchemy.orm import joinedload
@@ -18,32 +18,52 @@ from app.services.image_record_service import ImageRecordService
 from app.db.models.attendance import Face, Person, ImageRecord
 
 # Import ImageProcessor (ensure it's accessible, e.g., in the same directory or a common module)
-from app.functions.image_processor import ImageProcessor # Adjust import path as needed
-from app.utils.file_store import TEMP_IMAGE_STORAGE_ROOT, PUBLIC_TEMP_IMAGE_URL_PREFIX, SERVER_IMAGE_STORAGE_ROOT
+from app.functions.image_processor import ImageProcessor  # Adjust import path as needed
+from app.utils.file_store import (
+    TEMP_IMAGE_STORAGE_ROOT,
+    PUBLIC_TEMP_IMAGE_URL_PREFIX,
+    SERVER_IMAGE_STORAGE_ROOT,
+    PUBLIC_FACE_CROP_PREFIX,
+    PUBLIC_PERSON_IMAGE_PREFIX,
+)
+
 
 logger = logging.getLogger(__name__)
+
 
 class FaceService(BaseService):
     def __init__(self, db: AsyncSession, image_record_service: ImageRecordService):
         super().__init__(db, Face)
-        self.image_processor = ImageProcessor() # Initialize ImageProcessor
-        self.image_record_service = image_record_service # Store the injected service
-        
+        self.image_processor = ImageProcessor()  # Initialize ImageProcessor
+        self.image_record_service = image_record_service  # Store the injected service
+
     async def get_all_known_faces(self) -> Tuple[List[int], List[np.ndarray]]:
         try:
             result = await self.db.execute(select(Face))
             faces = result.scalars().all()
             known_face_ids = [face.face_id for face in faces]
-            known_face_encodings = [np.frombuffer(face.face_encoding, dtype=np.float64) for face in faces]
+            known_face_encodings = [
+                np.frombuffer(face.face_encoding, dtype=np.float64) for face in faces
+            ]
             return known_face_ids, known_face_encodings
         except Exception as e:
             logger.error(f"Error retrieving known faces: {e}")
             return [], []
-    
-    async def insert_new_face(self, encoding: np.ndarray, current_time: datetime, person_id: Optional[int] = None):
+
+    async def insert_new_face(
+        self,
+        encoding: np.ndarray,
+        current_time: datetime,
+        person_id: Optional[int] = None,
+    ):
         try:
             encoding_bytes = encoding.tobytes()
-            face = Face(face_encoding=encoding_bytes, first_seen=current_time, last_seen=current_time, person_id=person_id)
+            face = Face(
+                face_encoding=encoding_bytes,
+                first_seen=current_time,
+                last_seen=current_time,
+                person_id=person_id,
+            )
             self.db.add(face)
             await self.db.commit()
             await self.db.refresh(face)
@@ -53,11 +73,18 @@ class FaceService(BaseService):
             logger.error(f"Error inserting new face: {e}")
             raise
 
-    async def update_last_seen(self, face_id: int, current_time: datetime, encoding: Optional[np.ndarray] = None):
+    async def update_last_seen(
+        self,
+        face_id: int,
+        current_time: datetime,
+        encoding: Optional[np.ndarray] = None,
+    ):
         try:
             face = await self.get_by_id(face_id)
             if not face:
-                logger.warning(f"Face with ID {face_id} not found for updating last_seen.")
+                logger.warning(
+                    f"Face with ID {face_id} not found for updating last_seen."
+                )
                 return None
             face.last_seen = current_time
             if encoding is not None:
@@ -69,11 +96,10 @@ class FaceService(BaseService):
             await self.db.rollback()
             logger.error(f"Error updating last_seen for face ID {face_id}: {e}")
             raise
-    
+
     async def list_joined(self, known: str | None = None, person_id: int | None = None):
-        stmt = (
-            select(Face, Person.name)
-            .join(Person, Face.person_id == Person.person_id, isouter=True)
+        stmt = select(Face, Person.name, Person.image_path).join(
+            Person, Face.person_id == Person.person_id, isouter=True
         )
         if known == "known":
             stmt = stmt.where(Face.person_id.is_not(None))
@@ -89,22 +115,26 @@ class FaceService(BaseService):
                 first_seen=f.first_seen,
                 last_seen=f.last_seen,
                 person_id=f.person_id,
-                person_name=name,
+                person_name=person_name,
+                thumbnail_url=_get_face_thumbnail_url(f.face_id),
+                person_image_url=_get_person_image_url(person_image_path),
             )
-            for f, name in res.all()
+            for f, person_name, person_image_path in res.all()
         ]
 
     async def get_detail(self, face_id: int):
-        stmt = select(Face).options(joinedload(Face.person)).where(Face.face_id == face_id)
-        res  = await self.db.execute(stmt)
+        stmt = (
+            select(Face).options(joinedload(Face.person)).where(Face.face_id == face_id)
+        )
+        res = await self.db.execute(stmt)
         face = res.scalar_one_or_none()
         if not face:
             return None
         return {
             "face_id": face.face_id,
             "first_seen": face.first_seen,
-            "last_seen":  face.last_seen,
-            "person_id":  face.person_id,
+            "last_seen": face.last_seen,
+            "person_id": face.person_id,
             "person_name": face.person.name if face.person else None,
         }
 
@@ -139,15 +169,17 @@ class FaceService(BaseService):
 
     # --- New and Modified methods for integration ---
 
-    async def process_and_store_image(self, image_path: str, tolerance: float = 0.6) -> List[Dict]:
+    async def process_and_store_image(
+        self, image_path: str, tolerance: float = 0.6
+    ) -> List[Dict]:
         """
         Processes an image, detects faces, attempts to recognize them,
         and stores relevant information in the database.
-        
+
         Args:
             image_path: Path to the image file.
             tolerance: Distance tolerance for face matching.
-            
+
         Returns:
             A list of dictionaries, each containing recognition results for a detected face.
         """
@@ -156,12 +188,12 @@ class FaceService(BaseService):
             logger.warning(f"No faces detected or error processing image: {image_path}")
             return []
 
-        detection_time = processed_data['detection_time']
-        face_encodings = processed_data['face_encodings']
-        face_locations = processed_data['face_locations']
-        
+        detection_time = processed_data["detection_time"]
+        face_encodings = processed_data["face_encodings"]
+        face_locations = processed_data["face_locations"]
+
         results = []
-        
+
         known_face_ids, known_face_encodings = await self.get_all_known_faces()
 
         for i, face_encoding in enumerate(face_encodings):
@@ -170,56 +202,71 @@ class FaceService(BaseService):
             person_name = None
 
             if known_face_encodings:
-                matches = self.image_processor.compare_faces(known_face_encodings, face_encoding, tolerance)
+                matches = self.image_processor.compare_faces(
+                    known_face_encodings, face_encoding, tolerance
+                )
                 # distances = self.image_processor.get_face_distances(known_face_encodings, face_encoding)
-                
+
                 # Find the best match
                 if True in matches:
                     first_match_index = np.where(matches)[0][0]
                     matched_face_id = known_face_ids[first_match_index]
-                    
+
                     # Update last_seen for the matched face
-                    await self.update_last_seen(matched_face_id, detection_time, face_encoding)
-                    
+                    await self.update_last_seen(
+                        matched_face_id, detection_time, face_encoding
+                    )
+
                     # Get person name if associated
                     face_detail = await self.get_detail(matched_face_id)
-                    if face_detail and face_detail['person_name']:
-                        person_name = face_detail['person_name']
-                        logger.info(f"Face recognized as '{person_name}' (Face ID: {matched_face_id}) in {image_path}")
+                    if face_detail and face_detail["person_name"]:
+                        person_name = face_detail["person_name"]
+                        logger.info(
+                            f"Face recognized as '{person_name}' (Face ID: {matched_face_id}) in {image_path}"
+                        )
                     else:
-                        logger.info(f"Known face (ID: {matched_face_id}) detected in {image_path}, but not associated with a person.")
-                    
+                        logger.info(
+                            f"Known face (ID: {matched_face_id}) detected in {image_path}, but not associated with a person."
+                        )
+
                     match_found = True
-            
+
             # If no match or if it's a new face, insert it
             if not match_found:
                 new_face = await self.insert_new_face(face_encoding, detection_time)
                 matched_face_id = new_face.face_id
-                logger.info(f"New anonymous face (ID: {matched_face_id}) inserted from {image_path}")
-            
+                logger.info(
+                    f"New anonymous face (ID: {matched_face_id}) inserted from {image_path}"
+                )
+
             # Store ImageRecord for each detected face using ImageRecordService
-            face_location_str = str(face_locations[i]) # Convert tuple to string for storage
+            face_location_str = str(
+                face_locations[i]
+            )  # Convert tuple to string for storage
             image_record = await self.image_record_service.insert_image_record(
                 image_path=image_path,
                 detection_time=detection_time,
                 face_id=matched_face_id,
-                face_location=face_location_str
+                face_location=face_location_str,
             )
-            
-            results.append({
-                'face_index': i,
-                'face_id': matched_face_id,
-                'person_name': person_name,
-                'is_new_face': not match_found,
-                'face_location': face_locations[i],
-                'image_record_id': image_record.record_id
-            })
-            
+
+            results.append(
+                {
+                    "face_index": i,
+                    "face_id": matched_face_id,
+                    "person_name": person_name,
+                    "is_new_face": not match_found,
+                    "face_location": face_locations[i],
+                    "image_record_id": image_record.record_id,
+                }
+            )
+
         return results
 
-
-       # --- Core method for processing without saving to DB ---
-    async def process_image_for_review(self, image_path: str) -> Optional[Dict[str, Any]]:
+    # --- Core method for processing without saving to DB ---
+    async def process_image_for_review(
+        self, image_path: str
+    ) -> Optional[Dict[str, Any]]:
         """
         Processes a single image: loads it, detects faces, and attempts to recognize them.
         Does NOT store anything in the database at this stage.
@@ -240,82 +287,105 @@ class FaceService(BaseService):
         img_height, img_width = rgb_image.shape[:2]  # shape = (height, width, channels)
 
         face_locations, face_encodings = self.image_processor.detect_faces(rgb_image)
-        
+
         if not face_encodings:
             logger.info(f"No faces detected in image: {image_path}")
             return None
 
         detection_time = datetime.now()
         results_for_faces = []
-        
+
         known_face_ids, known_face_encodings = await self.get_all_known_faces()
 
-        face_names_for_annotation = [] # To collect names for annotating the preview image
+        face_names_for_annotation = (
+            []
+        )  # To collect names for annotating the preview image
 
         for i, face_encoding in enumerate(face_encodings):
-            person_name = "Anonymous" # Default for review
-            matched_face_id = None # No DB ID yet for new faces
+            person_name = "Anonymous"  # Default for review
+            matched_face_id = None  # No DB ID yet for new faces
 
             if known_face_encodings:
-                matches = self.image_processor.compare_faces(known_face_encodings, face_encoding, tolerance=0.6) # Use default tolerance or pass it
+                matches = self.image_processor.compare_faces(
+                    known_face_encodings, face_encoding, tolerance=0.6
+                )  # Use default tolerance or pass it
                 if True in matches:
                     first_match_index = np.where(matches)[0][0]
                     matched_face_id = known_face_ids[first_match_index]
-                    
-                    face_detail = await self.get_detail(matched_face_id)
-                    if face_detail and face_detail['person_name']:
-                        person_name = face_detail['person_name']
-                        logger.debug(f"Preview: Face matched to known person '{person_name}' (Face ID: {matched_face_id})")
-                    else:
-                        logger.debug(f"Preview: Face matched to existing anonymous face (Face ID: {matched_face_id})")
-            
-            face_names_for_annotation.append(person_name) # Add recognized name or "Anonymous"
 
-            results_for_faces.append({
-                'face_index': i, # Index within this image's detections
-                'suggested_face_id': matched_face_id, # If matched to an existing DB face
-                'suggested_person_name': person_name,
-                'is_new_face_candidate': (matched_face_id is None), # True if no match found
-                'face_location': face_locations[i], # Tuple (top, right, bottom, left)
-                'face_encoding': face_encoding.tolist(), # Convert numpy array to list for JSON serialization
-                'image_width': img_width,
-                'image_height': img_height,
-            
-            })
-        
+                    face_detail = await self.get_detail(matched_face_id)
+                    if face_detail and face_detail["person_name"]:
+                        person_name = face_detail["person_name"]
+                        logger.debug(
+                            f"Preview: Face matched to known person '{person_name}' (Face ID: {matched_face_id})"
+                        )
+                    else:
+                        logger.debug(
+                            f"Preview: Face matched to existing anonymous face (Face ID: {matched_face_id})"
+                        )
+
+            face_names_for_annotation.append(
+                person_name
+            )  # Add recognized name or "Anonymous"
+
+            results_for_faces.append(
+                {
+                    "face_index": i,  # Index within this image's detections
+                    "suggested_face_id": matched_face_id,  # If matched to an existing DB face
+                    "suggested_person_name": person_name,
+                    "is_new_face_candidate": (
+                        matched_face_id is None
+                    ),  # True if no match found
+                    "face_location": face_locations[
+                        i
+                    ],  # Tuple (top, right, bottom, left)
+                    "face_encoding": face_encoding.tolist(),  # Convert numpy array to list for JSON serialization
+                    "image_width": img_width,
+                    "image_height": img_height,
+                }
+            )
+
         # --- Generate and save preview image ---
         # Ensure TEMP_IMAGE_STORAGE_ROOT exists
         os.makedirs(TEMP_IMAGE_STORAGE_ROOT, exist_ok=True)
-        
+
         original_filename = os.path.basename(image_path)
         logger.info(f"Original filename: {original_filename}")
-        original_base_filename = original_filename.split('_')[-1]
+        original_base_filename = original_filename.split("_")[-1]
         # Append a unique suffix and then original name to avoid conflicts, ensure it's in temp folder
         preview_filename = f"preview_{datetime.now().strftime('%Y%m%d%H%M%S%f')}_{original_base_filename}"
-        preview_image_path_server = os.path.join(TEMP_IMAGE_STORAGE_ROOT, preview_filename)
-        preview_image_url = os.path.join(PUBLIC_TEMP_IMAGE_URL_PREFIX, preview_filename) # Public URL for client
-        original_image_url = os.path.join(PUBLIC_TEMP_IMAGE_URL_PREFIX, original_filename)
+        preview_image_path_server = os.path.join(
+            TEMP_IMAGE_STORAGE_ROOT, preview_filename
+        )
+        preview_image_url = os.path.join(
+            PUBLIC_TEMP_IMAGE_URL_PREFIX, preview_filename
+        )  # Public URL for client
+        original_image_url = os.path.join(
+            PUBLIC_TEMP_IMAGE_URL_PREFIX, original_filename
+        )
 
         annotated_image_bgr = self.image_processor.annotate_faces(
             rgb_image=rgb_image,
             face_locations=face_locations,
-            face_names=face_names_for_annotation
+            face_names=face_names_for_annotation,
         )
 
-        if self.image_processor.save_image(annotated_image_bgr, preview_image_path_server):
+        if self.image_processor.save_image(
+            annotated_image_bgr, preview_image_path_server
+        ):
             logger.info(f"Preview image saved to {preview_image_path_server}")
         else:
             logger.error(f"Failed to save preview image for {image_path}")
             # Consider returning None or raising if preview is mandatory
 
         return {
-            'original_image_path_server': image_path, # Path to the temporarily stored original file
-            'preview_image_path_server': preview_image_path_server, # Path to the temporary annotated preview
-            'preview_image_url': preview_image_url, # URL for client to view
-            'original_image_url': original_image_url, # URL for client to view original image
-            'detection_time': detection_time,
-            'face_detections': results_for_faces, # List of dictionaries for each face
-            'num_faces_detected': len(face_encodings)
+            "original_image_path_server": image_path,  # Path to the temporarily stored original file
+            "preview_image_path_server": preview_image_path_server,  # Path to the temporary annotated preview
+            "preview_image_url": preview_image_url,  # URL for client to view
+            "original_image_url": original_image_url,  # URL for client to view original image
+            "detection_time": detection_time,
+            "face_detections": results_for_faces,  # List of dictionaries for each face
+            "num_faces_detected": len(face_encodings),
         }
 
     # --- New method to process confirmed data and save to DB ---
@@ -333,42 +403,58 @@ class FaceService(BaseService):
         Returns:
             A list of results, each indicating success/failure for a face's save.
         """
-        original_image_path_server = confirmed_data.get('original_image_path_server')
-        preview_image_path_server = confirmed_data.get('preview_image_path_server')
-        detection_time = datetime.fromisoformat(confirmed_data['detection_time']) # Ensure datetime object
-        face_detections_to_save = confirmed_data.get('face_detections', [])
-        
+        original_image_path_server = confirmed_data.get("original_image_path_server")
+        preview_image_path_server = confirmed_data.get("preview_image_path_server")
+        detection_time = datetime.fromisoformat(
+            confirmed_data["detection_time"]
+        )  # Ensure datetime object
+        face_detections_to_save = confirmed_data.get("face_detections", [])
+
         saved_results = []
-        
+
         # Move original image from temp to permanent storage
         permanent_image_filename = os.path.basename(original_image_path_server)
-        permanent_image_path = os.path.join(SERVER_IMAGE_STORAGE_ROOT, permanent_image_filename)
-        
-        os.makedirs(SERVER_IMAGE_STORAGE_ROOT, exist_ok=True) # Ensure permanent storage dir exists
+        permanent_image_path = os.path.join(
+            SERVER_IMAGE_STORAGE_ROOT, permanent_image_filename
+        )
+
+        os.makedirs(
+            SERVER_IMAGE_STORAGE_ROOT, exist_ok=True
+        )  # Ensure permanent storage dir exists
 
         try:
             shutil.move(original_image_path_server, permanent_image_path)
-            logger.info(f"Moved original image from temp to permanent: {permanent_image_path}")
+            logger.info(
+                f"Moved original image from temp to permanent: {permanent_image_path}"
+            )
         except FileNotFoundError:
             logger.error(f"Original temp file not found: {original_image_path_server}")
             # If original not found, can't proceed. Consider raising or returning error
-            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Original image file not found on server.")
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Original image file not found on server.",
+            )
         except Exception as e:
             logger.error(f"Error moving original image: {e}")
-            raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=f"Failed to move original image: {e}")
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail=f"Failed to move original image: {e}",
+            )
 
         for face_data in face_detections_to_save:
-            face_encoding_list = face_data['face_encoding']
-            face_encoding_np = np.array(face_encoding_list, dtype=np.float64) # Convert back to numpy array
-            face_location_str = str(face_data['face_location']) # Ensure string for DB
-            
+            face_encoding_list = face_data["face_encoding"]
+            face_encoding_np = np.array(
+                face_encoding_list, dtype=np.float64
+            )  # Convert back to numpy array
+            face_location_str = str(face_data["face_location"])  # Ensure string for DB
+
             # User might have manually associated a person_id
-            person_id_from_client = face_data.get('person_id') 
-            
+            person_id_from_client = face_data.get("person_id")
+
             # Check if this face already exists in DB based on suggested_face_id
             # Note: For new faces, suggested_face_id will be None.
-            matched_face_id_from_preview = face_data.get('suggested_face_id')
-            
+            matched_face_id_from_preview = face_data.get("suggested_face_id")
+
             final_face_id = None
             final_person_id = None
 
@@ -378,11 +464,17 @@ class FaceService(BaseService):
                     # Check if client provided a new association
                     if person_id_from_client is not None:
                         # User wants to associate an existing face to a specific person
-                        await self.associate(matched_face_id_from_preview, person_id_from_client)
+                        await self.associate(
+                            matched_face_id_from_preview, person_id_from_client
+                        )
                         final_person_id = person_id_from_client
                     else:
                         # Update last seen for the existing face
-                        await self.update_last_seen(matched_face_id_from_preview, detection_time, face_encoding_np)
+                        await self.update_last_seen(
+                            matched_face_id_from_preview,
+                            detection_time,
+                            face_encoding_np,
+                        )
                         # Get existing person_id from DB
                         face_obj = await self.get_by_id(matched_face_id_from_preview)
                         if face_obj:
@@ -391,84 +483,100 @@ class FaceService(BaseService):
                 else:
                     # It's a new face candidate or an unassociated existing face
                     # Insert as a new face, potentially with a person_id from client
-                    new_face = await self.insert_new_face(face_encoding_np, detection_time, person_id=person_id_from_client)
+                    new_face = await self.insert_new_face(
+                        face_encoding_np,
+                        detection_time,
+                        person_id=person_id_from_client,
+                    )
                     final_face_id = new_face.face_id
                     final_person_id = person_id_from_client
 
                 # Create ImageRecord using ImageRecordService
                 image_record = await self.image_record_service.insert_image_record(
-                    image_path=permanent_image_path, # Use permanent path
+                    image_path=permanent_image_path,  # Use permanent path
                     detection_time=detection_time,
                     face_id=final_face_id,
-                    face_location=face_location_str
+                    face_location=face_location_str,
                 )
-                
-                saved_results.append({
-                    "face_index": face_data.get('face_index'),
-                    "status": "success",
-                    "face_id": final_face_id,
-                    "person_id": final_person_id,
-                    "image_record_id": image_record.record_id,
-                    "message": "Face data saved successfully."
-                })
+
+                saved_results.append(
+                    {
+                        "face_index": face_data.get("face_index"),
+                        "status": "success",
+                        "face_id": final_face_id,
+                        "person_id": final_person_id,
+                        "image_record_id": image_record.record_id,
+                        "message": "Face data saved successfully.",
+                    }
+                )
 
             except Exception as e:
-                logger.error(f"Error saving confirmed face data for {original_image_path_server}: {e}")
-                saved_results.append({
-                    "face_index": face_data.get('face_index'),
-                    "status": "failed",
-                    "message": f"Failed to save face data: {e}"
-                })
-        
+                logger.error(
+                    f"Error saving confirmed face data for {original_image_path_server}: {e}"
+                )
+                saved_results.append(
+                    {
+                        "face_index": face_data.get("face_index"),
+                        "status": "failed",
+                        "message": f"Failed to save face data: {e}",
+                    }
+                )
+
         # --- Clean up temporary files after processing all faces for the image ---
         try:
             if os.path.exists(preview_image_path_server):
                 os.remove(preview_image_path_server)
-                logger.info(f"Deleted temporary preview image: {preview_image_path_server}")
+                logger.info(
+                    f"Deleted temporary preview image: {preview_image_path_server}"
+                )
         except Exception as e:
-            logger.warning(f"Failed to delete temporary preview image {preview_image_path_server}: {e}")
-            
+            logger.warning(
+                f"Failed to delete temporary preview image {preview_image_path_server}: {e}"
+            )
+
         return saved_results
-    
-    async def process_and_store_multiple_images(self, folder_path: Optional[str] = None, tolerance: float = 0.6) -> List[List[Dict]]:
+
+    async def process_and_store_multiple_images(
+        self, folder_path: Optional[str] = None, tolerance: float = 0.6
+    ) -> List[List[Dict]]:
         """
         Processes all images in a given folder (or the default), detects, recognizes,
         and stores face information in the database.
-        
+
         Args:
             folder_path: Path to the folder containing images. If None, uses ImageProcessor's default.
             tolerance: Distance tolerance for face matching.
-            
+
         Returns:
             A list of lists, where each inner list contains results for faces in one image.
         """
         if folder_path:
             self.image_processor.set_image_folder(folder_path)
-        
+
         image_paths = self.image_processor.get_image_paths()
-        
+
         all_image_results = []
         for image_path in image_paths:
             logger.info(f"Processing image: {image_path}")
             image_results = await self.process_and_store_image(image_path, tolerance)
             all_image_results.append(image_results)
-        
+
         logger.info(f"Finished processing {len(image_paths)} images.")
         return all_image_results
 
     async def extract_encoding_from_path(self, img_path: str):
         # This method can now directly use the internal image_processor
         res = self.image_processor.process_image(img_path)
-        if not res or not res['face_encodings']:
+        if not res or not res["face_encodings"]:
             raise ValueError("No face found in supplied image")
-        return np.asarray(res['face_encodings'][0])
+        return np.asarray(res["face_encodings"][0])
 
     async def anon_face_encodings(self):
         """Return (ids, encs) for faces with person_id is NULL."""
         stmt = select(Face).where(Face.person_id.is_(None))
-        res  = await self.db.execute(stmt)
+        res = await self.db.execute(stmt)
         faces = res.scalars().all()
-        ids  = [f.face_id for f in faces]
+        ids = [f.face_id for f in faces]
         encs = [np.frombuffer(f.face_encoding, dtype=np.float64) for f in faces]
         return ids, encs
 
@@ -477,6 +585,21 @@ class FaceService(BaseService):
         # self.image_processor.compare_faces or self.image_processor.get_face_distances
         # for consistency if you want to centralize matching logic there.
         # For now, keeping it as is since it's already implemented.
-        if not enc_list: return []
+        if not enc_list:
+            return []
         dists = np.linalg.norm(np.stack(enc_list) - target, axis=1)
         return np.where(dists < threshold)[0]
+
+
+# Helper
+def _get_face_thumbnail_url(face_id: int) -> str:
+    """Returns the public URL to a face crop image based on face_id."""
+    filename = f"face_{face_id}.jpg"
+    return os.path.join(PUBLIC_FACE_CROP_PREFIX, filename)
+
+
+def _get_person_image_url(image_path: Optional[str]) -> Optional[str]:
+    """Returns the full public URL to a person's uploaded portrait."""
+    if not image_path:
+        return None
+    return os.path.join(PUBLIC_PERSON_IMAGE_PREFIX, image_path)

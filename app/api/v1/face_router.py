@@ -10,23 +10,31 @@ from app.services.face_service import FaceService
 from app.services.image_record_service import ImageRecordService
 from app.schemas.common import FaceOut, ImageRecordOut
 
+
 async def get_db_session():
     async with session_manager.create_session() as session:
         yield session
 
+
 def get_image_record_service(db: AsyncSession = Depends(get_db_session)):
     return ImageRecordService(db)
 
+
 router = APIRouter()
 
+
 # ---- dependency ----
-async def svc(session: AsyncSession = Depends(get_db_session), image_record_service: ImageRecordService = Depends(get_image_record_service)):
+async def svc(
+    session: AsyncSession = Depends(get_db_session),
+    image_record_service: ImageRecordService = Depends(get_image_record_service),
+):
     return FaceService(session, image_record_service)
 
 
 # ---- bodies ----
 class _AssociateBody(BaseModel):
     person_id: int
+
 
 # ---- endpoints ----
 @router.get("/", response_model=List[FaceOut])
@@ -52,7 +60,9 @@ async def face_records(face_id: int, service: FaceService = Depends(svc)):
 
 
 @router.post("/{face_id}/associate", status_code=status.HTTP_204_NO_CONTENT)
-async def associate_face(face_id: int, body: _AssociateBody, service: FaceService = Depends(svc)):
+async def associate_face(
+    face_id: int, body: _AssociateBody, service: FaceService = Depends(svc)
+):
     await service.associate(face_id, body.person_id)
 
 

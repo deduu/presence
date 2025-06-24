@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, status, UploadFile, File
 from sqlalchemy.ext.asyncio import AsyncSession
 from typing import List
 from app.schemas.person_schemas import PersonOut, PersonCreate, PersonUpdate
@@ -16,9 +16,8 @@ async def svc(session: AsyncSession = Depends(get_db_session)):
 
 @router.get("/", response_model=List[PersonOut])
 async def list_people(q: str | None = None, service: PeopleService = Depends(svc)):
-    if q:
-        return await service.list({"name": q})
-    return await service.list()
+    filters = {"name": q} if q else None
+    return await service.list_with_face_counts(filters)
 
 @router.post("/", response_model=PersonOut, status_code=201)
 async def create_person(body: PersonCreate, service: PeopleService = Depends(svc)):
@@ -35,3 +34,11 @@ async def update_person(person_id: int, body: PersonUpdate, service: PeopleServi
 @router.delete("/{person_id}", status_code=204)
 async def delete_person(person_id: int, service: PeopleService = Depends(svc)):
     await service.delete(person_id)
+
+@router.post("/{person_id}/image", status_code=status.HTTP_200_OK)
+async def upload_person_image(
+    person_id: int,
+    file: UploadFile = File(...),
+    service: PeopleService = Depends(svc)
+):
+    return await service.upload_person_image(person_id, file)

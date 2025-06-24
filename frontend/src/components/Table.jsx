@@ -2,18 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export default function Table({ columns = [], data = [] }) {
-  // Ensure "data" is always an array
   const rows = Array.isArray(data) ? data : [];
 
   return (
-    <div className="overflow-auto">
-      <table className="min-w-full bg-white border">
+    <div className="overflow-x-auto shadow border rounded-lg">
+      <table className="min-w-full text-sm text-left bg-white">
         <thead>
-          <tr className="bg-gray-100">
+          <tr className="bg-gray-100 text-gray-700">
             {columns.map((col) => (
               <th
-                key={col.accessor}
-                className="px-4 py-2 text-left text-sm font-medium text-gray-700"
+                key={col.accessor || col.id}
+                className="px-4 py-3 font-medium border-b"
               >
                 {col.Header}
               </th>
@@ -21,18 +20,38 @@ export default function Table({ columns = [], data = [] }) {
           </tr>
         </thead>
         <tbody>
-          {rows.map((row, i) => (
-            <tr key={i} className="border-t hover:bg-gray-50">
-              {columns.map((col) => (
-                <td
-                  key={col.accessor}
-                  className="px-4 py-2 text-sm text-gray-800"
-                >
-                  {row[col.accessor]}
-                </td>
-              ))}
+          {rows.length === 0 ? (
+            <tr>
+              <td
+                colSpan={columns.length}
+                className="px-4 py-4 text-center text-gray-500"
+              >
+                No data available.
+              </td>
             </tr>
-          ))}
+          ) : (
+            rows.map((row, i) => (
+              <tr
+                key={i}
+                className={
+                  i % 2 === 0
+                    ? "bg-white hover:bg-gray-50"
+                    : "bg-gray-50 hover:bg-gray-100"
+                }
+              >
+                {columns.map((col) => (
+                  <td
+                    key={col.accessor || col.id}
+                    className="px-4 py-3 border-b text-gray-800 whitespace-nowrap"
+                  >
+                    {col.Cell
+                      ? col.Cell({ row: { original: row } })
+                      : row[col.accessor]}
+                  </td>
+                ))}
+              </tr>
+            ))
+          )}
         </tbody>
       </table>
     </div>
@@ -41,5 +60,5 @@ export default function Table({ columns = [], data = [] }) {
 
 Table.propTypes = {
   columns: PropTypes.array.isRequired,
-  data: PropTypes.array, // accept undefined -> default []
+  data: PropTypes.array,
 };

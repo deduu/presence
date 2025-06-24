@@ -4,7 +4,7 @@ from pathlib import Path
 import uuid
 import shutil # For efficient file copying from UploadFile
 from fastapi import UploadFile
-
+import aiofiles
 import os
 
 # Root directory for all application data (e.g., within your project)
@@ -16,14 +16,25 @@ SERVER_IMAGE_STORAGE_ROOT = os.path.join(APP_DATA_ROOT, "permanent_images")
 # Temporary storage for images awaiting review
 TEMP_IMAGE_STORAGE_ROOT = os.path.join(APP_DATA_ROOT, "temp_images")
 
+SERVER_FACE_CROP_STORAGE_ROOT =  os.path.join(APP_DATA_ROOT, "face_crops")
+SERVER_PERSON_IMAGE_ROOT =  os.path.join(APP_DATA_ROOT, "public_people_images")
+
+
 # Public URL prefixes for serving static files
 # Make sure these match how you mount StaticFiles in main.py
 PUBLIC_IMAGE_URL_PREFIX = "/public_images" # For permanent images
 PUBLIC_TEMP_IMAGE_URL_PREFIX = "/public_temp_images" # For temporary preview images
 
+# Public URL prefixes for serving cropped faces and person images
+PUBLIC_FACE_CROP_PREFIX = "/public/faces/crops"
+PUBLIC_PERSON_IMAGE_PREFIX = "/public/people/images"
+
+
 # Ensure directories exist on startup or during first use
 os.makedirs(SERVER_IMAGE_STORAGE_ROOT, exist_ok=True)
 os.makedirs(TEMP_IMAGE_STORAGE_ROOT, exist_ok=True)
+os.makedirs(SERVER_FACE_CROP_STORAGE_ROOT, exist_ok=True)
+os.makedirs(SERVER_PERSON_IMAGE_ROOT, exist_ok=True)
 
 def save_image(file: "UploadFile", subdir: str) -> str:
     """
@@ -71,6 +82,31 @@ def save_image(file: "UploadFile", subdir: str) -> str:
     url_path = f"{PUBLIC_IMAGE_URL_PREFIX}/{subdir}/{unique_filename}"
 
     return url_path
+
+
+
+async def save_person_image_async(file: UploadFile, person_id: int) -> str:
+    from pathlib import Path
+    import os, uuid
+
+    subdir = f"people/{person_id}"
+    filename = f"{uuid.uuid4().hex}{Path(file.filename).suffix}"
+
+    directory = Path("app_data/public_people_images") / subdir
+    os.makedirs(directory, exist_ok=True)
+
+    full_path = directory / filename
+
+    try:
+        async with aiofiles.open(full_path, "wb") as out_file:
+            content = await file.read()
+            await out_file.write(content)
+    except Exception as e:
+        raise Exception(f"Failed saving image file: {str(e)}")
+
+    return f"/public/people/images/{subdir}/{filename}"
+
+
 # # app/utils/file_store.py
 # from pathlib import Path, PurePath
 # BASE = Path("data/images")    # create this directory

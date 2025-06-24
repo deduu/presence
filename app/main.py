@@ -17,8 +17,12 @@ from app.api.v1.people_router import router as people_router
 from app.api.v1.dashboard_router import router as dashboard_router
 
 # Import file storage paths
-from app.utils.file_store import SERVER_IMAGE_STORAGE_ROOT, PUBLIC_IMAGE_URL_PREFIX, \
-                                 TEMP_IMAGE_STORAGE_ROOT, PUBLIC_TEMP_IMAGE_URL_PREFIX
+from app.utils.file_store import (
+    SERVER_IMAGE_STORAGE_ROOT, PUBLIC_IMAGE_URL_PREFIX,
+    TEMP_IMAGE_STORAGE_ROOT, PUBLIC_TEMP_IMAGE_URL_PREFIX,
+    SERVER_FACE_CROP_STORAGE_ROOT, PUBLIC_FACE_CROP_PREFIX,
+    SERVER_PERSON_IMAGE_ROOT, PUBLIC_PERSON_IMAGE_PREFIX,
+)
 # from app.api.v1.report_router import router as report_router
 
 from app.utils.logger import configure_logging
@@ -66,6 +70,18 @@ app.mount(
     PUBLIC_TEMP_IMAGE_URL_PREFIX,
     StaticFiles(directory=TEMP_IMAGE_STORAGE_ROOT),
     name="static_temp_images"
+)
+
+app.mount(
+    PUBLIC_FACE_CROP_PREFIX,
+    StaticFiles(directory=str(SERVER_FACE_CROP_STORAGE_ROOT)),
+    name="face_crops"
+)
+
+app.mount(
+    PUBLIC_PERSON_IMAGE_PREFIX,
+    StaticFiles(directory=str(SERVER_PERSON_IMAGE_ROOT)),
+    name="person_images"
 )
 
 # Mount each router, passing the DB dependency

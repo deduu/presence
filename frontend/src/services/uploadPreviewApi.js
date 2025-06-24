@@ -30,5 +30,30 @@ export function useUploadPreview() {
     }
   };
 
-  return { results, uploadImages, loading, setResults };
+  // A function for uploading a single person's image
+  const uploadPersonImage = async (personId, file) => {
+    if (!personId || !file) {
+      console.warn("Person ID or file is missing for image upload.");
+      return;
+    }
+
+    setLoading(true); // You might want a separate loading state for this specific upload
+    const formData = new FormData();
+    formData.append("file", file);
+
+    try {
+      // Using 'api' if it's configured for relative URLs, otherwise use fetch directly
+      const response = await api.post(`/people/${personId}/image`, formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      return response.data; // Or handle the response as needed
+    } catch (error) {
+      console.error(`Error uploading image for person ${personId}:`, error);
+      throw error; // Re-throw to allow calling component to handle
+    } finally {
+      setLoading(false); // Reset loading state
+    }
+  };
+
+  return { results, uploadImages, uploadPersonImage, loading, setResults };
 }

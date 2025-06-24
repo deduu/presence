@@ -1,8 +1,8 @@
 # models.py
 
-from sqlalchemy import Column, DateTime, Integer, String, Float, ForeignKey, LargeBinary
+from sqlalchemy import Column, DateTime, Integer, String, Float, ForeignKey, LargeBinary, Date
 from sqlalchemy.orm import declarative_base, relationship
-import datetime
+from datetime import date, datetime
 import pytz
 
 from app.db.base import Base
@@ -16,9 +16,10 @@ class Person(Base):
     
     person_id = Column(Integer, primary_key=True, index=True)
     name = Column(String, nullable=False)
-    date_of_birth = Column(DateTime, nullable=True)
+    date_of_birth = Column(Date, nullable=True)
     address = Column(String, nullable=True)
     contact_number = Column(String, nullable=True)
+    image_path = Column(String, nullable=True) 
 
     # Relationships
     faces = relationship("Face", back_populates="person")
@@ -30,8 +31,8 @@ class Face(Base):
     
     face_id = Column(Integer, primary_key=True, index=True)
     face_encoding = Column(LargeBinary, nullable=False)
-    first_seen = Column(DateTime(timezone=True), nullable=False, default=lambda: datetime.datetime.now(gmt_plus_7))
-    last_seen = Column(DateTime(timezone=True), nullable=False, default=lambda: datetime.datetime.now(gmt_plus_7))
+    first_seen = Column(DateTime(timezone=True), nullable=False, default=lambda: datetime.now(gmt_plus_7))
+    last_seen = Column(DateTime(timezone=True), nullable=False, default=lambda: datetime.now(gmt_plus_7))
 
     person_id = Column(Integer, ForeignKey('people.person_id'), nullable=True)  # Allow anonymous faces
 

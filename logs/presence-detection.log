@@ -147,3 +147,13 @@
 2025-06-23 22:40:22,413 - app.services.face_service - INFO - Original filename: original_20250623224020755285_foto wedding.jpeg
 2025-06-23 22:40:22,440 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250623224022414666_foto wedding.jpeg
 2025-06-23 22:40:22,440 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250623224022414666_foto wedding.jpeg
+2025-06-24 12:44:22,907 - app.services.face_service - INFO - Face ID 1 associated with Person ID 1.
+2025-06-24 14:42:19,086 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-06-24 14:42:19,097 - app.services.face_service - INFO - Original filename: original_20250624144217342297_foto wedding.jpeg
+2025-06-24 14:42:19,151 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250624144219098199_foto wedding.jpeg
+2025-06-24 14:42:19,151 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250624144219098199_foto wedding.jpeg
+2025-06-24 15:36:52,050 - app.services.people_service - ERROR - Error listing people with face counts: 1 validation error for PersonOut
+  Input should be a valid dictionary or instance of PersonOut [type=model_type, input_value=<app.db.models.attendance...t at 0x000001F5ACC70400>, input_type=Person]
+    For further information visit https://errors.pydantic.dev/2.9/v/model_type
+2025-06-24 15:45:57,554 - app.services.people_service - ERROR - Error listing people with face counts: 'int' object has no attribute '__dict__'
+2025-06-24 16:05:56,797 - app.services.people_service - ERROR - Error listing people with face counts: list index out of range

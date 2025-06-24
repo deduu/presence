@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import FaceAssociateModal from "./FaceAssociateModal";
 import { listFaces, disassociateFace } from "../../services/faceApi";
 export default function FacesPage() {
@@ -7,10 +7,14 @@ export default function FacesPage() {
   const [filter, setFilter] = useState("all");
   const [modal, setModal] = useState({ open: false, faceId: null });
 
+  const [searchParams] = useSearchParams();
+  const personIdFilter = searchParams.get("person_id");
+
   // ← never pass async fn directly
   useEffect(() => {
     async function fetchData() {
-      const res = await listFaces({ filter });
+      const res = await listFaces({ filter, person_id: personIdFilter });
+
       setFaces(res.data);
     }
     fetchData().catch(console.error);
@@ -40,7 +44,21 @@ export default function FacesPage() {
         {faces.map((face) => (
           <div key={face.face_id} className="border p-3 rounded shadow-sm">
             <div className="h-20 bg-gray-100 flex items-center justify-center text-xs">
-              IMG
+              <div className="h-20 overflow-hidden rounded bg-gray-100">
+                {face.thumbnail_url ? (
+                  <img
+                    src={`${import.meta.env.VITE_API_BASE_URL}${
+                      face.thumbnail_url
+                    }`}
+                    alt="Face"
+                    className="object-cover w-full h-full"
+                  />
+                ) : (
+                  <div className="flex items-center justify-center h-full text-xs text-gray-500">
+                    No Image
+                  </div>
+                )}
+              </div>
             </div>
             <div className="mt-2 text-sm font-medium">ID {face.face_id}</div>
             <div className="text-xs text-gray-500">

@@ -9,17 +9,35 @@ from app.db.base import session_manager
 
 router = APIRouter()
 
+
 async def get_db_session():
     async with session_manager.create_session() as session:
         yield session
 
+
 def get_image_record_service(db: AsyncSession = Depends(get_db_session)):
     return ImageRecordService(db)
 
+
 @router.post("/", response_model=ImageRecordInDB, status_code=status.HTTP_201_CREATED)
-async def create_image_record(record: ImageRecordCreate, service: ImageRecordService = Depends(get_image_record_service)):
-    return await service.insert_image_record(record.image_path, record.face_id, record.detection_time)
+async def create_image_record(
+    record: ImageRecordCreate,
+    service: ImageRecordService = Depends(get_image_record_service),
+):
+    return await service.insert_image_record(
+        record.image_path, record.face_id, record.detection_time
+    )
+
 
 @router.get("/", response_model=List[ImageRecordInDB])
-async def list_image_records(service: ImageRecordService = Depends(get_image_record_service)):
+async def list_image_records(
+    service: ImageRecordService = Depends(get_image_record_service),
+):
     return await service.get_all()
+
+
+@router.get("/by-person/{person_id}", response_model=List[ImageRecordInDB])
+async def list_by_person(
+    person_id: int, service: ImageRecordService = Depends(get_image_record_service)
+):
+    return await service.get_by_person_id(person_id)
