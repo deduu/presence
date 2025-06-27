@@ -175,3 +175,55 @@
 2025-06-24 21:22:09,780 - app.services.face_service - INFO - Original filename: original_20250624212208179518_foto wedding.jpeg
 2025-06-24 21:22:09,804 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250624212209780296_foto wedding.jpeg
 2025-06-24 21:22:09,805 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250624212209780296_foto wedding.jpeg
+2025-06-27 22:17:54,571 - app.functions.image_processor - ERROR - Image file 'AntlerDedy.jpeg' does not exist.
+2025-06-27 22:19:49,405 - app.functions.image_processor - ERROR - Image file '/public/people/images/people/1/9150fd046d544237bef089ace5420f83.jpeg' does not exist.
+2025-06-27 22:22:46,864 - app.functions.image_processor - ERROR - Error loading image app_data\public_people_images\people\1: [Errno 13] Permission denied: 'C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\public_people_images\\people\\1'
+2025-06-27 22:24:49,408 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-06-27 23:52:33,274 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-06-27 23:52:46,306 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-06-27 23:58:08,431 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-06-28 00:08:08,289 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-06-28 00:08:35,475 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-06-28 00:08:35,480 - app.services.base_service - ERROR - Error fetching Face by ID 1: 404: Face with ID 1 not found
+2025-06-28 00:11:58,587 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-06-28 00:12:32,398 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-06-28 00:12:32,401 - app.services.face_service - INFO - Overwriting existing face for person_id 1
+2025-06-28 00:15:46,937 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-06-28 00:15:46,940 - app.services.face_service - INFO - Overwriting existing face for person_id 1
+2025-06-28 00:20:56,544 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-06-28 00:20:56,547 - app.services.face_service - INFO - Overwriting existing face for person_id 1
+2025-06-28 00:21:35,339 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-06-28 00:21:35,341 - app.services.face_service - INFO - Overwriting existing face for person_id 1
+2025-06-28 00:22:21,334 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-06-28 00:22:21,344 - app.services.face_service - INFO - Original filename: original_20250628002219710147_foto wedding.jpeg
+2025-06-28 00:22:21,392 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628002221345463_foto wedding.jpeg
+2025-06-28 00:22:21,392 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628002221345463_foto wedding.jpeg
+2025-06-28 00:22:50,403 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-06-28 00:22:50,909 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-06-28 00:22:50,912 - app.services.face_service - INFO - Overwriting existing face for person_id 2
+2025-06-28 00:23:13,570 - app.functions.image_processor - INFO - Detected 3 face(s).
+2025-06-28 00:23:13,576 - app.services.face_service - INFO - Original filename: original_20250628002312157025_PHR03.jpeg
+2025-06-28 00:23:13,587 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628002313577485_PHR03.jpeg
+2025-06-28 00:23:13,587 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628002313577485_PHR03.jpeg
+2025-06-28 00:23:43,148 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-06-28 00:23:43,154 - app.services.face_service - INFO - Original filename: original_20250628002341468789_foto wedding.jpeg
+2025-06-28 00:23:43,178 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628002343154610_foto wedding.jpeg
+2025-06-28 00:23:43,178 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628002343154610_foto wedding.jpeg
+2025-06-28 00:24:00,584 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-06-28 00:24:00,588 - app.services.face_service - INFO - Original filename: original_20250628002400133171_WhatsApp_Image_2023-11-16_at_13.59.35-removebg-preview.png
+2025-06-28 00:24:00,598 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628002400589627_13.59.35-removebg-preview.png
+2025-06-28 00:24:00,599 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628002400589627_13.59.35-removebg-preview.png
+2025-06-28 00:25:32,031 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-06-28 00:25:32,038 - app.services.face_service - INFO - Original filename: original_20250628002530413896_foto wedding.jpeg
+2025-06-28 00:25:32,067 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628002532038332_foto wedding.jpeg
+2025-06-28 00:25:32,067 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628002532038332_foto wedding.jpeg
+2025-06-28 00:28:46,406 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-06-28 00:28:46,412 - app.services.face_service - INFO - Original filename: original_20250628002844797142_foto wedding.jpeg
+2025-06-28 00:28:46,440 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628002846412051_foto wedding.jpeg
+2025-06-28 00:28:46,441 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628002846412051_foto wedding.jpeg
+2025-06-28 00:29:02,758 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-06-28 00:29:02,762 - app.services.face_service - INFO - Original filename: original_20250628002901199049_foto wedding.jpeg
+2025-06-28 00:29:02,789 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628002902763915_foto wedding.jpeg
+2025-06-28 00:29:02,790 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628002902763915_foto wedding.jpeg
+2025-06-28 00:29:14,848 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628002901199049_foto wedding.jpeg
+2025-06-28 00:29:14,874 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628002902763915_foto wedding.jpeg

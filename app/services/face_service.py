@@ -4,11 +4,12 @@ import numpy as np
 import logging
 import os  # Added for path manipulation
 import shutil  # Added for file copying/deleting
+import aiofiles
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func
 from sqlalchemy.orm import joinedload
 from typing import List, Tuple, Optional, Dict, Any
-from fastapi import HTTPException, status
+from fastapi import HTTPException, status, UploadFile
 from datetime import datetime
 from PIL import Image
 
@@ -18,11 +19,13 @@ from app.services.image_record_service import ImageRecordService
 from app.db.models.attendance import Face, Person, ImageRecord
 
 # Import ImageProcessor (ensure it's accessible, e.g., in the same directory or a common module)
-from app.functions.image_processor import ImageProcessor  # Adjust import path as needed
+# Adjust import path as needed
+from app.functions.image_processor import ImageProcessor
 from app.utils.file_store import (
     TEMP_IMAGE_STORAGE_ROOT,
     PUBLIC_TEMP_IMAGE_URL_PREFIX,
     SERVER_IMAGE_STORAGE_ROOT,
+    SERVER_FACE_CROP_STORAGE_ROOT,
     PUBLIC_FACE_CROP_PREFIX,
     PUBLIC_PERSON_IMAGE_PREFIX,
 )
@@ -73,6 +76,66 @@ class FaceService(BaseService):
             logger.error(f"Error inserting new face: {e}")
             raise
 
+    async def add_portrait_face(
+        self,
+        person_id: int,
+        image_path: Optional[str] = None,
+        save_crop: bool = False,
+    ) -> tuple[Face, str]:
+        """
+        • Saves the portrait to permanent storage
+        • Extracts one face encoding
+        • Inserts Face with NULL first_seen / last_seen
+        """
+        public_url = None
+        # 0. Load image
+        image = self.image_processor.load_image(image_path)
+        if image is None:
+            raise HTTPException(400, "Failed to load image")
+
+        # 1. Extract encoding
+        res = self.image_processor.process_image(image_path)
+        if not res or not res["face_encodings"]:
+            raise HTTPException(400, "No face detected in portrait")
+
+        encoding_np = res["face_encodings"][0]
+        location = res["face_locations"][0]
+
+        existing_face = await self.get_face_by_person_id(person_id)
+
+        if existing_face:
+            # Overwrite encoding
+            existing_face.face_encoding = encoding_np.tobytes()
+            existing_face.first_seen = None
+            existing_face.last_seen = None
+            face = existing_face
+            logger.info(f"Overwriting existing face for person_id {person_id}")
+        else:
+            # Insert new
+            face = Face(
+                face_encoding=encoding_np.tobytes(),
+                person_id=person_id,
+                first_seen=None,
+                last_seen=None,
+            )
+            self.db.add(face)
+
+        await self.db.commit()
+        await self.db.refresh(face)
+
+        # Crop and save face
+        if save_crop:
+            top, right, bottom, left = location
+            cropped_face = image[top:bottom, left:right]
+            os.makedirs(PUBLIC_FACE_CROP_PREFIX, exist_ok=True)
+            filename = f"face_{face.face_id}.jpg"
+            full_path = os.path.join(SERVER_FACE_CROP_STORAGE_ROOT, filename)
+            Image.fromarray(cropped_face).save(full_path)
+
+            public_url = os.path.join(PUBLIC_FACE_CROP_PREFIX, filename)
+
+        return face, public_url
+
     async def update_last_seen(
         self,
         face_id: int,
@@ -94,7 +157,8 @@ class FaceService(BaseService):
             return face
         except Exception as e:
             await self.db.rollback()
-            logger.error(f"Error updating last_seen for face ID {face_id}: {e}")
+            logger.error(
+                f"Error updating last_seen for face ID {face_id}: {e}")
             raise
 
     async def list_joined(self, known: str | None = None, person_id: int | None = None):
@@ -124,7 +188,8 @@ class FaceService(BaseService):
 
     async def get_detail(self, face_id: int):
         stmt = (
-            select(Face).options(joinedload(Face.person)).where(Face.face_id == face_id)
+            select(Face).options(joinedload(Face.person)).where(
+                Face.face_id == face_id)
         )
         res = await self.db.execute(stmt)
         face = res.scalar_one_or_none()
@@ -153,9 +218,11 @@ class FaceService(BaseService):
             face.person_id = person_id
             await self.db.commit()
             await self.db.refresh(face)
-            logger.info(f"Face ID {face_id} associated with Person ID {person_id}.")
+            logger.info(
+                f"Face ID {face_id} associated with Person ID {person_id}.")
         else:
-            logger.warning(f"Face with ID {face_id} not found for association.")
+            logger.warning(
+                f"Face with ID {face_id} not found for association.")
 
     async def disassociate(self, face_id: int):
         face = await self.get_by_id(face_id)
@@ -165,7 +232,8 @@ class FaceService(BaseService):
             await self.db.refresh(face)
             logger.info(f"Face ID {face_id} disassociated.")
         else:
-            logger.warning(f"Face with ID {face_id} not found for disassociation.")
+            logger.warning(
+                f"Face with ID {face_id} not found for disassociation.")
 
     # --- New and Modified methods for integration ---
 
@@ -185,7 +253,8 @@ class FaceService(BaseService):
         """
         processed_data = self.image_processor.process_image(image_path)
         if not processed_data:
-            logger.warning(f"No faces detected or error processing image: {image_path}")
+            logger.warning(
+                f"No faces detected or error processing image: {image_path}")
             return []
 
         detection_time = processed_data["detection_time"]
@@ -284,9 +353,11 @@ class FaceService(BaseService):
             logger.warning(f"Could not load image for review: {image_path}")
             return None
 
-        img_height, img_width = rgb_image.shape[:2]  # shape = (height, width, channels)
+        # shape = (height, width, channels)
+        img_height, img_width = rgb_image.shape[:2]
 
-        face_locations, face_encodings = self.image_processor.detect_faces(rgb_image)
+        face_locations, face_encodings = self.image_processor.detect_faces(
+            rgb_image)
 
         if not face_encodings:
             logger.info(f"No faces detected in image: {image_path}")
@@ -339,7 +410,8 @@ class FaceService(BaseService):
                     "face_location": face_locations[
                         i
                     ],  # Tuple (top, right, bottom, left)
-                    "face_encoding": face_encoding.tolist(),  # Convert numpy array to list for JSON serialization
+                    # Convert numpy array to list for JSON serialization
+                    "face_encoding": face_encoding.tolist(),
                     "image_width": img_width,
                     "image_height": img_height,
                 }
@@ -379,10 +451,13 @@ class FaceService(BaseService):
             # Consider returning None or raising if preview is mandatory
 
         return {
-            "original_image_path_server": image_path,  # Path to the temporarily stored original file
-            "preview_image_path_server": preview_image_path_server,  # Path to the temporary annotated preview
+            # Path to the temporarily stored original file
+            "original_image_path_server": image_path,
+            # Path to the temporary annotated preview
+            "preview_image_path_server": preview_image_path_server,
             "preview_image_url": preview_image_url,  # URL for client to view
-            "original_image_url": original_image_url,  # URL for client to view original image
+            # URL for client to view original image
+            "original_image_url": original_image_url,
             "detection_time": detection_time,
             "face_detections": results_for_faces,  # List of dictionaries for each face
             "num_faces_detected": len(face_encodings),
@@ -403,8 +478,10 @@ class FaceService(BaseService):
         Returns:
             A list of results, each indicating success/failure for a face's save.
         """
-        original_image_path_server = confirmed_data.get("original_image_path_server")
-        preview_image_path_server = confirmed_data.get("preview_image_path_server")
+        original_image_path_server = confirmed_data.get(
+            "original_image_path_server")
+        preview_image_path_server = confirmed_data.get(
+            "preview_image_path_server")
         detection_time = datetime.fromisoformat(
             confirmed_data["detection_time"]
         )  # Ensure datetime object
@@ -428,7 +505,8 @@ class FaceService(BaseService):
                 f"Moved original image from temp to permanent: {permanent_image_path}"
             )
         except FileNotFoundError:
-            logger.error(f"Original temp file not found: {original_image_path_server}")
+            logger.error(
+                f"Original temp file not found: {original_image_path_server}")
             # If original not found, can't proceed. Consider raising or returning error
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
@@ -446,7 +524,8 @@ class FaceService(BaseService):
             face_encoding_np = np.array(
                 face_encoding_list, dtype=np.float64
             )  # Convert back to numpy array
-            face_location_str = str(face_data["face_location"])  # Ensure string for DB
+            # Ensure string for DB
+            face_location_str = str(face_data["face_location"])
 
             # User might have manually associated a person_id
             person_id_from_client = face_data.get("person_id")
@@ -577,7 +656,8 @@ class FaceService(BaseService):
         res = await self.db.execute(stmt)
         faces = res.scalars().all()
         ids = [f.face_id for f in faces]
-        encs = [np.frombuffer(f.face_encoding, dtype=np.float64) for f in faces]
+        encs = [np.frombuffer(f.face_encoding, dtype=np.float64)
+                for f in faces]
         return ids, encs
 
     def find_matches(self, target, enc_list, threshold=0.45):
@@ -590,12 +670,23 @@ class FaceService(BaseService):
         dists = np.linalg.norm(np.stack(enc_list) - target, axis=1)
         return np.where(dists < threshold)[0]
 
+    async def get_face_by_person_id(self, person_id: int) -> Optional[Face]:
+        try:
+            stmt = select(Face).where(Face.person_id == person_id)
+            res = await self.db.execute(stmt)
+            return res.scalar_one_or_none()
+        except Exception as e:
+            logger.error(f"Error fetching face by person ID {person_id}: {e}")
+            raise
+
 
 # Helper
-def _get_face_thumbnail_url(face_id: int) -> str:
-    """Returns the public URL to a face crop image based on face_id."""
+def _get_face_thumbnail_url(face_id: int) -> Optional[str]:
     filename = f"face_{face_id}.jpg"
-    return os.path.join(PUBLIC_FACE_CROP_PREFIX, filename)
+    full_path = os.path.join(SERVER_FACE_CROP_STORAGE_ROOT, filename)
+    if os.path.exists(full_path):
+        return os.path.join(PUBLIC_FACE_CROP_PREFIX, filename)
+    return None
 
 
 def _get_person_image_url(image_path: Optional[str]) -> Optional[str]:

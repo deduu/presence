@@ -1,4 +1,5 @@
 # schemas/face.py
+from pydantic import BaseModel
 from pydantic import BaseModel, Field
 from datetime import datetime
 from typing import Optional
@@ -23,8 +24,8 @@ class FaceInDB(FaceBase):
 
 class FaceOut(BaseModel):
     face_id: int
-    first_seen: datetime
-    last_seen: datetime
+    first_seen: Optional[datetime]  # ✅ Allow None
+    last_seen: Optional[datetime]   # ✅ Allow None
     person_id: Optional[int]
     person_name: Optional[str] = None  # joined via query
     thumbnail_url: Optional[str] = None
@@ -35,8 +36,6 @@ class FaceOut(BaseModel):
 
 
 # schemas/image_record.py
-from pydantic import BaseModel
-from datetime import datetime
 
 
 class ImageRecordBase(BaseModel):
@@ -68,8 +67,6 @@ class ImageRecordOut(BaseModel):
 
 
 # schemas/image_count.py
-from pydantic import BaseModel
-from datetime import datetime
 
 
 class ImageCountBase(BaseModel):

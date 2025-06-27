@@ -2,7 +2,7 @@
 # app/utils/file_store.py
 from pathlib import Path
 import uuid
-import shutil # For efficient file copying from UploadFile
+import shutil  # For efficient file copying from UploadFile
 from fastapi import UploadFile
 import aiofiles
 import os
@@ -16,14 +16,14 @@ SERVER_IMAGE_STORAGE_ROOT = os.path.join(APP_DATA_ROOT, "permanent_images")
 # Temporary storage for images awaiting review
 TEMP_IMAGE_STORAGE_ROOT = os.path.join(APP_DATA_ROOT, "temp_images")
 
-SERVER_FACE_CROP_STORAGE_ROOT =  os.path.join(APP_DATA_ROOT, "face_crops")
-SERVER_PERSON_IMAGE_ROOT =  os.path.join(APP_DATA_ROOT, "public_people_images")
+SERVER_FACE_CROP_STORAGE_ROOT = os.path.join(APP_DATA_ROOT, "face_crops")
+SERVER_PERSON_IMAGE_ROOT = os.path.join(APP_DATA_ROOT, "public_people_images")
 
 
 # Public URL prefixes for serving static files
 # Make sure these match how you mount StaticFiles in main.py
-PUBLIC_IMAGE_URL_PREFIX = "/public_images" # For permanent images
-PUBLIC_TEMP_IMAGE_URL_PREFIX = "/public_temp_images" # For temporary preview images
+PUBLIC_IMAGE_URL_PREFIX = "/public_images"  # For permanent images
+PUBLIC_TEMP_IMAGE_URL_PREFIX = "/public_temp_images"  # For temporary preview images
 
 # Public URL prefixes for serving cropped faces and person images
 PUBLIC_FACE_CROP_PREFIX = "/public/faces/crops"
@@ -35,6 +35,7 @@ os.makedirs(SERVER_IMAGE_STORAGE_ROOT, exist_ok=True)
 os.makedirs(TEMP_IMAGE_STORAGE_ROOT, exist_ok=True)
 os.makedirs(SERVER_FACE_CROP_STORAGE_ROOT, exist_ok=True)
 os.makedirs(SERVER_PERSON_IMAGE_ROOT, exist_ok=True)
+
 
 def save_image(file: "UploadFile", subdir: str) -> str:
     """
@@ -53,11 +54,12 @@ def save_image(file: "UploadFile", subdir: str) -> str:
 
     # 1. Sanitize and make filename unique
     original_extension = Path(file.filename).suffix
-    unique_filename = f"{uuid.uuid4()}{original_extension}" # Use UUID for uniqueness
+    # Use UUID for uniqueness
+    unique_filename = f"{uuid.uuid4()}{original_extension}"
 
     # Construct the full filesystem path where the file will be saved
     dest_dir = SERVER_IMAGE_STORAGE_ROOT / subdir
-    dest_dir.mkdir(parents=True, exist_ok=True) # Ensure directory exists
+    dest_dir.mkdir(parents=True, exist_ok=True)  # Ensure directory exists
 
     file_system_path = dest_dir / unique_filename
 
@@ -75,7 +77,7 @@ def save_image(file: "UploadFile", subdir: str) -> str:
     except Exception as e:
         # Handle potential file writing errors
         print(f"Error saving file: {e}")
-        raise # Re-raise the exception or handle appropriately
+        raise  # Re-raise the exception or handle appropriately
 
     # 3. Return the URL path for database storage and frontend use
     # This path is relative to the PUBLIC_IMAGE_URL_PREFIX
@@ -84,10 +86,10 @@ def save_image(file: "UploadFile", subdir: str) -> str:
     return url_path
 
 
-
 async def save_person_image_async(file: UploadFile, person_id: int) -> str:
     from pathlib import Path
-    import os, uuid
+    import os
+    import uuid
 
     subdir = f"people/{person_id}"
     filename = f"{uuid.uuid4().hex}{Path(file.filename).suffix}"
@@ -104,7 +106,7 @@ async def save_person_image_async(file: UploadFile, person_id: int) -> str:
     except Exception as e:
         raise Exception(f"Failed saving image file: {str(e)}")
 
-    return f"/public/people/images/{subdir}/{filename}"
+    return f"/public/people/images/{subdir}/{filename}", full_path
 
 
 # # app/utils/file_store.py
