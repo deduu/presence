@@ -1,13 +1,16 @@
 # routers/image_record_router.py
+import logging
 from fastapi import APIRouter, Depends, status
 from sqlalchemy.ext.asyncio import AsyncSession
-from typing import List
-
-from app.schemas.common import ImageRecordCreate, ImageRecordInDB
+from typing import List, Optional
+from datetime import datetime
+from app.schemas.common import ImageRecordCreate, ImageRecordInDB, ImageRecordOut
 from app.services.image_record_service import ImageRecordService
 from app.db.base import session_manager
 
 router = APIRouter()
+
+logger = logging.getLogger(__name__)
 
 
 async def get_db_session():
@@ -28,16 +31,39 @@ async def create_image_record(
         record.image_path, record.face_id, record.detection_time
     )
 
+# In image_record_router.py
 
-@router.get("/", response_model=List[ImageRecordInDB])
+
+@router.get("/", response_model=List[ImageRecordOut])
 async def list_image_records(
+    person: Optional[str] = None,
+    start_time: Optional[datetime] = None,
+    end_time: Optional[datetime] = None,
     service: ImageRecordService = Depends(get_image_record_service),
 ):
-    return await service.get_all()
+
+    return await service.get_all_joined_filtered(person, start_time, end_time)
+
+# @router.get("/", response_model=List[ImageRecordOut])
+# async def list_image_records(
+#     service: ImageRecordService = Depends(get_image_record_service),
+# ):
+#     return await service.get_all_joined()
 
 
 @router.get("/by-person/{person_id}", response_model=List[ImageRecordInDB])
 async def list_by_person(
     person_id: int, service: ImageRecordService = Depends(get_image_record_service)
 ):
+
     return await service.get_by_person_id(person_id)
+
+
+@router.delete("/", status_code=status.HTTP_204_NO_CONTENT)
+async def delete_image_records(
+    record_ids: list[int],
+    service: ImageRecordService = Depends(get_image_record_service),
+):
+    for rid in record_ids:
+        await service.delete_by_record_id(rid)
+    return {"status": "deleted", "count": len(record_ids)}

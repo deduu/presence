@@ -9,5 +9,7 @@ class Settings(BaseSettings):
 
     DATABASE_URL: str = "postgresql+asyncpg://postgres:admin@localhost:5432/Presence"
     DEBUG_MODE: bool = False
+    TIMEZONE: str = "Asia/Bangkok"
+
 
 settings = Settings()

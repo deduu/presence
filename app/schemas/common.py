@@ -1,8 +1,8 @@
 # schemas/face.py
-from pydantic import BaseModel
-from pydantic import BaseModel, Field
+
+from pydantic import BaseModel, Field, field_serializer
 from datetime import datetime
-from typing import Optional
+from typing import Optional, List
 
 
 class FaceBase(BaseModel):
@@ -40,6 +40,7 @@ class FaceOut(BaseModel):
 
 class ImageRecordBase(BaseModel):
     image_path: str
+    image_url: str
     face_id: int
     detection_time: datetime
 
@@ -51,6 +52,10 @@ class ImageRecordCreate(ImageRecordBase):
 class ImageRecordInDB(ImageRecordBase):
     record_id: int
 
+    @field_serializer("detection_time")
+    def ser_dt(self, dt: datetime) -> str:      # <- converts for JSON
+        return dt.isoformat()
+
     class Config:
         orm_mode = True
 
@@ -59,8 +64,17 @@ class ImageRecordOut(BaseModel):
     record_id: int
     face_id: int
     image_path: str
+    image_url: str
+
     detection_time: datetime
+    face_location: List[float]
+    image_width: int
+    image_height: int
     person_name: str | None = None
+
+    @field_serializer("detection_time")
+    def ser_dt(self, dt: datetime) -> str:      # <- converts for JSON
+        return dt.isoformat()
 
     class Config:
         orm_mode = True

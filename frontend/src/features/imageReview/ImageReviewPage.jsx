@@ -150,6 +150,8 @@ export default function ImageReviewPage() {
           is_new_face_candidate: face.is_new_face_candidate,
           face_location: face.face_location,
           face_encoding: face.face_encoding,
+          image_width: face.image_width, // <-- NEW
+          image_height: face.image_height, // <-- NEW
           // optionally person_id if linked
           ...(face.person_id ? { person_id: face.person_id } : {}),
         })),

@@ -1,5 +1,5 @@
 # services/face_service.py
-
+import pytz
 import numpy as np
 import logging
 import os  # Added for path manipulation
@@ -30,6 +30,10 @@ from app.utils.file_store import (
     PUBLIC_PERSON_IMAGE_PREFIX,
 )
 
+from app.core.config import settings
+
+# Get timezone from settings
+tz = pytz.timezone(settings.TIMEZONE)
 
 logger = logging.getLogger(__name__)
 
@@ -363,7 +367,9 @@ class FaceService(BaseService):
             logger.info(f"No faces detected in image: {image_path}")
             return None
 
-        detection_time = datetime.now()
+        detection_time = datetime.now(tz=tz)
+        logger.info(
+            f"[process_image_for_review] detection_time={detection_time} tzinfo={detection_time.tzinfo}")
         results_for_faces = []
 
         known_face_ids, known_face_encodings = await self.get_all_known_faces()
@@ -424,8 +430,9 @@ class FaceService(BaseService):
         original_filename = os.path.basename(image_path)
         logger.info(f"Original filename: {original_filename}")
         original_base_filename = original_filename.split("_")[-1]
+        local_timezone = datetime.now(tz)
         # Append a unique suffix and then original name to avoid conflicts, ensure it's in temp folder
-        preview_filename = f"preview_{datetime.now().strftime('%Y%m%d%H%M%S%f')}_{original_base_filename}"
+        preview_filename = f"preview_{local_timezone.strftime('%Y%m%d%H%M%S%f')}_{original_base_filename}"
         preview_image_path_server = os.path.join(
             TEMP_IMAGE_STORAGE_ROOT, preview_filename
         )
@@ -458,7 +465,7 @@ class FaceService(BaseService):
             "preview_image_url": preview_image_url,  # URL for client to view
             # URL for client to view original image
             "original_image_url": original_image_url,
-            "detection_time": detection_time,
+            "detection_time": detection_time.isoformat(),
             "face_detections": results_for_faces,  # List of dictionaries for each face
             "num_faces_detected": len(face_encodings),
         }
@@ -482,9 +489,19 @@ class FaceService(BaseService):
             "original_image_path_server")
         preview_image_path_server = confirmed_data.get(
             "preview_image_path_server")
-        detection_time = datetime.fromisoformat(
-            confirmed_data["detection_time"]
-        )  # Ensure datetime object
+        # detection_time = datetime.fromisoformat(
+        #     confirmed_data["detection_time"]
+        # )  # Ensure datetime object
+
+        # --- Begin: Make detection_time timezone-aware ---
+        raw_dt = confirmed_data["detection_time"]
+        parsed_dt = datetime.fromisoformat(raw_dt)
+        if parsed_dt.tzinfo is None:
+            detection_time = tz.localize(parsed_dt)
+        else:
+            detection_time = parsed_dt.astimezone(tz)
+        # --- End ---
+
         face_detections_to_save = confirmed_data.get("face_detections", [])
 
         saved_results = []
@@ -576,6 +593,8 @@ class FaceService(BaseService):
                     detection_time=detection_time,
                     face_id=final_face_id,
                     face_location=face_location_str,
+                    image_width=face_data.get("image_width"),
+                    image_height=face_data.get("image_height"),
                 )
 
                 saved_results.append(

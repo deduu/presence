@@ -227,3 +227,354 @@
 2025-06-28 00:29:02,790 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628002902763915_foto wedding.jpeg
 2025-06-28 00:29:14,848 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628002901199049_foto wedding.jpeg
 2025-06-28 00:29:14,874 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628002902763915_foto wedding.jpeg
+2025-06-28 15:41:24,929 - app.services.image_record_service - INFO - Formatted records: [{'record_id': 51, 'face_id': 9, 'detection_time': datetime.datetime(2025, 6, 28, 0, 29, 2, 759141), 'image_path': 'C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\permanent_images\\original_20250628002901199049_foto wedding.jpeg', 'image_url': 'C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\permanent_images\\original_20250628002901199049_foto wedding.jpeg'}]
+2025-06-28 15:42:57,277 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628002901199049_foto wedding.jpeg to URL
+2025-06-28 15:42:57,278 - app.services.image_record_service - INFO - Server image storage root: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images
+2025-06-28 15:42:57,279 - app.services.image_record_service - INFO - filename: original_20250628002901199049_foto wedding.jpeg
+2025-06-28 15:42:57,279 - app.services.image_record_service - INFO - file_url: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628002901199049_foto wedding.jpeg
+2025-06-28 15:42:57,280 - app.services.image_record_service - INFO - Formatted records: [{'record_id': 51, 'face_id': 9, 'detection_time': datetime.datetime(2025, 6, 28, 0, 29, 2, 759141), 'image_path': 'C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\permanent_images\\original_20250628002901199049_foto wedding.jpeg', 'image_url': 'C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\permanent_images\\original_20250628002901199049_foto wedding.jpeg'}]
+2025-06-28 15:42:57,280 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628002901199049_foto wedding.jpeg to URL
+2025-06-28 15:42:57,280 - app.services.image_record_service - INFO - Server image storage root: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images
+2025-06-28 15:42:57,281 - app.services.image_record_service - INFO - filename: original_20250628002901199049_foto wedding.jpeg
+2025-06-28 15:42:57,281 - app.services.image_record_service - INFO - file_url: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628002901199049_foto wedding.jpeg
+2025-06-28 15:44:41,759 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628002901199049_foto wedding.jpeg to URL
+2025-06-28 15:44:41,760 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 15:44:41,760 - app.services.image_record_service - INFO - filename: original_20250628002901199049_foto wedding.jpeg
+2025-06-28 15:44:41,761 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628002901199049_foto wedding.jpeg
+2025-06-28 15:44:41,761 - app.services.image_record_service - INFO - Formatted records: [{'record_id': 51, 'face_id': 9, 'detection_time': datetime.datetime(2025, 6, 28, 0, 29, 2, 759141), 'image_path': 'C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\permanent_images\\original_20250628002901199049_foto wedding.jpeg', 'image_url': '/public_images\\original_20250628002901199049_foto wedding.jpeg'}]
+2025-06-28 15:44:41,761 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628002901199049_foto wedding.jpeg to URL
+2025-06-28 15:44:41,762 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 15:44:41,762 - app.services.image_record_service - INFO - filename: original_20250628002901199049_foto wedding.jpeg
+2025-06-28 15:44:41,762 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628002901199049_foto wedding.jpeg
+2025-06-28 15:49:12,819 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-06-28 15:49:12,838 - app.services.face_service - INFO - Original filename: original_20250628154910684081_foto wedding.jpeg
+2025-06-28 15:49:12,926 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628154912839731_foto wedding.jpeg
+2025-06-28 15:49:12,927 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628154912839731_foto wedding.jpeg
+2025-06-28 15:49:19,113 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628154910684081_foto wedding.jpeg
+2025-06-28 15:49:19,146 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628154912839731_foto wedding.jpeg
+2025-06-28 15:49:25,017 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628154910684081_foto wedding.jpeg to URL
+2025-06-28 15:49:25,018 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 15:49:25,018 - app.services.image_record_service - INFO - filename: original_20250628154910684081_foto wedding.jpeg
+2025-06-28 15:49:25,018 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628154910684081_foto wedding.jpeg
+2025-06-28 15:49:25,019 - app.services.image_record_service - INFO - Formatted records: [{'record_id': 53, 'face_id': 9, 'detection_time': datetime.datetime(2025, 6, 28, 15, 49, 12, 819739), 'image_path': 'C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\permanent_images\\original_20250628154910684081_foto wedding.jpeg', 'image_url': '/public_images\\original_20250628154910684081_foto wedding.jpeg'}]
+2025-06-28 15:49:25,019 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628154910684081_foto wedding.jpeg to URL
+2025-06-28 15:49:25,019 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 15:49:25,020 - app.services.image_record_service - INFO - filename: original_20250628154910684081_foto wedding.jpeg
+2025-06-28 15:49:25,020 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628154910684081_foto wedding.jpeg
+2025-06-28 16:00:57,695 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-06-28 16:00:57,703 - app.services.face_service - INFO - Original filename: original_20250628160056211049_foto wedding.jpeg
+2025-06-28 16:00:57,735 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628160057703185_foto wedding.jpeg
+2025-06-28 16:00:57,736 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628160057703185_foto wedding.jpeg
+2025-06-28 16:00:59,828 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628160056211049_foto wedding.jpeg
+2025-06-28 16:00:59,855 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628160057703185_foto wedding.jpeg
+2025-06-28 16:01:41,866 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628160056211049_foto wedding.jpeg to URL
+2025-06-28 16:01:41,867 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:01:41,867 - app.services.image_record_service - INFO - filename: original_20250628160056211049_foto wedding.jpeg
+2025-06-28 16:01:41,867 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628160056211049_foto wedding.jpeg
+2025-06-28 16:01:41,868 - app.services.image_record_service - INFO - Formatted records: [{'record_id': 55, 'face_id': 9, 'detection_time': datetime.datetime(2025, 6, 28, 16, 0, 57, 695430), 'image_path': 'C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\permanent_images\\original_20250628160056211049_foto wedding.jpeg', 'image_url': '/public_images\\original_20250628160056211049_foto wedding.jpeg'}]
+2025-06-28 16:01:41,868 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628160056211049_foto wedding.jpeg to URL
+2025-06-28 16:01:41,868 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:01:41,869 - app.services.image_record_service - INFO - filename: original_20250628160056211049_foto wedding.jpeg
+2025-06-28 16:01:41,869 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628160056211049_foto wedding.jpeg
+2025-06-28 16:05:20,782 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-06-28 16:05:20,792 - app.services.face_service - INFO - Original filename: original_20250628160519224523_foto wedding.jpeg
+2025-06-28 16:05:20,825 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628160520793252_foto wedding.jpeg
+2025-06-28 16:05:20,826 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628160520793252_foto wedding.jpeg
+2025-06-28 16:05:23,411 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628160519224523_foto wedding.jpeg
+2025-06-28 16:05:23,434 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628160520793252_foto wedding.jpeg
+2025-06-28 16:05:49,014 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-06-28 16:05:49,019 - app.services.face_service - INFO - Original filename: original_20250628160547482247_foto wedding.jpeg
+2025-06-28 16:05:49,045 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628160549020732_foto wedding.jpeg
+2025-06-28 16:05:49,045 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628160549020732_foto wedding.jpeg
+2025-06-28 16:05:49,898 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628160547482247_foto wedding.jpeg
+2025-06-28 16:05:49,922 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628160549020732_foto wedding.jpeg
+2025-06-28 16:05:55,519 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628160547482247_foto wedding.jpeg to URL
+2025-06-28 16:05:55,520 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:05:55,520 - app.services.image_record_service - INFO - filename: original_20250628160547482247_foto wedding.jpeg
+2025-06-28 16:05:55,521 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628160547482247_foto wedding.jpeg
+2025-06-28 16:05:55,521 - app.services.image_record_service - INFO - Formatted records: [{'record_id': 59, 'face_id': 9, 'detection_time': datetime.datetime(2025, 6, 28, 9, 5, 49, 15737, tzinfo=datetime.timezone.utc), 'image_path': 'C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\permanent_images\\original_20250628160547482247_foto wedding.jpeg', 'image_url': '/public_images\\original_20250628160547482247_foto wedding.jpeg'}]
+2025-06-28 16:05:55,521 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628160547482247_foto wedding.jpeg to URL
+2025-06-28 16:05:55,522 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:05:55,522 - app.services.image_record_service - INFO - filename: original_20250628160547482247_foto wedding.jpeg
+2025-06-28 16:05:55,522 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628160547482247_foto wedding.jpeg
+2025-06-28 16:09:24,170 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628160547482247_foto wedding.jpeg to URL
+2025-06-28 16:09:24,170 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:09:24,171 - app.services.image_record_service - INFO - filename: original_20250628160547482247_foto wedding.jpeg
+2025-06-28 16:09:24,171 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628160547482247_foto wedding.jpeg
+2025-06-28 16:09:24,171 - app.services.image_record_service - INFO - Formatted records: [{'record_id': 59, 'face_id': 9, 'detection_time': datetime.datetime(2025, 6, 28, 9, 5, 49, 15737, tzinfo=datetime.timezone.utc), 'image_path': 'C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\permanent_images\\original_20250628160547482247_foto wedding.jpeg', 'image_url': '/public_images\\original_20250628160547482247_foto wedding.jpeg'}]
+2025-06-28 16:09:24,172 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628160547482247_foto wedding.jpeg to URL
+2025-06-28 16:09:24,172 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:09:24,172 - app.services.image_record_service - INFO - filename: original_20250628160547482247_foto wedding.jpeg
+2025-06-28 16:09:24,172 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628160547482247_foto wedding.jpeg
+2025-06-28 16:09:46,735 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628160547482247_foto wedding.jpeg to URL
+2025-06-28 16:09:46,736 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:09:46,736 - app.services.image_record_service - INFO - filename: original_20250628160547482247_foto wedding.jpeg
+2025-06-28 16:09:46,736 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628160547482247_foto wedding.jpeg
+2025-06-28 16:09:46,737 - app.services.image_record_service - INFO - Formatted records: [{'record_id': 59, 'face_id': 9, 'detection_time': datetime.datetime(2025, 6, 28, 9, 5, 49, 15737, tzinfo=datetime.timezone.utc), 'image_path': 'C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\permanent_images\\original_20250628160547482247_foto wedding.jpeg', 'image_url': '/public_images\\original_20250628160547482247_foto wedding.jpeg'}]
+2025-06-28 16:09:46,737 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628160547482247_foto wedding.jpeg to URL
+2025-06-28 16:09:46,737 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:09:46,738 - app.services.image_record_service - INFO - filename: original_20250628160547482247_foto wedding.jpeg
+2025-06-28 16:09:46,738 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628160547482247_foto wedding.jpeg
+2025-06-28 16:14:51,241 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-06-28 16:14:51,249 - app.services.face_service - INFO - Original filename: original_20250628161449611918_foto wedding.jpeg
+2025-06-28 16:14:51,281 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628161451249894_foto wedding.jpeg
+2025-06-28 16:14:51,281 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628161451249894_foto wedding.jpeg
+2025-06-28 16:14:53,770 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628161449611918_foto wedding.jpeg
+2025-06-28 16:14:53,793 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628161451249894_foto wedding.jpeg
+2025-06-28 16:15:48,540 - app.services.face_service - ERROR - Original temp file not found: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\original_20250628161449611918_foto wedding.jpeg
+2025-06-28 16:15:54,441 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-06-28 16:15:54,532 - app.services.face_service - INFO - Original filename: original_20250628161552840772_foto wedding.jpeg
+2025-06-28 16:15:54,567 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628161554532674_foto wedding.jpeg
+2025-06-28 16:15:54,567 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628161554532674_foto wedding.jpeg
+2025-06-28 16:15:56,107 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628161552840772_foto wedding.jpeg
+2025-06-28 16:15:56,121 - app.services.face_service - ERROR - Error updating last_seen for face ID 10: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.DataError'>: invalid input for query argument $1: '2025-06-28T16:15:54.442591+07:00' (expected a datetime.date or datetime.datetime instance, got 'str')
+[SQL: UPDATE faces SET last_seen=$1::TIMESTAMP WITH TIME ZONE WHERE faces.face_id = $2::INTEGER]
+[parameters: ('2025-06-28T16:15:54.442591+07:00', 10)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2025-06-28 16:15:56,121 - app.services.face_service - ERROR - Error saving confirmed face data for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\original_20250628161552840772_foto wedding.jpeg: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.DataError'>: invalid input for query argument $1: '2025-06-28T16:15:54.442591+07:00' (expected a datetime.date or datetime.datetime instance, got 'str')
+[SQL: UPDATE faces SET last_seen=$1::TIMESTAMP WITH TIME ZONE WHERE faces.face_id = $2::INTEGER]
+[parameters: ('2025-06-28T16:15:54.442591+07:00', 10)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2025-06-28 16:15:56,124 - app.services.face_service - ERROR - Error updating last_seen for face ID 9: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.DataError'>: invalid input for query argument $1: '2025-06-28T16:15:54.442591+07:00' (expected a datetime.date or datetime.datetime instance, got 'str')
+[SQL: UPDATE faces SET last_seen=$1::TIMESTAMP WITH TIME ZONE WHERE faces.face_id = $2::INTEGER]
+[parameters: ('2025-06-28T16:15:54.442591+07:00', 9)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2025-06-28 16:15:56,125 - app.services.face_service - ERROR - Error saving confirmed face data for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\original_20250628161552840772_foto wedding.jpeg: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.DataError'>: invalid input for query argument $1: '2025-06-28T16:15:54.442591+07:00' (expected a datetime.date or datetime.datetime instance, got 'str')
+[SQL: UPDATE faces SET last_seen=$1::TIMESTAMP WITH TIME ZONE WHERE faces.face_id = $2::INTEGER]
+[parameters: ('2025-06-28T16:15:54.442591+07:00', 9)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2025-06-28 16:15:56,128 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628161554532674_foto wedding.jpeg
+2025-06-28 16:17:18,091 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-06-28 16:17:18,099 - app.services.face_service - INFO - Original filename: original_20250628161716551893_foto wedding.jpeg
+2025-06-28 16:17:18,131 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628161718099067_foto wedding.jpeg
+2025-06-28 16:17:18,132 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628161718099067_foto wedding.jpeg
+2025-06-28 16:17:20,500 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628161716551893_foto wedding.jpeg
+2025-06-28 16:17:20,505 - app.services.face_service - ERROR - Error updating last_seen for face ID 10: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.DataError'>: invalid input for query argument $1: '2025-06-28T16:17:18.093057+07:00' (expected a datetime.date or datetime.datetime instance, got 'str')
+[SQL: UPDATE faces SET last_seen=$1::TIMESTAMP WITH TIME ZONE WHERE faces.face_id = $2::INTEGER]
+[parameters: ('2025-06-28T16:17:18.093057+07:00', 10)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2025-06-28 16:17:20,505 - app.services.face_service - ERROR - Error saving confirmed face data for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\original_20250628161716551893_foto wedding.jpeg: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.DataError'>: invalid input for query argument $1: '2025-06-28T16:17:18.093057+07:00' (expected a datetime.date or datetime.datetime instance, got 'str')
+[SQL: UPDATE faces SET last_seen=$1::TIMESTAMP WITH TIME ZONE WHERE faces.face_id = $2::INTEGER]
+[parameters: ('2025-06-28T16:17:18.093057+07:00', 10)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2025-06-28 16:17:20,508 - app.services.face_service - ERROR - Error updating last_seen for face ID 9: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.DataError'>: invalid input for query argument $1: '2025-06-28T16:17:18.093057+07:00' (expected a datetime.date or datetime.datetime instance, got 'str')
+[SQL: UPDATE faces SET last_seen=$1::TIMESTAMP WITH TIME ZONE WHERE faces.face_id = $2::INTEGER]
+[parameters: ('2025-06-28T16:17:18.093057+07:00', 9)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2025-06-28 16:17:20,509 - app.services.face_service - ERROR - Error saving confirmed face data for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\original_20250628161716551893_foto wedding.jpeg: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.DataError'>: invalid input for query argument $1: '2025-06-28T16:17:18.093057+07:00' (expected a datetime.date or datetime.datetime instance, got 'str')
+[SQL: UPDATE faces SET last_seen=$1::TIMESTAMP WITH TIME ZONE WHERE faces.face_id = $2::INTEGER]
+[parameters: ('2025-06-28T16:17:18.093057+07:00', 9)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+2025-06-28 16:17:20,512 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628161718099067_foto wedding.jpeg
+2025-06-28 16:22:51,872 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-06-28 16:22:51,952 - app.services.face_service - INFO - Original filename: original_20250628162250245273_foto wedding.jpeg
+2025-06-28 16:22:51,983 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628162251953548_foto wedding.jpeg
+2025-06-28 16:22:51,984 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628162251953548_foto wedding.jpeg
+2025-06-28 16:22:53,561 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628162250245273_foto wedding.jpeg
+2025-06-28 16:22:53,579 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628162251953548_foto wedding.jpeg
+2025-06-28 16:23:01,242 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628162250245273_foto wedding.jpeg to URL
+2025-06-28 16:23:01,243 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:23:01,243 - app.services.image_record_service - INFO - filename: original_20250628162250245273_foto wedding.jpeg
+2025-06-28 16:23:01,244 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628162250245273_foto wedding.jpeg
+2025-06-28 16:23:01,244 - app.services.image_record_service - INFO - Formatted records: [{'record_id': 63, 'face_id': 9, 'detection_time': datetime.datetime(2025, 6, 28, 9, 22, 51, 872983, tzinfo=datetime.timezone.utc), 'image_path': 'C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\permanent_images\\original_20250628162250245273_foto wedding.jpeg', 'image_url': '/public_images\\original_20250628162250245273_foto wedding.jpeg'}]
+2025-06-28 16:23:01,245 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628162250245273_foto wedding.jpeg to URL
+2025-06-28 16:23:01,245 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:23:01,245 - app.services.image_record_service - INFO - filename: original_20250628162250245273_foto wedding.jpeg
+2025-06-28 16:23:01,246 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628162250245273_foto wedding.jpeg
+2025-06-28 16:30:55,545 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-06-28 16:30:55,553 - app.services.face_service - INFO - Original filename: original_20250628163053985163_foto wedding.jpeg
+2025-06-28 16:30:55,585 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628163055553631_foto wedding.jpeg
+2025-06-28 16:30:55,586 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628163055553631_foto wedding.jpeg
+2025-06-28 16:30:57,651 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628163053985163_foto wedding.jpeg
+2025-06-28 16:30:57,672 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628163055553631_foto wedding.jpeg
+2025-06-28 16:31:25,714 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628162250245273_foto wedding.jpeg to URL
+2025-06-28 16:31:25,715 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:31:25,715 - app.services.image_record_service - INFO - filename: original_20250628162250245273_foto wedding.jpeg
+2025-06-28 16:31:25,716 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628162250245273_foto wedding.jpeg
+2025-06-28 16:31:25,716 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628163053985163_foto wedding.jpeg to URL
+2025-06-28 16:31:25,716 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:31:25,716 - app.services.image_record_service - INFO - filename: original_20250628163053985163_foto wedding.jpeg
+2025-06-28 16:31:25,717 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628163053985163_foto wedding.jpeg
+2025-06-28 16:31:25,717 - app.services.image_record_service - INFO - Formatted records: [{'record_id': 63, 'face_id': 9, 'detection_time': datetime.datetime(2025, 6, 28, 9, 22, 51, 872983, tzinfo=datetime.timezone.utc), 'image_path': 'C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\permanent_images\\original_20250628162250245273_foto wedding.jpeg', 'image_url': '/public_images\\original_20250628162250245273_foto wedding.jpeg'}, {'record_id': 65, 'face_id': 9, 'detection_time': datetime.datetime(2025, 6, 28, 9, 30, 55, 546449, tzinfo=datetime.timezone.utc), 'image_path': 'C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\permanent_images\\original_20250628163053985163_foto wedding.jpeg', 'image_url': '/public_images\\original_20250628163053985163_foto wedding.jpeg'}]
+2025-06-28 16:31:25,717 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628162250245273_foto wedding.jpeg to URL
+2025-06-28 16:31:25,718 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:31:25,718 - app.services.image_record_service - INFO - filename: original_20250628162250245273_foto wedding.jpeg
+2025-06-28 16:31:25,719 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628162250245273_foto wedding.jpeg
+2025-06-28 16:31:25,719 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628163053985163_foto wedding.jpeg to URL
+2025-06-28 16:31:25,719 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:31:25,720 - app.services.image_record_service - INFO - filename: original_20250628163053985163_foto wedding.jpeg
+2025-06-28 16:31:25,720 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628163053985163_foto wedding.jpeg
+2025-06-28 16:34:31,034 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-06-28 16:34:31,043 - app.services.face_service - INFO - Original filename: original_20250628163429473881_foto wedding.jpeg
+2025-06-28 16:34:31,075 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628163431044944_foto wedding.jpeg
+2025-06-28 16:34:31,075 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628163431044944_foto wedding.jpeg
+2025-06-28 16:34:32,974 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628163429473881_foto wedding.jpeg
+2025-06-28 16:34:32,992 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628163431044944_foto wedding.jpeg
+2025-06-28 16:34:37,442 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628162250245273_foto wedding.jpeg to URL
+2025-06-28 16:34:37,443 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:34:37,443 - app.services.image_record_service - INFO - filename: original_20250628162250245273_foto wedding.jpeg
+2025-06-28 16:34:37,443 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628162250245273_foto wedding.jpeg
+2025-06-28 16:34:37,444 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628163053985163_foto wedding.jpeg to URL
+2025-06-28 16:34:37,444 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:34:37,444 - app.services.image_record_service - INFO - filename: original_20250628163053985163_foto wedding.jpeg
+2025-06-28 16:34:37,445 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628163053985163_foto wedding.jpeg
+2025-06-28 16:34:37,445 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628163429473881_foto wedding.jpeg to URL
+2025-06-28 16:34:37,445 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:34:37,446 - app.services.image_record_service - INFO - filename: original_20250628163429473881_foto wedding.jpeg
+2025-06-28 16:34:37,446 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628163429473881_foto wedding.jpeg
+2025-06-28 16:34:37,446 - app.services.image_record_service - INFO - Formatted records: [{'record_id': 63, 'face_id': 9, 'detection_time': datetime.datetime(2025, 6, 28, 9, 22, 51, 872983, tzinfo=datetime.timezone.utc), 'image_path': 'C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\permanent_images\\original_20250628162250245273_foto wedding.jpeg', 'image_url': '/public_images\\original_20250628162250245273_foto wedding.jpeg'}, {'record_id': 65, 'face_id': 9, 'detection_time': datetime.datetime(2025, 6, 28, 9, 30, 55, 546449, tzinfo=datetime.timezone.utc), 'image_path': 'C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\permanent_images\\original_20250628163053985163_foto wedding.jpeg', 'image_url': '/public_images\\original_20250628163053985163_foto wedding.jpeg'}, {'record_id': 67, 'face_id': 9, 'detection_time': datetime.datetime(2025, 6, 28, 9, 34, 31, 35936, tzinfo=datetime.timezone.utc), 'image_path': 'C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\permanent_images\\original_20250628163429473881_foto wedding.jpeg', 'image_url': '/public_images\\original_20250628163429473881_foto wedding.jpeg'}]
+2025-06-28 16:34:37,447 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628162250245273_foto wedding.jpeg to URL
+2025-06-28 16:34:37,447 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:34:37,447 - app.services.image_record_service - INFO - filename: original_20250628162250245273_foto wedding.jpeg
+2025-06-28 16:34:37,447 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628162250245273_foto wedding.jpeg
+2025-06-28 16:34:37,448 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628163053985163_foto wedding.jpeg to URL
+2025-06-28 16:34:37,448 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:34:37,448 - app.services.image_record_service - INFO - filename: original_20250628163053985163_foto wedding.jpeg
+2025-06-28 16:34:37,449 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628163053985163_foto wedding.jpeg
+2025-06-28 16:34:37,449 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628163429473881_foto wedding.jpeg to URL
+2025-06-28 16:34:37,449 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:34:37,450 - app.services.image_record_service - INFO - filename: original_20250628163429473881_foto wedding.jpeg
+2025-06-28 16:34:37,450 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628163429473881_foto wedding.jpeg
+2025-06-28 16:39:14,161 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628162250245273_foto wedding.jpeg to URL
+2025-06-28 16:39:14,161 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:39:14,162 - app.services.image_record_service - INFO - filename: original_20250628162250245273_foto wedding.jpeg
+2025-06-28 16:39:14,162 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628162250245273_foto wedding.jpeg
+2025-06-28 16:39:14,163 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628163053985163_foto wedding.jpeg to URL
+2025-06-28 16:39:14,163 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:39:14,163 - app.services.image_record_service - INFO - filename: original_20250628163053985163_foto wedding.jpeg
+2025-06-28 16:39:14,163 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628163053985163_foto wedding.jpeg
+2025-06-28 16:39:14,164 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628163429473881_foto wedding.jpeg to URL
+2025-06-28 16:39:14,164 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:39:14,164 - app.services.image_record_service - INFO - filename: original_20250628163429473881_foto wedding.jpeg
+2025-06-28 16:39:14,164 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628163429473881_foto wedding.jpeg
+2025-06-28 16:39:14,165 - app.services.image_record_service - INFO - Formatted records: [{'record_id': 63, 'face_id': 9, 'detection_time': datetime.datetime(2025, 6, 28, 9, 22, 51, 872983, tzinfo=datetime.timezone.utc), 'image_path': 'C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\permanent_images\\original_20250628162250245273_foto wedding.jpeg', 'image_url': '/public_images\\original_20250628162250245273_foto wedding.jpeg'}, {'record_id': 65, 'face_id': 9, 'detection_time': datetime.datetime(2025, 6, 28, 9, 30, 55, 546449, tzinfo=datetime.timezone.utc), 'image_path': 'C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\permanent_images\\original_20250628163053985163_foto wedding.jpeg', 'image_url': '/public_images\\original_20250628163053985163_foto wedding.jpeg'}, {'record_id': 67, 'face_id': 9, 'detection_time': datetime.datetime(2025, 6, 28, 9, 34, 31, 35936, tzinfo=datetime.timezone.utc), 'image_path': 'C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\permanent_images\\original_20250628163429473881_foto wedding.jpeg', 'image_url': '/public_images\\original_20250628163429473881_foto wedding.jpeg'}]
+2025-06-28 16:39:14,165 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628162250245273_foto wedding.jpeg to URL
+2025-06-28 16:39:14,165 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:39:14,166 - app.services.image_record_service - INFO - filename: original_20250628162250245273_foto wedding.jpeg
+2025-06-28 16:39:14,166 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628162250245273_foto wedding.jpeg
+2025-06-28 16:39:14,166 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628163053985163_foto wedding.jpeg to URL
+2025-06-28 16:39:14,167 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:39:14,167 - app.services.image_record_service - INFO - filename: original_20250628163053985163_foto wedding.jpeg
+2025-06-28 16:39:14,167 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628163053985163_foto wedding.jpeg
+2025-06-28 16:39:14,167 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628163429473881_foto wedding.jpeg to URL
+2025-06-28 16:39:14,168 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:39:14,168 - app.services.image_record_service - INFO - filename: original_20250628163429473881_foto wedding.jpeg
+2025-06-28 16:39:14,168 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628163429473881_foto wedding.jpeg
+2025-06-28 16:39:31,737 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628162250245273_foto wedding.jpeg to URL
+2025-06-28 16:39:31,738 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:39:31,738 - app.services.image_record_service - INFO - filename: original_20250628162250245273_foto wedding.jpeg
+2025-06-28 16:39:31,738 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628162250245273_foto wedding.jpeg
+2025-06-28 16:39:31,739 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628163053985163_foto wedding.jpeg to URL
+2025-06-28 16:39:31,739 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:39:31,739 - app.services.image_record_service - INFO - filename: original_20250628163053985163_foto wedding.jpeg
+2025-06-28 16:39:31,739 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628163053985163_foto wedding.jpeg
+2025-06-28 16:39:31,740 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628163429473881_foto wedding.jpeg to URL
+2025-06-28 16:39:31,740 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:39:31,740 - app.services.image_record_service - INFO - filename: original_20250628163429473881_foto wedding.jpeg
+2025-06-28 16:39:31,741 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628163429473881_foto wedding.jpeg
+2025-06-28 16:39:31,741 - app.services.image_record_service - INFO - Formatted records: [{'record_id': 63, 'face_id': 9, 'detection_time': datetime.datetime(2025, 6, 28, 9, 22, 51, 872983, tzinfo=datetime.timezone.utc), 'image_path': 'C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\permanent_images\\original_20250628162250245273_foto wedding.jpeg', 'image_url': '/public_images\\original_20250628162250245273_foto wedding.jpeg'}, {'record_id': 65, 'face_id': 9, 'detection_time': datetime.datetime(2025, 6, 28, 9, 30, 55, 546449, tzinfo=datetime.timezone.utc), 'image_path': 'C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\permanent_images\\original_20250628163053985163_foto wedding.jpeg', 'image_url': '/public_images\\original_20250628163053985163_foto wedding.jpeg'}, {'record_id': 67, 'face_id': 9, 'detection_time': datetime.datetime(2025, 6, 28, 9, 34, 31, 35936, tzinfo=datetime.timezone.utc), 'image_path': 'C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\permanent_images\\original_20250628163429473881_foto wedding.jpeg', 'image_url': '/public_images\\original_20250628163429473881_foto wedding.jpeg'}]
+2025-06-28 16:39:31,741 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628162250245273_foto wedding.jpeg to URL
+2025-06-28 16:39:31,741 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:39:31,742 - app.services.image_record_service - INFO - filename: original_20250628162250245273_foto wedding.jpeg
+2025-06-28 16:39:31,742 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628162250245273_foto wedding.jpeg
+2025-06-28 16:39:31,742 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628163053985163_foto wedding.jpeg to URL
+2025-06-28 16:39:31,743 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:39:31,743 - app.services.image_record_service - INFO - filename: original_20250628163053985163_foto wedding.jpeg
+2025-06-28 16:39:31,743 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628163053985163_foto wedding.jpeg
+2025-06-28 16:39:31,744 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628163429473881_foto wedding.jpeg to URL
+2025-06-28 16:39:31,744 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:39:31,744 - app.services.image_record_service - INFO - filename: original_20250628163429473881_foto wedding.jpeg
+2025-06-28 16:39:31,745 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628163429473881_foto wedding.jpeg
+2025-06-28 16:40:30,180 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-06-28 16:40:30,181 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-06-28 16:40:30.181865+07:00 tzinfo=Asia/Bangkok
+2025-06-28 16:40:30,189 - app.services.face_service - INFO - Original filename: original_20250628164028707848_foto wedding.jpeg
+2025-06-28 16:40:30,220 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628164030190199_foto wedding.jpeg
+2025-06-28 16:40:30,221 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628164030190199_foto wedding.jpeg
+2025-06-28 16:40:30,222 - app.api.v1.file_router - ERROR - Error processing file foto wedding.jpeg for preview: 'str' object has no attribute 'isoformat'
+2025-06-28 16:41:47,051 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-06-28 16:41:47,051 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-06-28 16:41:47.051772+07:00 tzinfo=Asia/Bangkok
+2025-06-28 16:41:47,143 - app.services.face_service - INFO - Original filename: original_20250628164145500441_foto wedding.jpeg
+2025-06-28 16:41:47,174 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628164147143908_foto wedding.jpeg
+2025-06-28 16:41:47,175 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628164147143908_foto wedding.jpeg
+2025-06-28 16:41:47,176 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-06-28T16:41:47.051772+07:00 for file=foto wedding.jpeg
+2025-06-28 16:41:50,247 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628164145500441_foto wedding.jpeg
+2025-06-28 16:41:50,265 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628164147143908_foto wedding.jpeg
+2025-06-28 16:45:52,915 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-06-28 16:45:52,916 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-06-28 16:45:52.915397+07:00 tzinfo=Asia/Bangkok
+2025-06-28 16:45:52,925 - app.services.face_service - INFO - Original filename: original_20250628164551337718_foto wedding.jpeg
+2025-06-28 16:45:52,957 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628164552925390_foto wedding.jpeg
+2025-06-28 16:45:52,957 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628164552925390_foto wedding.jpeg
+2025-06-28 16:45:52,958 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-06-28T16:45:52.915397+07:00 for file=foto wedding.jpeg
+2025-06-28 16:45:54,928 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628164551337718_foto wedding.jpeg
+2025-06-28 16:45:54,982 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628164552925390_foto wedding.jpeg
+2025-06-28 16:45:59,491 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628164551337718_foto wedding.jpeg to URL
+2025-06-28 16:45:59,492 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:45:59,492 - app.services.image_record_service - INFO - filename: original_20250628164551337718_foto wedding.jpeg
+2025-06-28 16:45:59,492 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628164551337718_foto wedding.jpeg
+2025-06-28 16:45:59,493 - app.services.image_record_service - INFO - Formatted records: [{'record_id': 71, 'face_id': 9, 'detection_time': datetime.datetime(2025, 6, 28, 9, 45, 52, 915397, tzinfo=datetime.timezone.utc), 'image_path': 'C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\permanent_images\\original_20250628164551337718_foto wedding.jpeg', 'image_url': '/public_images\\original_20250628164551337718_foto wedding.jpeg'}]
+2025-06-28 16:45:59,493 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628164551337718_foto wedding.jpeg to URL
+2025-06-28 16:45:59,493 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:45:59,494 - app.services.image_record_service - INFO - filename: original_20250628164551337718_foto wedding.jpeg
+2025-06-28 16:45:59,494 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628164551337718_foto wedding.jpeg
+2025-06-28 16:49:43,866 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-06-28 16:49:43,868 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-06-28 16:49:43.868198+07:00 tzinfo=Asia/Bangkok
+2025-06-28 16:49:43,876 - app.services.face_service - INFO - Original filename: original_20250628164942320723_foto wedding.jpeg
+2025-06-28 16:49:43,907 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628164943877169_foto wedding.jpeg
+2025-06-28 16:49:43,907 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628164943877169_foto wedding.jpeg
+2025-06-28 16:49:43,909 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-06-28T16:49:43.868198+07:00 for file=foto wedding.jpeg
+2025-06-28 16:49:46,208 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628164942320723_foto wedding.jpeg
+2025-06-28 16:49:46,231 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628164943877169_foto wedding.jpeg
+2025-06-28 16:49:51,744 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628164942320723_foto wedding.jpeg to URL
+2025-06-28 16:49:51,744 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:49:51,744 - app.services.image_record_service - INFO - filename: original_20250628164942320723_foto wedding.jpeg
+2025-06-28 16:49:51,745 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628164942320723_foto wedding.jpeg
+2025-06-28 16:49:51,745 - app.services.image_record_service - INFO - Formatted records: [{'record_id': 73, 'face_id': 9, 'detection_time': datetime.datetime(2025, 6, 28, 9, 49, 43, 868198, tzinfo=datetime.timezone.utc), 'image_path': 'C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\permanent_images\\original_20250628164942320723_foto wedding.jpeg', 'image_url': '/public_images\\original_20250628164942320723_foto wedding.jpeg'}]
+2025-06-28 16:49:51,745 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628164942320723_foto wedding.jpeg to URL
+2025-06-28 16:49:51,746 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:49:51,746 - app.services.image_record_service - INFO - filename: original_20250628164942320723_foto wedding.jpeg
+2025-06-28 16:49:51,746 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628164942320723_foto wedding.jpeg
+2025-06-28 16:49:51,746 - app.api.v1.image_record_router - INFO - [listRecordsByPerson] Returning detection_time=2025-06-28 09:49:43.868198+00:00 for record_id=73
+2025-06-28 16:53:39,042 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628164942320723_foto wedding.jpeg to URL
+2025-06-28 16:53:39,043 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:53:39,043 - app.services.image_record_service - INFO - filename: original_20250628164942320723_foto wedding.jpeg
+2025-06-28 16:53:39,044 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628164942320723_foto wedding.jpeg
+2025-06-28 16:53:39,044 - app.services.image_record_service - INFO - Formatted records: [{'record_id': 73, 'face_id': 9, 'detection_time': datetime.datetime(2025, 6, 28, 9, 49, 43, 868198, tzinfo=datetime.timezone.utc), 'image_path': 'C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\permanent_images\\original_20250628164942320723_foto wedding.jpeg', 'image_url': '/public_images\\original_20250628164942320723_foto wedding.jpeg'}]
+2025-06-28 16:53:39,044 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628164942320723_foto wedding.jpeg to URL
+2025-06-28 16:53:39,045 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:53:39,045 - app.services.image_record_service - INFO - filename: original_20250628164942320723_foto wedding.jpeg
+2025-06-28 16:53:39,045 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628164942320723_foto wedding.jpeg
+2025-06-28 16:53:39,045 - app.api.v1.image_record_router - INFO - [listRecordsByPerson] Returning detection_time=2025-06-28 09:49:43.868198+00:00 for record_id=73
+2025-06-28 16:53:40,736 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628164942320723_foto wedding.jpeg to URL
+2025-06-28 16:53:40,736 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:53:40,736 - app.services.image_record_service - INFO - filename: original_20250628164942320723_foto wedding.jpeg
+2025-06-28 16:53:40,737 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628164942320723_foto wedding.jpeg
+2025-06-28 16:53:40,737 - app.services.image_record_service - INFO - Formatted records: [{'record_id': 73, 'face_id': 9, 'detection_time': datetime.datetime(2025, 6, 28, 9, 49, 43, 868198, tzinfo=datetime.timezone.utc), 'image_path': 'C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\permanent_images\\original_20250628164942320723_foto wedding.jpeg', 'image_url': '/public_images\\original_20250628164942320723_foto wedding.jpeg'}]
+2025-06-28 16:53:40,737 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628164942320723_foto wedding.jpeg to URL
+2025-06-28 16:53:40,738 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:53:40,738 - app.services.image_record_service - INFO - filename: original_20250628164942320723_foto wedding.jpeg
+2025-06-28 16:53:40,738 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628164942320723_foto wedding.jpeg
+2025-06-28 16:53:40,738 - app.api.v1.image_record_router - INFO - [listRecordsByPerson] Returning detection_time=2025-06-28 09:49:43.868198+00:00 for record_id=73
+2025-06-28 16:53:58,089 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628164942320723_foto wedding.jpeg to URL
+2025-06-28 16:53:58,089 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:53:58,089 - app.services.image_record_service - INFO - filename: original_20250628164942320723_foto wedding.jpeg
+2025-06-28 16:53:58,090 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628164942320723_foto wedding.jpeg
+2025-06-28 16:53:58,090 - app.services.image_record_service - INFO - Formatted records: [{'record_id': 72, 'face_id': 10, 'detection_time': datetime.datetime(2025, 6, 28, 9, 49, 43, 868198, tzinfo=datetime.timezone.utc), 'image_path': 'C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\permanent_images\\original_20250628164942320723_foto wedding.jpeg', 'image_url': '/public_images\\original_20250628164942320723_foto wedding.jpeg'}]
+2025-06-28 16:53:58,090 - app.services.image_record_service - INFO - Converting image path C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628164942320723_foto wedding.jpeg to URL
+2025-06-28 16:53:58,091 - app.services.image_record_service - INFO - Server image storage root: /public_images
+2025-06-28 16:53:58,091 - app.services.image_record_service - INFO - filename: original_20250628164942320723_foto wedding.jpeg
+2025-06-28 16:53:58,091 - app.services.image_record_service - INFO - file_url: /public_images\original_20250628164942320723_foto wedding.jpeg
+2025-06-28 16:53:58,092 - app.api.v1.image_record_router - INFO - [listRecordsByPerson] Returning detection_time=2025-06-28 09:49:43.868198+00:00 for record_id=72
+2025-06-28 18:26:26,424 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-06-28 18:26:26,426 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-06-28 18:26:26.426927+07:00 tzinfo=Asia/Bangkok
+2025-06-28 18:26:26,445 - app.services.face_service - INFO - Original filename: original_20250628182625421319_pose.jpeg
+2025-06-28 18:26:26,497 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628182626445928_pose.jpeg
+2025-06-28 18:26:26,498 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628182626445928_pose.jpeg
+2025-06-28 18:26:26,498 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-06-28T18:26:26.426927+07:00 for file=pose.jpeg
+2025-06-28 20:21:12,687 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-06-28 20:21:12,688 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-06-28 20:21:12.688433+07:00 tzinfo=Asia/Bangkok
+2025-06-28 20:21:12,703 - app.services.face_service - INFO - Original filename: original_20250628202110915349_foto wedding.jpeg
+2025-06-28 20:21:12,752 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628202112703415_foto wedding.jpeg
+2025-06-28 20:21:12,752 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628202112703415_foto wedding.jpeg
+2025-06-28 20:21:12,754 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-06-28T20:21:12.688433+07:00 for file=foto wedding.jpeg
+2025-06-28 20:21:15,539 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628202110915349_foto wedding.jpeg
+2025-06-28 20:21:15,561 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628202112703415_foto wedding.jpeg

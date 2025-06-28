@@ -4,6 +4,7 @@ import Table from "../../components/Table";
 import { getPerson } from "../../services/peopleApi";
 import { listFacesByPerson } from "../../services/faceApi";
 import { listRecordsByPerson } from "../../services/imageRecordApi"; // or correct path
+import { DateTime } from "luxon";
 
 export default function PersonDetailPage() {
   const { id } = useParams();
@@ -28,13 +29,17 @@ export default function PersonDetailPage() {
     });
 
     listRecordsByPerson(id).then((r) => {
+      console.log(
+        "🟡 [Frontend] Raw detection_time from API:",
+        r.data.map((rec) => rec.detection_time)
+      );
       setRecords(r.data);
       console.log(
         "Detection Records:",
         r.data.map((rec) => ({
-          image_path: `${
+          image_url: `${
             import.meta.env.VITE_API_BASE_URL
-          }/${rec.image_path.replaceAll("\\", "/")}`,
+          }/${rec.image_url.replaceAll("\\", "/")}`,
           detection_time: rec.detection_time,
         }))
       );
@@ -44,15 +49,12 @@ export default function PersonDetailPage() {
   if (!person) return <div>Loading…</div>;
 
   function formatDate(dateStr) {
-    const d = new Date(dateStr);
-    return d.toLocaleString("en-US", {
-      day: "2-digit",
-      month: "short",
-      year: "numeric",
-      hour: "2-digit",
-      minute: "2-digit",
-      second: "2-digit",
-    });
+    const dt = DateTime.fromISO(dateStr, { zone: "Asia/Bangkok" });
+    if (!dt.isValid) {
+      console.warn("🔴 Invalid ISO string in formatDate():", dateStr);
+      return "Invalid Date";
+    }
+    return dt.isValid ? dt.toFormat("dd-LLL-yyyy HH:mm:ss") : "Invalid Date";
   }
 
   return (
@@ -101,13 +103,13 @@ export default function PersonDetailPage() {
         columns={[
           {
             Header: "Preview",
-            accessor: "image_path",
+            accessor: "image_url",
             Cell: ({ row }) => (
               <img
                 src={`${import.meta.env.VITE_API_BASE_URL.replace(
                   /\/$/,
                   ""
-                )}/${row.original.image_path
+                )}/${row.original.image_url
                   .replaceAll("\\", "/")
                   .replace(/^\/+/, "")}`}
                 alt="Detected"
@@ -118,7 +120,7 @@ export default function PersonDetailPage() {
           {
             Header: "Detection Time",
             accessor: "detection_time",
-            Cell: ({ value }) => formatDate(value),
+            Cell: ({ row }) => formatDate(row.original.detection_time),
           },
         ]}
         data={records}

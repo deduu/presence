@@ -1,8 +1,12 @@
+// src/components/Table.jsx
 import React from "react";
 import PropTypes from "prop-types";
 
 export default function Table({ columns = [], data = [] }) {
   const rows = Array.isArray(data) ? data : [];
+
+  // console.log("🧪 [Table] columns:", columns);
+  // console.log("🧪 [Table] data:", rows);
 
   return (
     <div className="overflow-x-auto shadow border rounded-lg">

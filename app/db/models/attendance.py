@@ -62,7 +62,9 @@ class ImageRecord(Base):
     detection_time = Column(DateTime(timezone=True), nullable=False)
     face_location = Column(String, nullable=True)
 
-    # Relationships
+    image_width = Column(Integer, nullable=True)   # NEW
+    image_height = Column(Integer, nullable=True)  # NEW
+
     face = relationship("Face", back_populates="image_records")
 
 
