@@ -65,6 +65,8 @@ class ImageRecord(Base):
     image_width = Column(Integer, nullable=True)   # NEW
     image_height = Column(Integer, nullable=True)  # NEW
 
+    batch_tag = Column(String, nullable=True)
+
     face = relationship("Face", back_populates="image_records")
 
 

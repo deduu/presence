@@ -595,6 +595,7 @@ class FaceService(BaseService):
                     face_location=face_location_str,
                     image_width=face_data.get("image_width"),
                     image_height=face_data.get("image_height"),
+                    batch_tag=confirmed_data.get("batch_tag")
                 )
 
                 saved_results.append(

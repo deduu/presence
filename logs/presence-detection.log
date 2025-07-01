@@ -578,3 +578,31 @@
 2025-06-28 20:21:12,754 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-06-28T20:21:12.688433+07:00 for file=foto wedding.jpeg
 2025-06-28 20:21:15,539 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250628202110915349_foto wedding.jpeg
 2025-06-28 20:21:15,561 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250628202112703415_foto wedding.jpeg
+2025-07-01 21:21:30,032 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-01 21:21:30,033 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-01 21:21:30.033476+07:00 tzinfo=Asia/Bangkok
+2025-07-01 21:21:30,045 - app.services.face_service - INFO - Original filename: original_20250701212128123875_foto wedding.jpeg
+2025-07-01 21:21:30,094 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250701212130045468_foto wedding.jpeg
+2025-07-01 21:21:30,095 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250701212130045468_foto wedding.jpeg
+2025-07-01 21:21:30,096 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-01T21:21:30.033476+07:00 for file=foto wedding.jpeg
+2025-07-01 21:21:49,797 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-01 21:21:49,798 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-01 21:21:49.798897+07:00 tzinfo=Asia/Bangkok
+2025-07-01 21:21:49,803 - app.services.face_service - INFO - Original filename: original_20250701212148246582_foto wedding.jpeg
+2025-07-01 21:21:49,829 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250701212149804904_foto wedding.jpeg
+2025-07-01 21:21:49,830 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250701212149804904_foto wedding.jpeg
+2025-07-01 21:21:49,831 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-01T21:21:49.798897+07:00 for file=foto wedding.jpeg
+2025-07-01 22:01:34,847 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-01 22:01:34,848 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-01 22:01:34.848992+07:00 tzinfo=Asia/Bangkok
+2025-07-01 22:01:34,939 - app.services.face_service - INFO - Original filename: original_20250701220133193133_foto wedding.jpeg
+2025-07-01 22:01:34,972 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250701220134940185_foto wedding.jpeg
+2025-07-01 22:01:34,972 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250701220134940185_foto wedding.jpeg
+2025-07-01 22:01:34,973 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-01T22:01:34.848992+07:00 for file=foto wedding.jpeg
+2025-07-01 22:01:44,760 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250701220133193133_foto wedding.jpeg
+2025-07-01 22:01:44,785 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250701220134940185_foto wedding.jpeg
+2025-07-01 22:02:12,995 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-01 22:02:12,996 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-01 22:02:12.996700+07:00 tzinfo=Asia/Bangkok
+2025-07-01 22:02:13,001 - app.services.face_service - INFO - Original filename: original_20250701220211468347_foto wedding.jpeg
+2025-07-01 22:02:13,025 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250701220213002010_foto wedding.jpeg
+2025-07-01 22:02:13,026 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250701220213002010_foto wedding.jpeg
+2025-07-01 22:02:13,027 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-01T22:02:12.996700+07:00 for file=foto wedding.jpeg
+2025-07-01 22:02:21,404 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250701220211468347_foto wedding.jpeg
+2025-07-01 22:02:21,418 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250701220213002010_foto wedding.jpeg

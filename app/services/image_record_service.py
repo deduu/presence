@@ -98,6 +98,7 @@ class ImageRecordService(BaseService):
         face_location: Optional[str] = None,  # Add this parameter
         image_width: Optional[int] = None,
         image_height: Optional[int] = None,
+        batch_tag: Optional[str] = None
     ):
         try:
             record = ImageRecord(
@@ -107,6 +108,7 @@ class ImageRecordService(BaseService):
                 face_location=face_location,  # Assign the new parameter
                 image_width=image_width,
                 image_height=image_height,
+                batch_tag=batch_tag
             )
             self.db.add(record)
             await self.db.commit()

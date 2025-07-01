@@ -3,7 +3,7 @@ import os
 import shutil
 import logging
 from datetime import datetime
-from fastapi import APIRouter, Depends, UploadFile, File, HTTPException, status
+from fastapi import APIRouter, Depends, UploadFile, File, HTTPException, status, Form
 from typing import List, Dict, Any, Optional, Tuple
 from sqlalchemy.ext.asyncio import AsyncSession
 from app.utils.file_store import save_image
@@ -43,6 +43,7 @@ class ConfirmSaveRequest(BaseModel):
     detection_time: str  # Keep as string (ISO format) for transport
     # Each dict should contain enough info for FaceService.save_confirmed_faces
     face_detections: List[Dict[str, Any]]
+    batch_tag: Optional[str] = None
     # e.g., face_index, suggested_face_id, suggested_person_name, is_new_face_candidate, face_location, face_encoding
     # PLUS, if user associated: 'person_id': int (the ID of the person they chose)
 
@@ -202,6 +203,7 @@ async def upload_and_process_multiple_images(
 @router.post("/upload-preview", response_model=UploadPreviewResponse)
 async def upload_images_for_preview(
     files: List[UploadFile] = File(...),
+    batch_tag: Optional[str] = Form(None),
     face_service: FaceService = Depends(get_face_service)
 ):
     if not files:
@@ -219,7 +221,8 @@ async def upload_images_for_preview(
             "status": "processing",
             "message": "",
             "preview_image_url": None,
-            "face_detections": []
+            "face_detections": [],
+            "batch_tag": batch_tag
         }
 
         if not file.filename:

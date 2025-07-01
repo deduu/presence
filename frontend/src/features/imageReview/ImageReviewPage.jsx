@@ -44,8 +44,8 @@ export default function ImageReviewPage() {
     setSelectedFiles([...e.target.files]);
   };
 
-  const handleUpload = () => {
-    uploadImages(selectedFiles);
+  const handleUpload = async () => {
+    uploadImages(selectedFiles, batchName); // ✅ cleaner and more flexible
   };
 
   const openEditModal = (fileIndex, faceIndex) => {
@@ -152,6 +152,7 @@ export default function ImageReviewPage() {
           face_encoding: face.face_encoding,
           image_width: face.image_width, // <-- NEW
           image_height: face.image_height, // <-- NEW
+          batch_tag: file.batch_tag || batchName,
           // optionally person_id if linked
           ...(face.person_id ? { person_id: face.person_id } : {}),
         })),
