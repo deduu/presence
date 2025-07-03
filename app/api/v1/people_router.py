@@ -5,6 +5,7 @@ from app.schemas.person_schemas import PersonOut, PersonCreate, PersonUpdate
 from app.services.people_service import PeopleService
 from app.services.face_service import FaceService
 from app.services.image_record_service import ImageRecordService
+from app.services.image_count_service import ImageCountService
 from app.db.base import session_manager
 
 router = APIRouter()
@@ -19,8 +20,12 @@ def get_image_record_service(session: AsyncSession = Depends(get_db_session)):
     return ImageRecordService(session)
 
 
-async def get_face_service(session: AsyncSession = Depends(get_db_session), image_record_service: ImageRecordService = Depends(get_image_record_service)):
-    return FaceService(session, image_record_service)
+def get_image_count_service(session: AsyncSession = Depends(get_db_session)):
+    return ImageCountService(session)
+
+
+async def get_face_service(session: AsyncSession = Depends(get_db_session), image_record_service: ImageRecordService = Depends(get_image_record_service), get_image_count_service: ImageCountService = Depends(get_image_count_service)):
+    return FaceService(session, image_record_service, get_image_count_service)
 
 
 async def svc(session: AsyncSession = Depends(get_db_session), face_service: FaceService = Depends(get_face_service)):

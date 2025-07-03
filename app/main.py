@@ -58,10 +58,33 @@
 #     allow_headers=["*"],
 # )
 
+from app.api.v1.dashboard_router import router as dashboard_router
+from app.api.v1.people_router import router as people_router
+from app.api.v1.image_count_router import router as image_count_router
+from app.api.v1.image_record_router import router as image_record_router
+from app.api.v1.face_router import router as face_router
+from app.api.v1.file_router import router as file_router
+from app.utils.file_store import (
+    SERVER_IMAGE_STORAGE_ROOT, PUBLIC_IMAGE_URL_PREFIX,
+    TEMP_IMAGE_STORAGE_ROOT, PUBLIC_TEMP_IMAGE_URL_PREFIX,
+    SERVER_FACE_CROP_STORAGE_ROOT, PUBLIC_FACE_CROP_PREFIX,
+    SERVER_PERSON_IMAGE_ROOT, PUBLIC_PERSON_IMAGE_PREFIX,
+)
+from app.utils.logger import configure_logging
+from app.db.base import Base, session_manager, engine
+from fastapi.routing import APIRoute
+from starlette.middleware.base import BaseHTTPMiddleware
+from starlette.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI, Depends, Request
+from contextlib import asynccontextmanager
+import uvicorn
+import logging
 # app.mount(
 #     PUBLIC_IMAGE_URL_PREFIX,
 #     StaticFiles(directory=SERVER_IMAGE_STORAGE_ROOT),
-#     name="static_images" # A name for the route, can be anything
+#     name="static_images"  # A name for the route, can be anything
 # )
 
 # # NEW: Mount static files for temporary preview images
@@ -124,30 +147,7 @@
 #         log_level="info",
 #         reload=True,           # remove in production
 #     )
-import logging
-import uvicorn
-from contextlib import asynccontextmanager
-from fastapi import FastAPI, Depends, Request
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
-from starlette.responses import HTMLResponse
-from starlette.middleware.base import BaseHTTPMiddleware
-from fastapi.routing import APIRoute
 
-from app.db.base import Base, session_manager, engine
-from app.utils.logger import configure_logging
-from app.utils.file_store import (
-    SERVER_IMAGE_STORAGE_ROOT, PUBLIC_IMAGE_URL_PREFIX,
-    TEMP_IMAGE_STORAGE_ROOT, PUBLIC_TEMP_IMAGE_URL_PREFIX,
-    SERVER_FACE_CROP_STORAGE_ROOT, PUBLIC_FACE_CROP_PREFIX,
-    SERVER_PERSON_IMAGE_ROOT, PUBLIC_PERSON_IMAGE_PREFIX,
-)
-from app.api.v1.file_router import router as file_router
-from app.api.v1.face_router import router as face_router
-from app.api.v1.image_record_router import router as image_record_router
-from app.api.v1.image_count_router import router as image_count_router
-from app.api.v1.people_router import router as people_router
-from app.api.v1.dashboard_router import router as dashboard_router
 
 configure_logging()
 logger = logging.getLogger(__name__)

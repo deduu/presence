@@ -70,35 +70,43 @@ class Face(Base):
     )
 
 
-# Image Records Table
+class Image(Base):
+    __tablename__ = "images"
+
+    image_id = Column(Integer, primary_key=True, index=True)
+    image_path = Column(String, unique=True, nullable=False)
+
+    records = relationship(
+        "ImageRecord", back_populates="image", passive_deletes=True)
+
+    count = relationship("ImageCount", back_populates="image", uselist=False)
+
+
 class ImageRecord(Base):
     __tablename__ = 'image_records'
 
     record_id = Column(Integer, primary_key=True, index=True)
-    image_path = Column(String, nullable=False)
+    image_id = Column(Integer, ForeignKey(
+        "images.image_id", ondelete="CASCADE"), nullable=False)
     face_id = Column(Integer, ForeignKey(
-        'faces.face_id', ondelete="CASCADE"), nullable=False)
+        "faces.face_id", ondelete="CASCADE"), nullable=False)
     detection_time = Column(DateTime(timezone=True), nullable=False)
     face_location = Column(String, nullable=True)
-
-    image_width = Column(Integer, nullable=True)   # NEW
-    image_height = Column(Integer, nullable=True)  # NEW
-
+    image_width = Column(Integer, nullable=True)
+    image_height = Column(Integer, nullable=True)
     batch_tag = Column(String, nullable=True)
 
     face = relationship("Face", back_populates="image_records")
-    image_count = relationship(
-        "ImageCount", back_populates="image_record", uselist=False)
+    image = relationship("Image", back_populates="records")
 
 
-# Image Counts Table
 class ImageCount(Base):
     __tablename__ = "image_counts"
 
-    image_id = Column(Integer, primary_key=True, index=True)
-    record_id = Column(Integer, ForeignKey(
-        "image_records.record_id", ondelete="CASCADE"), nullable=False, unique=True)
+    image_count_id = Column(Integer, primary_key=True, index=True)
+    image_id = Column(Integer, ForeignKey("images.image_id",
+                      ondelete="CASCADE"), nullable=False, unique=True)
     face_count = Column(Integer, nullable=False)
     processed_time = Column(DateTime(timezone=True), nullable=False)
 
-    image_record = relationship("ImageRecord", back_populates="image_count")
+    image = relationship("Image", back_populates="count")

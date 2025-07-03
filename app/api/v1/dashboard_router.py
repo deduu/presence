@@ -6,7 +6,7 @@ from sqlalchemy import func, select, cast, Date
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.base import session_manager
-from app.db.models.attendance import Person, Face, ImageRecord
+from app.db.models.attendance import Person, Face, ImageRecord, Image
 
 router = APIRouter()
 
@@ -19,16 +19,19 @@ async def _scalar(session: AsyncSession, stmt):
     result = await session.execute(stmt)
     return result.scalar_one()
 
+
 async def get_db_session():
     async with session_manager.create_session() as session:
         yield session
 # --------------------------------------------------------------------------- #
 # 1)  /dashboard/metrics
 # --------------------------------------------------------------------------- #
+
+
 @router.get("/metrics")
 async def metrics(session: AsyncSession = Depends(get_db_session)):
-    total_people  = await _scalar(session, select(func.count(Person.person_id)))
-    total_faces   = await _scalar(session, select(func.count(Face.face_id)))
+    total_people = await _scalar(session, select(func.count(Person.person_id)))
+    total_faces = await _scalar(session, select(func.count(Face.face_id)))
     total_records = await _scalar(session, select(func.count(ImageRecord.record_id)))
     return {
         "total_people":  total_people,
@@ -45,14 +48,15 @@ async def recent_detections(session: AsyncSession = Depends(get_db_session), lim
     stmt = (
         select(
             ImageRecord.record_id,
-            ImageRecord.image_path,
+            Image.image_path,  # <-- changed from ImageRecord.image_path
             ImageRecord.detection_time,
-            ImageRecord.face_location, 
+            ImageRecord.face_location,
             Face.face_id,
             func.coalesce(Person.name, "Anonymous").label("person_name"),
         )
         .join(Face, ImageRecord.face_id == Face.face_id)
         .join(Person, Face.person_id == Person.person_id, isouter=True)
+        .join(Image, ImageRecord.image_id == Image.image_id)  # <-- new join
         .order_by(ImageRecord.detection_time.desc())
         .limit(limit)
     )
@@ -64,7 +68,7 @@ async def recent_detections(session: AsyncSession = Depends(get_db_session), lim
             "person_name":    r.person_name,
             "image_path":     r.image_path,
             "detection_time": r.detection_time,
-            "face_location":  r.face_location, 
+            "face_location":  r.face_location,
         }
         for r in rows
     ]
@@ -78,8 +82,8 @@ async def recent_detections(session: AsyncSession = Depends(get_db_session), lim
 @router.get("/charts")
 async def charts(session: AsyncSession = Depends(get_db_session)):
     # ---- Faces detected per day (last 7 days) ------------------------------ #
-    today: date   = datetime.utcnow().date()
-    start: date   = today - timedelta(days=6)   # inclusive 7-day window
+    today: date = datetime.utcnow().date()
+    start: date = today - timedelta(days=6)   # inclusive 7-day window
 
     daily_stmt = (
         select(
@@ -91,9 +95,9 @@ async def charts(session: AsyncSession = Depends(get_db_session)):
         .order_by("d")
     )
     daily_rows = await session.execute(daily_stmt)
-    daily_map  = {row.d: row.cnt for row in daily_rows}   # dict(date → count)
+    daily_map = {row.d: row.cnt for row in daily_rows}   # dict(date → count)
 
-    days   = []
+    days = []
     counts = []
     for i in range(7):
         d = start + timedelta(days=i)

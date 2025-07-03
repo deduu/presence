@@ -11,6 +11,7 @@ from app.db.base import session_manager
 from app.services.face_service import FaceService
 # Needed for FaceService dependency
 from app.services.image_record_service import ImageRecordService
+from app.services.image_count_service import ImageCountService
 from app.utils.file_store import SERVER_IMAGE_STORAGE_ROOT, PUBLIC_IMAGE_URL_PREFIX, \
     TEMP_IMAGE_STORAGE_ROOT, PUBLIC_TEMP_IMAGE_URL_PREFIX
 
@@ -65,16 +66,13 @@ async def get_db_session():
         yield session
 
 
-def get_image_record_service(db: AsyncSession = Depends(get_db_session)):
-    return ImageRecordService(db)
-
-
 def get_face_service(
     db: AsyncSession = Depends(get_db_session),
-    image_record_service: ImageRecordService = Depends(
-        get_image_record_service)
 ):
-    return FaceService(db, image_record_service)
+    # one session – reused by every helper service
+    rec_svc = ImageRecordService(db)
+    cnt_svc = ImageCountService(db)
+    return FaceService(db, rec_svc, cnt_svc)
 
 # @router.post("/uploads/images", status_code=202)
 # async def upload_images(

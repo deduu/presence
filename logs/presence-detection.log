@@ -1103,3 +1103,343 @@ DETAIL:  Failing row contains (1, C:\Users\HiDigi\OneDrive\Desktop\WebDev\Facial
 2025-07-03 10:23:42,122 - app.services.face_service - INFO - Deleted old face 12
 2025-07-03 10:23:42,126 - app.services.face_service - INFO - Face 11 now associated with person 13
 2025-07-03 11:41:51,947 - app.main - INFO - Shutting down...
+2025-07-03 12:19:37,012 - app.main - INFO - Initializing database...
+2025-07-03 12:19:37,117 - app.main - INFO - Database initialized.
+2025-07-03 12:21:11,978 - app.main - INFO - Shutting down...
+2025-07-03 12:21:16,209 - app.main - INFO - Initializing database...
+2025-07-03 12:21:16,327 - app.main - INFO - Database initialized.
+2025-07-03 13:50:49,801 - app.main - INFO - Shutting down...
+2025-07-03 14:36:12,949 - app.main - INFO - Initializing database...
+2025-07-03 14:36:13,145 - app.main - INFO - Database initialized.
+2025-07-03 14:37:10,170 - app.main - INFO - Shutting down...
+2025-07-03 14:37:14,018 - app.main - INFO - Initializing database...
+2025-07-03 14:37:14,093 - app.main - INFO - Database initialized.
+2025-07-03 14:38:48,258 - app.main - INFO - Shutting down...
+2025-07-03 14:38:51,672 - app.main - INFO - Initializing database...
+2025-07-03 14:38:51,748 - app.main - INFO - Database initialized.
+2025-07-03 14:39:21,692 - app.services.image_count_service - ERROR - Failed to list ImageCounts: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column image_counts.image_count_id does not exist
+[SQL: SELECT image_counts.image_count_id, image_counts.image_id, image_counts.face_count, image_counts.processed_time 
+FROM image_counts JOIN images ON images.image_id = image_counts.image_id]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-07-03 14:44:29,441 - app.main - INFO - Shutting down...
+2025-07-03 14:46:45,738 - app.main - INFO - Initializing database...
+2025-07-03 14:46:45,824 - app.main - INFO - Database initialized.
+2025-07-03 14:47:12,654 - app.services.people_service - INFO - Deleted image file: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\public_people_images\people\13\aadcd970c1bf4f0a89e9b2fd62ed0a41.png
+2025-07-03 14:57:20,235 - app.main - INFO - Shutting down...
+2025-07-03 14:57:31,404 - app.main - INFO - Initializing database...
+2025-07-03 14:57:31,485 - app.main - INFO - Database initialized.
+2025-07-03 14:58:00,664 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-03 14:58:00,664 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'foto wedding.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-03 14:58:02,524 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-03 14:58:02,525 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-03 14:58:02.525217+07:00 tzinfo=Asia/Bangkok
+2025-07-03 14:58:02,539 - app.services.face_service - INFO - Original filename: original_20250703145800665496_foto wedding.jpeg
+2025-07-03 14:58:02,589 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703145802539048_foto wedding.jpeg
+2025-07-03 14:58:02,590 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703145802539048_foto wedding.jpeg
+2025-07-03 14:58:02,591 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-03T14:58:02.525217+07:00 for file=foto wedding.jpeg
+2025-07-03 14:58:08,199 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703145800665496_foto wedding.jpeg
+2025-07-03 14:58:08,210 - app.services.face_service - INFO - [insert_new_face] Face inserted with ID: 13
+2025-07-03 14:58:08,210 - app.services.face_service - INFO - [insert_new_face] Face location (raw): [582, 665, 689, 557] | type=<class 'list'>
+2025-07-03 14:58:08,211 - app.services.face_service - INFO - [insert_new_face] Preparing to save face crop for face_id 13
+2025-07-03 14:58:08,227 - app.services.face_service - INFO - [insert_new_face] Saved face crop at: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\face_crops\face_13.jpg
+2025-07-03 14:58:08,227 - app.services.face_service - INFO - New face detected: <app.db.models.attendance.Face object at 0x000002309C9C5420>
+2025-07-03 14:58:08,228 - app.services.face_service - ERROR - Error saving confirmed face data for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\original_20250703145800665496_foto wedding.jpeg: ImageRecordService.insert_image_record() got an unexpected keyword argument 'image_path'
+2025-07-03 14:58:08,235 - app.services.face_service - ERROR - Error saving confirmed face data for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\original_20250703145800665496_foto wedding.jpeg: ImageRecordService.insert_image_record() got an unexpected keyword argument 'image_path'
+2025-07-03 14:58:08,238 - app.services.face_service - WARNING - Failed to store image count for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703145800665496_foto wedding.jpeg: Image not found for path: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703145800665496_foto wedding.jpeg
+2025-07-03 14:58:08,238 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703145802539048_foto wedding.jpeg
+2025-07-03 15:05:19,535 - app.main - INFO - Shutting down...
+2025-07-03 15:06:27,261 - app.main - INFO - Initializing database...
+2025-07-03 15:06:27,352 - app.main - INFO - Database initialized.
+2025-07-03 15:06:35,644 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-03 15:06:35,645 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'foto wedding.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-03 15:06:37,211 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-03 15:06:37,211 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-03 15:06:37.211607+07:00 tzinfo=Asia/Bangkok
+2025-07-03 15:06:37,233 - app.services.face_service - INFO - Original filename: original_20250703150635646676_foto wedding.jpeg
+2025-07-03 15:06:37,267 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703150637233395_foto wedding.jpeg
+2025-07-03 15:06:37,267 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703150637233395_foto wedding.jpeg
+2025-07-03 15:06:37,269 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-03T15:06:37.211607+07:00 for file=foto wedding.jpeg
+2025-07-03 15:06:42,929 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703150635646676_foto wedding.jpeg
+2025-07-03 15:06:42,969 - app.services.face_service - WARNING - Failed to store image count for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703150635646676_foto wedding.jpeg: (sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.NotNullViolationError'>: null value in column "image_path" of relation "image_counts" violates not-null constraint
+DETAIL:  Failing row contains (1, null, 2, 2025-07-03 15:06:37.211607+07, null, 1).
+[SQL: INSERT INTO image_counts (image_id, face_count, processed_time) VALUES ($1::INTEGER, $2::INTEGER, $3::TIMESTAMP WITH TIME ZONE) RETURNING image_counts.image_count_id]
+[parameters: (1, 2, datetime.datetime(2025, 7, 3, 15, 6, 37, 211607, tzinfo=<DstTzInfo 'Asia/Bangkok' +07+7:00:00 STD>))]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-07-03 15:06:42,970 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703150637233395_foto wedding.jpeg
+2025-07-03 15:08:44,756 - app.main - INFO - Shutting down...
+2025-07-03 15:08:48,689 - app.main - INFO - Initializing database...
+2025-07-03 15:08:48,767 - app.main - INFO - Database initialized.
+2025-07-03 15:12:09,336 - app.main - INFO - Shutting down...
+2025-07-03 15:12:13,260 - app.main - INFO - Initializing database...
+2025-07-03 15:12:13,359 - app.main - INFO - Database initialized.
+2025-07-03 15:13:03,204 - app.main - INFO - Shutting down...
+2025-07-03 15:13:08,899 - app.main - INFO - Initializing database...
+2025-07-03 15:13:08,984 - app.main - INFO - Database initialized.
+2025-07-03 15:15:47,967 - app.main - INFO - Shutting down...
+2025-07-03 15:15:51,335 - app.main - INFO - Initializing database...
+2025-07-03 15:15:51,444 - app.main - INFO - Database initialized.
+2025-07-03 15:37:23,798 - app.main - INFO - Shutting down...
+2025-07-03 15:37:27,971 - app.main - INFO - Initializing database...
+2025-07-03 15:37:28,052 - app.main - INFO - Database initialized.
+2025-07-03 15:38:24,725 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-03 15:38:24,726 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'foto wedding.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-03 15:38:26,433 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-03 15:38:26,434 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-03 15:38:26.434368+07:00 tzinfo=Asia/Bangkok
+2025-07-03 15:38:26,445 - app.services.face_service - INFO - Original filename: original_20250703153824727677_foto wedding.jpeg
+2025-07-03 15:38:26,499 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703153826445583_foto wedding.jpeg
+2025-07-03 15:38:26,499 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703153826445583_foto wedding.jpeg
+2025-07-03 15:38:26,501 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-03T15:38:26.434368+07:00 for file=foto wedding.jpeg
+2025-07-03 15:38:28,996 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703153824727677_foto wedding.jpeg
+2025-07-03 15:38:29,008 - app.services.face_service - INFO - [insert_new_face] Face inserted with ID: 14
+2025-07-03 15:38:29,008 - app.services.face_service - INFO - [insert_new_face] Face location (raw): [582, 665, 689, 557] | type=<class 'list'>
+2025-07-03 15:38:29,009 - app.services.face_service - INFO - [insert_new_face] Preparing to save face crop for face_id 14
+2025-07-03 15:38:29,031 - app.services.face_service - INFO - [insert_new_face] Saved face crop at: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\face_crops\face_14.jpg
+2025-07-03 15:38:29,032 - app.services.face_service - INFO - New face detected: <app.db.models.attendance.Face object at 0x000002B2E705A530>
+2025-07-03 15:38:29,057 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703153826445583_foto wedding.jpeg
+2025-07-03 15:41:41,514 - app.main - INFO - Shutting down...
+2025-07-03 15:41:46,091 - app.main - INFO - Initializing database...
+2025-07-03 15:41:46,202 - app.main - INFO - Database initialized.
+2025-07-03 15:41:55,024 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-03 15:41:55,025 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'foto wedding.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-03 15:41:56,813 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-03 15:41:56,814 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-03 15:41:56.814244+07:00 tzinfo=Asia/Bangkok
+2025-07-03 15:41:56,821 - app.services.face_service - INFO - Original filename: original_20250703154155025539_foto wedding.jpeg
+2025-07-03 15:41:56,860 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703154156822576_foto wedding.jpeg
+2025-07-03 15:41:56,861 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703154156822576_foto wedding.jpeg
+2025-07-03 15:41:56,862 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-03T15:41:56.814244+07:00 for file=foto wedding.jpeg
+2025-07-03 15:41:59,122 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703154155025539_foto wedding.jpeg
+2025-07-03 15:41:59,167 - app.services.face_service - WARNING - Failed to store image count for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703154155025539_foto wedding.jpeg: (sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.NotNullViolationError'>: null value in column "image_path" of relation "image_counts" violates not-null constraint
+DETAIL:  Failing row contains (3, null, 2, 2025-07-03 15:41:56.814244+07, null, 2).
+[SQL: INSERT INTO image_counts (image_id, face_count, processed_time) VALUES ($1::INTEGER, $2::INTEGER, $3::TIMESTAMP WITH TIME ZONE) RETURNING image_counts.image_count_id]
+[parameters: (3, 2, datetime.datetime(2025, 7, 3, 15, 41, 56, 814244, tzinfo=<DstTzInfo 'Asia/Bangkok' +07+7:00:00 STD>))]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-07-03 15:41:59,168 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703154156822576_foto wedding.jpeg
+2025-07-03 15:49:09,281 - app.main - INFO - Shutting down...
+2025-07-03 15:49:14,933 - app.main - INFO - Initializing database...
+2025-07-03 15:49:15,023 - app.main - INFO - Database initialized.
+2025-07-03 15:49:32,619 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-03 15:49:32,620 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'foto wedding.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-03 15:49:34,271 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-03 15:49:34,272 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-03 15:49:34.272075+07:00 tzinfo=Asia/Bangkok
+2025-07-03 15:49:34,280 - app.services.face_service - INFO - Original filename: original_20250703154932620898_foto wedding.jpeg
+2025-07-03 15:49:34,311 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703154934281565_foto wedding.jpeg
+2025-07-03 15:49:34,312 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703154934281565_foto wedding.jpeg
+2025-07-03 15:49:34,314 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-03T15:49:34.272075+07:00 for file=foto wedding.jpeg
+2025-07-03 15:49:37,112 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703154932620898_foto wedding.jpeg
+2025-07-03 15:49:37,149 - app.services.face_service - WARNING - Failed to store image count for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703154932620898_foto wedding.jpeg: (sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.NotNullViolationError'>: null value in column "image_path" of relation "image_counts" violates not-null constraint
+DETAIL:  Failing row contains (4, null, 2, 2025-07-03 15:49:34.272075+07, null, 3).
+[SQL: INSERT INTO image_counts (image_id, face_count, processed_time) VALUES ($1::INTEGER, $2::INTEGER, $3::TIMESTAMP WITH TIME ZONE) RETURNING image_counts.image_count_id]
+[parameters: (4, 2, datetime.datetime(2025, 7, 3, 15, 49, 34, 272075, tzinfo=<DstTzInfo 'Asia/Bangkok' +07+7:00:00 STD>))]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-07-03 15:49:37,150 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703154934281565_foto wedding.jpeg
+2025-07-03 15:49:58,112 - app.main - INFO - Shutting down...
+2025-07-03 15:52:17,343 - app.main - INFO - Initializing database...
+2025-07-03 15:52:17,420 - app.main - INFO - Database initialized.
+2025-07-03 15:52:27,186 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-03 15:52:27,187 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'foto wedding.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-03 15:52:28,772 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-03 15:52:28,772 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-03 15:52:28.772984+07:00 tzinfo=Asia/Bangkok
+2025-07-03 15:52:28,781 - app.services.face_service - INFO - Original filename: original_20250703155227187654_foto wedding.jpeg
+2025-07-03 15:52:28,812 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703155228781203_foto wedding.jpeg
+2025-07-03 15:52:28,812 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703155228781203_foto wedding.jpeg
+2025-07-03 15:52:28,814 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-03T15:52:28.772984+07:00 for file=foto wedding.jpeg
+2025-07-03 15:52:31,783 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703155227187654_foto wedding.jpeg
+2025-07-03 15:52:31,822 - app.services.face_service - WARNING - Failed to store image count for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703155227187654_foto wedding.jpeg: (sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.NotNullViolationError'>: null value in column "record_id" of relation "image_counts" violates not-null constraint
+DETAIL:  Failing row contains (5, 2, 2025-07-03 15:52:28.772984+07, null, 4).
+[SQL: INSERT INTO image_counts (image_id, face_count, processed_time) VALUES ($1::INTEGER, $2::INTEGER, $3::TIMESTAMP WITH TIME ZONE) RETURNING image_counts.image_count_id]
+[parameters: (5, 2, datetime.datetime(2025, 7, 3, 15, 52, 28, 772984, tzinfo=<DstTzInfo 'Asia/Bangkok' +07+7:00:00 STD>))]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-07-03 15:52:31,823 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703155228781203_foto wedding.jpeg
+2025-07-03 15:55:15,621 - app.main - INFO - Shutting down...
+2025-07-03 15:55:45,139 - app.main - INFO - Initializing database...
+2025-07-03 15:55:45,219 - app.main - INFO - Database initialized.
+2025-07-03 15:56:04,979 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-03 15:56:04,980 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'foto wedding.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-03 15:56:06,673 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-03 15:56:06,675 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-03 15:56:06.675005+07:00 tzinfo=Asia/Bangkok
+2025-07-03 15:56:06,682 - app.services.face_service - INFO - Original filename: original_20250703155604981859_foto wedding.jpeg
+2025-07-03 15:56:06,715 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703155606683384_foto wedding.jpeg
+2025-07-03 15:56:06,715 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703155606683384_foto wedding.jpeg
+2025-07-03 15:56:06,716 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-03T15:56:06.675005+07:00 for file=foto wedding.jpeg
+2025-07-03 15:56:09,306 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703155604981859_foto wedding.jpeg
+2025-07-03 15:56:09,345 - app.services.face_service - INFO - ImageCount stored for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703155604981859_foto wedding.jpeg
+2025-07-03 15:56:09,346 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703155606683384_foto wedding.jpeg
+2025-07-03 15:58:15,749 - app.main - INFO - Shutting down...
+2025-07-03 15:58:19,868 - app.main - INFO - Initializing database...
+2025-07-03 15:58:19,949 - app.main - INFO - Database initialized.
+2025-07-03 16:00:42,411 - app.main - INFO - Shutting down...
+2025-07-03 16:00:47,053 - app.main - INFO - Initializing database...
+2025-07-03 16:00:47,130 - app.main - INFO - Database initialized.
+2025-07-03 16:25:44,175 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-03 16:25:44,176 - app.services.face_service - INFO - Person ID: 14
+2025-07-03 16:25:44,178 - app.services.face_service - INFO - Existing face: None
+2025-07-03 16:25:51,113 - app.services.face_service - INFO - Transferring encoding from face 15 to 14
+2025-07-03 16:25:51,113 - app.services.face_service - INFO - Copying crop image from C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\face_crops\face_15.jpg to 14
+2025-07-03 16:25:51,114 - app.services.face_service - INFO - Copying crop image from C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\face_crops\face_15.jpg to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\face_crops\face_14.jpg
+2025-07-03 16:25:51,117 - app.services.face_service - INFO - Copied crop image from face 15 to 14 as .jpg
+2025-07-03 16:25:51,118 - app.services.face_service - INFO - Deleted original crop image for face 15
+2025-07-03 16:25:51,118 - app.services.face_service - INFO - Deleted old face 15
+2025-07-03 16:25:51,123 - app.services.face_service - INFO - Face 14 now associated with person 14
+2025-07-03 16:26:00,563 - app.services.people_service - INFO - Deleted image file: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\public_people_images\people\14\a577fe3283cb4137a9a3f8c1bd1cadac.png
+2025-07-03 16:40:16,677 - app.main - INFO - Shutting down...
+2025-07-03 16:46:02,438 - app.main - INFO - Initializing database...
+2025-07-03 16:46:02,519 - app.main - INFO - Database initialized.
+2025-07-03 16:46:53,552 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-03 16:46:53,553 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'foto wedding.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-03 16:46:55,218 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-03 16:46:55,219 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-03 16:46:55.219076+07:00 tzinfo=Asia/Bangkok
+2025-07-03 16:46:55,227 - app.services.face_service - INFO - Original filename: original_20250703164653554988_foto wedding.jpeg
+2025-07-03 16:46:55,286 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703164655228652_foto wedding.jpeg
+2025-07-03 16:46:55,286 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703164655228652_foto wedding.jpeg
+2025-07-03 16:46:55,287 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-03T16:46:55.219076+07:00 for file=foto wedding.jpeg
+2025-07-03 16:46:57,432 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703164653554988_foto wedding.jpeg
+2025-07-03 16:46:57,438 - app.services.face_service - INFO - [insert_new_face] Face inserted with ID: 16
+2025-07-03 16:46:57,439 - app.services.face_service - INFO - [insert_new_face] Face location (raw): [582, 665, 689, 557] | type=<class 'list'>
+2025-07-03 16:46:57,439 - app.services.face_service - INFO - [insert_new_face] Preparing to save face crop for face_id 16
+2025-07-03 16:46:57,456 - app.services.face_service - INFO - [insert_new_face] Saved face crop at: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\face_crops\face_16.jpg
+2025-07-03 16:46:57,457 - app.services.face_service - INFO - New face detected: <app.db.models.attendance.Face object at 0x0000022DC9E730D0>
+2025-07-03 16:46:57,481 - app.services.face_service - INFO - ImageCount stored for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703164653554988_foto wedding.jpeg
+2025-07-03 16:46:57,482 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703164655228652_foto wedding.jpeg
+2025-07-03 16:50:23,897 - app.main - INFO - Shutting down...
+2025-07-03 16:50:34,883 - app.main - INFO - Initializing database...
+2025-07-03 16:50:34,959 - app.main - INFO - Database initialized.
+2025-07-03 16:50:44,928 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-03 16:50:44,929 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'foto wedding.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-03 16:50:46,615 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-03 16:50:46,616 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-03 16:50:46.616977+07:00 tzinfo=Asia/Bangkok
+2025-07-03 16:50:46,624 - app.services.face_service - INFO - Original filename: original_20250703165044929856_foto wedding.jpeg
+2025-07-03 16:50:46,656 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703165046624974_foto wedding.jpeg
+2025-07-03 16:50:46,656 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703165046624974_foto wedding.jpeg
+2025-07-03 16:50:46,658 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-03T16:50:46.616977+07:00 for file=foto wedding.jpeg
+2025-07-03 16:50:48,572 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703165044929856_foto wedding.jpeg
+2025-07-03 16:50:48,602 - app.services.face_service - INFO - ImageCount stored for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703165044929856_foto wedding.jpeg
+2025-07-03 16:50:48,603 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703165046624974_foto wedding.jpeg
+2025-07-03 16:52:09,332 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-03 16:52:09,333 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'foto wedding.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-03 16:52:10,861 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-03 16:52:10,862 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-03 16:52:10.862254+07:00 tzinfo=Asia/Bangkok
+2025-07-03 16:52:10,866 - app.services.face_service - INFO - Original filename: original_20250703165209333728_foto wedding.jpeg
+2025-07-03 16:52:10,889 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703165210866013_foto wedding.jpeg
+2025-07-03 16:52:10,890 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703165210866013_foto wedding.jpeg
+2025-07-03 16:52:10,891 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-03T16:52:10.862254+07:00 for file=foto wedding.jpeg
+2025-07-03 16:52:13,516 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703165209333728_foto wedding.jpeg
+2025-07-03 16:52:13,534 - app.services.face_service - INFO - ImageCount stored for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703165209333728_foto wedding.jpeg
+2025-07-03 16:52:13,536 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703165210866013_foto wedding.jpeg
+2025-07-03 16:54:17,926 - app.main - INFO - Shutting down...
+2025-07-03 16:54:21,602 - app.main - INFO - Initializing database...
+2025-07-03 16:54:21,690 - app.main - INFO - Database initialized.
+2025-07-03 16:54:31,073 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-03 16:54:31,074 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'foto wedding.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-03 16:54:32,749 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-03 16:54:32,750 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-03 16:54:32.750153+07:00 tzinfo=Asia/Bangkok
+2025-07-03 16:54:32,758 - app.services.face_service - INFO - Original filename: original_20250703165431074803_foto wedding.jpeg
+2025-07-03 16:54:32,791 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703165432759203_foto wedding.jpeg
+2025-07-03 16:54:32,791 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703165432759203_foto wedding.jpeg
+2025-07-03 16:54:32,793 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-03T16:54:32.750153+07:00 for file=foto wedding.jpeg
+2025-07-03 16:54:35,271 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703165431074803_foto wedding.jpeg
+2025-07-03 16:54:35,311 - app.services.face_service - INFO - ImageCount stored for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703165431074803_foto wedding.jpeg
+2025-07-03 16:54:35,313 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703165432759203_foto wedding.jpeg
+2025-07-03 16:54:39,106 - app.services.image_record_service - INFO - [cleanup_orphan_images] Found 9 orphan images
+2025-07-03 16:54:39,107 - app.services.image_record_service - INFO - [cleanup_orphan_images] Deleting orphan image ID 1, path=C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703150635646676_foto wedding.jpeg
+2025-07-03 16:54:39,107 - app.services.image_record_service - INFO - [cleanup_orphan_images] Deleting orphan image ID 2, path=C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703153824727677_foto wedding.jpeg
+2025-07-03 16:54:39,107 - app.services.image_record_service - INFO - [cleanup_orphan_images] Deleting orphan image ID 3, path=C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703154155025539_foto wedding.jpeg
+2025-07-03 16:54:39,108 - app.services.image_record_service - INFO - [cleanup_orphan_images] Deleting orphan image ID 4, path=C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703154932620898_foto wedding.jpeg
+2025-07-03 16:54:39,108 - app.services.image_record_service - INFO - [cleanup_orphan_images] Deleting orphan image ID 5, path=C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703155227187654_foto wedding.jpeg
+2025-07-03 16:54:39,108 - app.services.image_record_service - INFO - [cleanup_orphan_images] Deleting orphan image ID 6, path=C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703155604981859_foto wedding.jpeg
+2025-07-03 16:54:39,109 - app.services.image_record_service - INFO - [cleanup_orphan_images] Deleting orphan image ID 7, path=C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703164653554988_foto wedding.jpeg
+2025-07-03 16:54:39,109 - app.services.image_record_service - INFO - [cleanup_orphan_images] Deleting orphan image ID 8, path=C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703165044929856_foto wedding.jpeg
+2025-07-03 16:54:39,109 - app.services.image_record_service - INFO - [cleanup_orphan_images] Deleting orphan image ID 9, path=C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703165209333728_foto wedding.jpeg
+2025-07-03 16:54:39,121 - app.services.image_record_service - ERROR - Error deleting image records for record ID 31: (sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.NotNullViolationError'>: null value in column "image_id" of relation "image_counts" violates not-null constraint
+DETAIL:  Failing row contains (null, 2, 2025-07-03 16:46:55.219076+07, 6).
+[SQL: UPDATE image_counts SET image_id=$1::INTEGER WHERE image_counts.image_count_id = $2::INTEGER]
+[parameters: [(None, 6), (None, 7), (None, 8)]]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-07-03 16:56:42,383 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-03 16:56:42,384 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'foto wedding.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-03 16:56:43,926 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-03 16:56:43,927 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-03 16:56:43.926694+07:00 tzinfo=Asia/Bangkok
+2025-07-03 16:56:43,931 - app.services.face_service - INFO - Original filename: original_20250703165642384839_foto wedding.jpeg
+2025-07-03 16:56:43,955 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703165643931623_foto wedding.jpeg
+2025-07-03 16:56:43,956 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703165643931623_foto wedding.jpeg
+2025-07-03 16:56:43,957 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-03T16:56:43.926694+07:00 for file=foto wedding.jpeg
+2025-07-03 16:56:45,960 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703165642384839_foto wedding.jpeg
+2025-07-03 16:56:45,987 - app.services.face_service - INFO - ImageCount stored for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703165642384839_foto wedding.jpeg
+2025-07-03 16:56:45,987 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703165643931623_foto wedding.jpeg
+2025-07-03 16:56:55,290 - app.services.image_record_service - INFO - [cleanup_orphan_images] Found 10 orphan images
+2025-07-03 16:56:55,291 - app.services.image_record_service - INFO - [cleanup_orphan_images] Deleting orphan image ID 1, path=C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703150635646676_foto wedding.jpeg
+2025-07-03 16:56:55,291 - app.services.image_record_service - INFO - [cleanup_orphan_images] Deleting orphan image ID 2, path=C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703153824727677_foto wedding.jpeg
+2025-07-03 16:56:55,292 - app.services.image_record_service - INFO - [cleanup_orphan_images] Deleting orphan image ID 3, path=C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703154155025539_foto wedding.jpeg
+2025-07-03 16:56:55,292 - app.services.image_record_service - INFO - [cleanup_orphan_images] Deleting orphan image ID 4, path=C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703154932620898_foto wedding.jpeg
+2025-07-03 16:56:55,292 - app.services.image_record_service - INFO - [cleanup_orphan_images] Deleting orphan image ID 5, path=C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703155227187654_foto wedding.jpeg
+2025-07-03 16:56:55,293 - app.services.image_record_service - INFO - [cleanup_orphan_images] Deleting orphan image ID 6, path=C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703155604981859_foto wedding.jpeg
+2025-07-03 16:56:55,293 - app.services.image_record_service - INFO - [cleanup_orphan_images] Deleting orphan image ID 7, path=C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703164653554988_foto wedding.jpeg
+2025-07-03 16:56:55,293 - app.services.image_record_service - INFO - [cleanup_orphan_images] Deleting orphan image ID 8, path=C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703165044929856_foto wedding.jpeg
+2025-07-03 16:56:55,293 - app.services.image_record_service - INFO - [cleanup_orphan_images] Deleting orphan image ID 9, path=C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703165209333728_foto wedding.jpeg
+2025-07-03 16:56:55,294 - app.services.image_record_service - INFO - [cleanup_orphan_images] Deleting orphan image ID 10, path=C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703165431074803_foto wedding.jpeg
+2025-07-03 16:56:55,303 - app.services.image_record_service - INFO - [cleanup_orphan_images] Orphan images deleted and committed
+2025-07-03 16:56:55,307 - app.services.image_record_service - INFO - [cleanup_orphan_images] Found 1 orphan images
+2025-07-03 16:56:55,307 - app.services.image_record_service - INFO - [cleanup_orphan_images] Deleting orphan image ID 11, path=C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703165642384839_foto wedding.jpeg
+2025-07-03 16:56:55,311 - app.services.image_record_service - ERROR - Error deleting image records for record ID 34: (sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.NotNullViolationError'>: null value in column "image_id" of relation "image_counts" violates not-null constraint
+DETAIL:  Failing row contains (null, 2, 2025-07-03 16:56:43.926694+07, 10).
+[SQL: UPDATE image_counts SET image_id=$1::INTEGER WHERE image_counts.image_count_id = $2::INTEGER]
+[parameters: (None, 10)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-07-03 17:00:50,769 - app.main - INFO - Shutting down...
+2025-07-03 17:00:54,338 - app.main - INFO - Initializing database...
+2025-07-03 17:00:54,554 - app.main - INFO - Database initialized.
+2025-07-03 17:01:01,312 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-03 17:01:01,313 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'foto wedding.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-03 17:01:02,853 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-03 17:01:02,854 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-03 17:01:02.854729+07:00 tzinfo=Asia/Bangkok
+2025-07-03 17:01:02,862 - app.services.face_service - INFO - Original filename: original_20250703170101313039_foto wedding.jpeg
+2025-07-03 17:01:02,895 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703170102862723_foto wedding.jpeg
+2025-07-03 17:01:02,896 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703170102862723_foto wedding.jpeg
+2025-07-03 17:01:02,897 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-03T17:01:02.854729+07:00 for file=foto wedding.jpeg
+2025-07-03 17:01:04,836 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703170101313039_foto wedding.jpeg
+2025-07-03 17:01:04,868 - app.services.face_service - INFO - ImageCount stored for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703170101313039_foto wedding.jpeg
+2025-07-03 17:01:04,869 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703170102862723_foto wedding.jpeg
+2025-07-03 17:01:09,431 - app.services.image_record_service - INFO - [cleanup_orphan_images] Found 1 orphan images
+2025-07-03 17:01:09,433 - app.services.image_record_service - ERROR - Error deleting image records for record ID 35: greenlet_spawn has not been called; can't call await_only() here. Was IO attempted in an unexpected place? (Background on this error at: https://sqlalche.me/e/20/xd2s)
+2025-07-03 19:34:08,906 - app.main - INFO - Initializing database...
+2025-07-03 19:34:11,745 - app.main - INFO - Database initialized.
+2025-07-03 19:44:15,042 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-03 19:44:15,043 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'foto wedding.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-03 19:44:16,901 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-03 19:44:16,902 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-03 19:44:16.902300+07:00 tzinfo=Asia/Bangkok
+2025-07-03 19:44:16,915 - app.services.face_service - INFO - Original filename: original_20250703194415043963_foto wedding.jpeg
+2025-07-03 19:44:16,971 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703194416916292_foto wedding.jpeg
+2025-07-03 19:44:16,971 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703194416916292_foto wedding.jpeg
+2025-07-03 19:44:16,973 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-03T19:44:16.902300+07:00 for file=foto wedding.jpeg
+2025-07-03 19:44:23,454 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703194415043963_foto wedding.jpeg
+2025-07-03 19:44:23,512 - app.services.face_service - INFO - ImageCount stored for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703194415043963_foto wedding.jpeg
+2025-07-03 19:44:23,513 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703194416916292_foto wedding.jpeg
+2025-07-03 19:44:30,974 - app.services.image_record_service - ERROR - Error deleting image records for record ID 37: name 'func' is not defined
+2025-07-03 19:45:56,896 - app.main - INFO - Shutting down...
+2025-07-03 19:46:05,769 - app.main - INFO - Initializing database...
+2025-07-03 19:46:05,861 - app.main - INFO - Database initialized.
+2025-07-03 19:46:21,748 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-03 19:46:21,749 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'foto wedding.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-03 19:46:23,542 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-03 19:46:23,543 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-03 19:46:23.543660+07:00 tzinfo=Asia/Bangkok
+2025-07-03 19:46:23,552 - app.services.face_service - INFO - Original filename: original_20250703194621749574_foto wedding.jpeg
+2025-07-03 19:46:23,585 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703194623553664_foto wedding.jpeg
+2025-07-03 19:46:23,586 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703194623553664_foto wedding.jpeg
+2025-07-03 19:46:23,587 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-03T19:46:23.543660+07:00 for file=foto wedding.jpeg
+2025-07-03 19:46:26,810 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703194621749574_foto wedding.jpeg
+2025-07-03 19:46:26,842 - app.services.face_service - INFO - ImageCount stored for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703194621749574_foto wedding.jpeg
+2025-07-03 19:46:26,843 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703194623553664_foto wedding.jpeg
+2025-07-03 19:46:39,919 - app.services.image_record_service - INFO - [cleanup_orphan_images] Found 1 orphan images
+2025-07-03 19:46:39,919 - app.services.image_record_service - INFO - [cleanup_orphan_images] Deleting ImageCount for image ID 11
+2025-07-03 19:46:39,920 - app.services.image_record_service - INFO - [cleanup_orphan_images] Deleting orphan image ID 11
+2025-07-03 19:46:39,924 - app.services.image_record_service - INFO - [cleanup_orphan_images] Orphan images deleted and committed
+2025-07-03 19:46:39,929 - app.services.image_record_service - INFO - [cleanup_orphan_images] Found 1 orphan images
+2025-07-03 19:46:39,929 - app.services.image_record_service - INFO - [cleanup_orphan_images] Deleting ImageCount for image ID 14
+2025-07-03 19:46:39,929 - app.services.image_record_service - INFO - [cleanup_orphan_images] Deleting orphan image ID 14
+2025-07-03 19:46:39,931 - app.services.image_record_service - INFO - [cleanup_orphan_images] Orphan images deleted and committed
+2025-07-03 19:46:47,582 - app.services.image_record_service - INFO - [cleanup_orphan_images] Found 1 orphan images
+2025-07-03 19:46:47,582 - app.services.image_record_service - INFO - [cleanup_orphan_images] Deleting ImageCount for image ID 13
+2025-07-03 19:46:47,583 - app.services.image_record_service - INFO - [cleanup_orphan_images] Deleting orphan image ID 13
+2025-07-03 19:46:47,585 - app.services.image_record_service - INFO - [cleanup_orphan_images] Orphan images deleted and committed
+2025-07-03 19:46:48,581 - app.services.image_record_service - INFO - [cleanup_orphan_images] Found 1 orphan images
+2025-07-03 19:46:48,582 - app.services.image_record_service - INFO - [cleanup_orphan_images] Deleting ImageCount for image ID 12
+2025-07-03 19:46:48,582 - app.services.image_record_service - INFO - [cleanup_orphan_images] Deleting orphan image ID 12
+2025-07-03 19:46:48,585 - app.services.image_record_service - INFO - [cleanup_orphan_images] Orphan images deleted and committed
+2025-07-03 19:53:50,607 - app.main - INFO - Shutting down...

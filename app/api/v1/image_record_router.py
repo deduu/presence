@@ -4,7 +4,7 @@ from fastapi import APIRouter, Depends, status
 from sqlalchemy.ext.asyncio import AsyncSession
 from typing import List, Optional
 from datetime import datetime
-from app.schemas.common import ImageRecordCreate, ImageRecordInDB, ImageRecordOut
+from app.schemas.image_record import ImageRecordCreate, ImageRecordInDB, ImageRecordOut
 from app.services.image_record_service import ImageRecordService
 from app.db.base import session_manager
 

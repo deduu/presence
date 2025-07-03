@@ -8,7 +8,9 @@ from pydantic import BaseModel
 from app.db.base import session_manager
 from app.services.face_service import FaceService
 from app.services.image_record_service import ImageRecordService
-from app.schemas.common import FaceOut, ImageRecordOut
+from app.services.image_count_service import ImageCountService
+from app.schemas.common import FaceOut
+from app.schemas.image_record import ImageRecordOut
 
 
 async def get_db_session():
@@ -20,6 +22,10 @@ def get_image_record_service(db: AsyncSession = Depends(get_db_session)):
     return ImageRecordService(db)
 
 
+def get_image_count_service(db: AsyncSession = Depends(get_db_session)):
+    return ImageCountService(db)
+
+
 router = APIRouter()
 
 
@@ -28,8 +34,9 @@ async def svc(
     session: AsyncSession = Depends(get_db_session),
     image_record_service: ImageRecordService = Depends(
         get_image_record_service),
+    image_count_service: ImageCountService = Depends(get_image_count_service),
 ):
-    return FaceService(session, image_record_service)
+    return FaceService(session, image_record_service, image_count_service)
 
 
 # ---- bodies ----

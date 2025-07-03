@@ -17,11 +17,11 @@ from PIL import Image
 # Assuming these imports are correctly configured in your project
 from app.services.base_service import BaseService
 from app.services.image_record_service import ImageRecordService
-from app.db.models.attendance import Face, Person, ImageRecord
-from app.schemas.common import ImageRecordOut
+from app.services.image_count_service import ImageCountService
 
-# Import ImageProcessor (ensure it's accessible, e.g., in the same directory or a common module)
-# Adjust import path as needed
+from app.db.models.attendance import Face, Person, ImageRecord
+from app.schemas.image_record import ImageRecordOut
+
 from app.functions.image_processor import ImageProcessor
 from app.utils.file_store import (
     TEMP_IMAGE_STORAGE_ROOT,
@@ -41,10 +41,11 @@ logger = logging.getLogger(__name__)
 
 
 class FaceService(BaseService):
-    def __init__(self, db: AsyncSession, image_record_service: ImageRecordService):
+    def __init__(self, db: AsyncSession, image_record_service: ImageRecordService, image_count_service: ImageCountService):
         super().__init__(db, Face)
         self.image_processor = ImageProcessor()  # Initialize ImageProcessor
         self.image_record_service = image_record_service  # Store the injected service
+        self.image_count_service = image_count_service
 
     async def get_all_known_faces(self) -> Tuple[List[int], List[np.ndarray]]:
         try:
@@ -271,7 +272,11 @@ class FaceService(BaseService):
     async def records_for_face(self, face_id: int) -> list[ImageRecordOut]:
         stmt = (
             select(ImageRecord)
-            .options(selectinload(ImageRecord.face).selectinload(Face.person))
+            .options(
+                selectinload(ImageRecord.face).selectinload(Face.person),
+
+                selectinload(ImageRecord.image)
+            )
             .where(ImageRecord.face_id == face_id)
             .order_by(ImageRecord.detection_time.desc())
         )
@@ -281,9 +286,9 @@ class FaceService(BaseService):
             ImageRecordOut(
                 record_id=r.record_id,
                 face_id=r.face_id,
-                image_path=r.image_path,
+                image_path=r.image.image_path,  # ✅ From joined Image model
                 image_url=self.image_record_service._get_image_url_from_path(
-                    r.image_path),
+                    r.image.image_path),
                 detection_time=r.detection_time,
                 face_location=json.loads(r.face_location or "[]"),
                 image_width=r.image_width,
@@ -445,7 +450,7 @@ class FaceService(BaseService):
             face_location_str = str(
                 face_locations[i]
             )  # Convert tuple to string for storage
-            image_record = await self.image_record_service.insert_image_record(
+            image_record = await self.image_record_service.insert_image_record_with_image(
                 image_path=image_path,
                 detection_time=detection_time,
                 face_id=matched_face_id,
@@ -721,7 +726,7 @@ class FaceService(BaseService):
                     final_person_id = person_id_from_client
 
                 # Create ImageRecord using ImageRecordService
-                image_record = await self.image_record_service.insert_image_record(
+                image_record = await self.image_record_service.insert_image_record_with_image(
                     image_path=permanent_image_path,  # Use permanent path
                     detection_time=detection_time,
                     face_id=final_face_id,
@@ -753,6 +758,17 @@ class FaceService(BaseService):
                         "message": f"Failed to save face data: {e}",
                     }
                 )
+        #  Store face count using ImageCountService
+        try:
+            await self.image_count_service.insert_or_update_image_count(
+                image_path=permanent_image_path,
+                face_count=len(face_detections_to_save),
+                processed_time=detection_time,
+            )
+            logger.info(f"ImageCount stored for {permanent_image_path}")
+        except Exception as e:
+            logger.warning(
+                f"Failed to store image count for {permanent_image_path}: {e}")
 
         # --- Clean up temporary files after processing all faces for the image ---
         try:

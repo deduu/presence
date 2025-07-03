@@ -1,5 +1,6 @@
 # schemas/face.py
 
+from pydantic import BaseModel
 from pydantic import BaseModel, Field, field_serializer, field_validator
 from datetime import datetime
 from typing import Optional, List
@@ -35,77 +36,28 @@ class FaceOut(BaseModel):
         orm_mode = True
 
 
-# schemas/image_record.py
+# class ImageCountBase(BaseModel):
+#     image_path: str
+#     face_count: int
+#     processed_time: datetime
 
 
-class ImageRecordBase(BaseModel):
-    image_path: str
-    image_url: str
-    face_id: int
-    detection_time: datetime
+# class ImageCountCreate(ImageCountBase):
+#     pass
 
 
-class ImageRecordCreate(ImageRecordBase):
-    pass
+# class ImageCountInDB(ImageCountBase):
+#     image_id: int
+
+#     class Config:
+#         from_attributes = True
 
 
-class ImageRecordInDB(ImageRecordBase):
-    record_id: int
+# class ImageCountOut(BaseModel):
+#     image_id: int
+#     image_path: str
+#     face_count: int
+#     processed_time: datetime
 
-    @field_serializer("detection_time")
-    def ser_dt(self, dt: datetime) -> str:      # <- converts for JSON
-        return dt.isoformat()
-
-    class Config:
-        from_attributes = True
-
-
-class ImageRecordOut(BaseModel):
-    record_id: int
-    face_id: int
-    image_path: str
-    image_url: str
-
-    detection_time: datetime
-    face_location: List[float]
-    image_width: int
-    image_height: int
-    person_name: str | None = None
-    batch_tag: str | None = None
-
-    @field_serializer("detection_time")
-    def ser_dt(self, dt: datetime) -> str:      # <- converts for JSON
-        return dt.isoformat()
-
-    class Config:
-        from_attributes = True
-
-
-# schemas/image_count.py
-
-
-class ImageCountBase(BaseModel):
-    image_path: str
-    face_count: int
-    processed_time: datetime
-
-
-class ImageCountCreate(ImageCountBase):
-    pass
-
-
-class ImageCountInDB(ImageCountBase):
-    image_id: int
-
-    class Config:
-        from_attributes = True
-
-
-class ImageCountOut(BaseModel):
-    image_id: int
-    image_path: str
-    face_count: int
-    processed_time: datetime
-
-    class Config:
-        orm_mode = True
+#     class Config:
+#         orm_mode = True
