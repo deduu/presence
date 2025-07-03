@@ -14,10 +14,19 @@ export default function PersonForm({ onSuccess, initialData = null }) {
   const [imageFile, setImageFile] = useState(null);
 
   const isEditMode = Boolean(initialData);
+
+  const [errorMessage, setErrorMessage] = useState(null);
+
   const { uploadPersonImage } = useUploadPreview();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // --- Validate before sending ---
+    if (form.date_of_birth === "") {
+      setErrorMessage("Please enter a valid date of birth.");
+      return;
+    }
     try {
       let person;
       if (isEditMode) {
@@ -33,16 +42,29 @@ export default function PersonForm({ onSuccess, initialData = null }) {
       onSuccess();
     } catch (err) {
       console.error("Failed to save person", err);
+      if (err.response && err.response.status === 409) {
+        setErrorMessage(
+          "A person with the same name, date of birth, and contact number already exists."
+        );
+      } else {
+        setErrorMessage("An unexpected error occurred. Please try again.");
+      }
     }
   };
   return (
     <form className="space-y-3" onSubmit={handleSubmit}>
+      {errorMessage && (
+        <div className="text-red-600 text-sm bg-red-100 border border-red-300 p-2 rounded">
+          {errorMessage}
+        </div>
+      )}
       {["name", "date_of_birth", "address", "contact_number"].map((f) => (
         <input
           key={f}
           placeholder={f.replace("_", " ").toUpperCase()}
           className="w-full border px-2 py-1"
           type={f === "date_of_birth" ? "date" : "text"}
+          required={f === "date_of_birth"}
           value={form[f] || ""}
           onChange={(e) => setForm({ ...form, [f]: e.target.value })}
         />

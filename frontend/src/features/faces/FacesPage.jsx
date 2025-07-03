@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import FaceAssociateModal from "./FaceAssociateModal";
-import { listFaces, disassociateFace } from "../../services/faceApi";
+import {
+  listFaces,
+  disassociateFace,
+  deleteFace,
+} from "../../services/faceApi";
 export default function FacesPage() {
   const [faces, setFaces] = useState([]);
   const [filter, setFilter] = useState("all");
@@ -14,8 +18,12 @@ export default function FacesPage() {
   useEffect(() => {
     async function fetchData() {
       const res = await listFaces({ filter, person_id: personIdFilter });
-
-      setFaces(res.data);
+      const withCacheKeys = res.data.map((f) => ({
+        ...f,
+        cacheKey: Date.now(), // or f.updated_at if available
+      }));
+      setFaces(withCacheKeys);
+      // setFaces(res.data);
     }
     fetchData().catch(console.error);
   }, [filter]);
@@ -49,7 +57,7 @@ export default function FacesPage() {
                   <img
                     src={`${import.meta.env.VITE_API_BASE_URL}${
                       face.thumbnail_url
-                    }`}
+                    }?v=${face.cacheKey}`}
                     alt="Face"
                     className="object-cover w-full h-full"
                   />
@@ -63,6 +71,16 @@ export default function FacesPage() {
             <div className="mt-2 text-sm font-medium">ID {face.face_id}</div>
             <div className="text-xs text-gray-500">
               {face.person_name || "Anonymous"}
+            </div>
+            <div className="text-xs text-gray-400">
+              First seen:{" "}
+              {face.first_seen
+                ? new Date(face.first_seen).toLocaleString()
+                : "-"}
+            </div>
+            <div className="text-xs text-gray-400">
+              Last seen:{" "}
+              {face.last_seen ? new Date(face.last_seen).toLocaleString() : "-"}
             </div>
 
             <div className="flex gap-1 mt-2">
@@ -96,6 +114,25 @@ export default function FacesPage() {
                   +
                 </button>
               )}
+              <button
+                className="flex-1 bg-gray-700 text-white text-xs rounded"
+                onClick={() => {
+                  if (confirm("Delete this face?")) {
+                    deleteFace(face.face_id)
+                      .then(() => {
+                        setFaces(
+                          faces.filter((f) => f.face_id !== face.face_id)
+                        );
+                      })
+                      .catch((err) => {
+                        alert("Failed to delete face");
+                        console.error(err);
+                      });
+                  }
+                }}
+              >
+                🗑️
+              </button>
             </div>
           </div>
         ))}

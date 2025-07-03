@@ -55,11 +55,12 @@ class ImageRecordService(BaseService):
                 "detection_time": record.detection_time,
                 "image_url": self._get_image_url_from_path(record.image_path),
                 "person_name": person_name or "Anonymous",
+                "batch_tag": record.batch_tag,
             }
             for record, person_name in result.all()
         ]
 
-    async def get_all_joined_filtered(self, person=None, start_time=None, end_time=None):
+    async def get_all_joined_filtered(self, person=None, start_time=None, end_time=None, batch_tag=None):
         stmt = (
             select(ImageRecord, Person.name)
             .join(Face, Face.face_id == ImageRecord.face_id)
@@ -72,6 +73,8 @@ class ImageRecordService(BaseService):
             stmt = stmt.where(ImageRecord.detection_time >= start_time)
         if end_time:
             stmt = stmt.where(ImageRecord.detection_time <= end_time)
+        if batch_tag:
+            stmt = stmt.where(ImageRecord.batch_tag.ilike(f"%{batch_tag}%"))
 
         result = await self.db.execute(stmt)
         return [
@@ -82,10 +85,10 @@ class ImageRecordService(BaseService):
                 "detection_time": record.detection_time,
                 "image_url": self._get_image_url_from_path(record.image_path),
                 "face_location": json.loads(record.face_location or "[0,0,0,0]"),
-
                 "image_width": record.image_width,
                 "image_height": record.image_height,
                 "person_name": person_name or "Anonymous",
+                "batch_tag": record.batch_tag,
             }
             for record, person_name in result.all()
         ]

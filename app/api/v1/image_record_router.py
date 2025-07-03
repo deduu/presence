@@ -31,18 +31,17 @@ async def create_image_record(
         record.image_path, record.face_id, record.detection_time
     )
 
-# In image_record_router.py
-
 
 @router.get("/", response_model=List[ImageRecordOut])
 async def list_image_records(
     person: Optional[str] = None,
     start_time: Optional[datetime] = None,
     end_time: Optional[datetime] = None,
+    batch_tag: Optional[str] = None,
     service: ImageRecordService = Depends(get_image_record_service),
 ):
+    return await service.get_all_joined_filtered(person, start_time, end_time, batch_tag)
 
-    return await service.get_all_joined_filtered(person, start_time, end_time)
 
 # @router.get("/", response_model=List[ImageRecordOut])
 # async def list_image_records(

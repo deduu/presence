@@ -210,6 +210,8 @@ async def upload_images_for_preview(
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST, detail="No files uploaded.")
 
+    logger.info(f"[upload-preview] Received batch_tag={batch_tag}")
+
     processed_files_results = []
 
     # Ensure temporary storage directory exists
@@ -224,6 +226,7 @@ async def upload_images_for_preview(
             "face_detections": [],
             "batch_tag": batch_tag
         }
+        logger.info(f"[upload-preview] Processed file result: {file_result}")
 
         if not file.filename:
             file_result["status"] = "failed"
@@ -297,6 +300,8 @@ async def confirm_and_save_faces(
                             detail="No data provided for saving.")
 
     all_saved_results = []
+    # logger.info(f"[confirm-save] Received data: {data[0]['face_detections']}")
+
     for confirmed_item in data:
         # Call the FaceService method that performs the actual database save
         saved_results_for_item = await face_service.save_confirmed_faces(confirmed_item.model_dump())

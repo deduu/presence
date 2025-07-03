@@ -1,9 +1,10 @@
 import logging
 import os
+from typing import Any
 from .base_service import BaseService
 from sqlalchemy import update
 from fastapi import UploadFile, HTTPException
-
+from sqlalchemy.exc import IntegrityError
 from fastapi import HTTPException
 
 from urllib.parse import urlparse
@@ -15,7 +16,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.db.models.attendance import Person, Face
 from app.schemas.person_schemas import PersonOut
 from app.utils.file_store import save_person_image_async
-from app.utils.file_store import SERVER_IMAGE_STORAGE_ROOT
+from app.utils.file_store import SERVER_IMAGE_STORAGE_ROOT, SERVER_PERSON_IMAGE_ROOT
 from app.services.face_service import FaceService
 
 logger = logging.getLogger(__name__)
@@ -27,6 +28,78 @@ class PeopleService(BaseService):
 
         super().__init__(db, Person)
 
+    async def create(self, schema: Any) -> Any:
+        name = schema.name
+        dob = schema.date_of_birth
+        contact = schema.contact_number
+
+        try:
+            # 1. Same contact number, different name → block
+            stmt = select(Person).where(Person.contact_number == contact)
+            result = await self.db.execute(stmt)
+            person_by_contact = result.scalar_one_or_none()
+            if person_by_contact and person_by_contact.name != name:
+                raise HTTPException(
+                    status_code=409,
+                    detail="This contact number is already used by another person. Please use a different contact number.",
+                )
+
+            # 2. Same name AND contact number → block
+            stmt = select(Person).where(
+                Person.name == name,
+                Person.contact_number == contact
+            )
+            result = await self.db.execute(stmt)
+            if result.scalar_one_or_none():
+                raise HTTPException(
+                    status_code=409,
+                    detail="A person with the same name and contact number already exists.",
+                )
+
+            # 3. Same name AND date of birth → block
+            if dob:
+                stmt = select(Person).where(
+                    Person.name == name,
+                    Person.date_of_birth == dob
+                )
+                result = await self.db.execute(stmt)
+                if result.scalar_one_or_none():
+                    raise HTTPException(
+                        status_code=409,
+                        detail="A person with the same name and date of birth already exists.",
+                    )
+
+            # 4. Same contact number AND date of birth → block
+            if dob:
+                stmt = select(Person).where(
+                    Person.contact_number == contact,
+                    Person.date_of_birth == dob
+                )
+                result = await self.db.execute(stmt)
+                if result.scalar_one_or_none():
+                    raise HTTPException(
+                        status_code=409,
+                        detail="A person with the same contact number and date of birth already exists.",
+                    )
+
+            # ✅ Passed all checks — proceed with creation
+            return await super().create(schema)
+
+        except HTTPException:
+            raise
+        except IntegrityError:
+            await self.db.rollback()
+            logger.warning(
+                f"Integrity error while creating {self.model.__name__}")
+            raise HTTPException(
+                status_code=409, detail="Duplicate person record")
+        except Exception as e:
+            await self.db.rollback()
+            logger.error(
+                f"Unexpected error while creating {self.model.__name__}: {e}")
+            raise HTTPException(
+                status_code=500, detail="Internal Server Error")
+
     async def delete(self, person_id: int) -> bool:
         person = await self.get_by_id(person_id)
 
@@ -37,9 +110,9 @@ class PeopleService(BaseService):
                 parsed = urlparse(person.image_path)
                 # E.g., "/public_images/people/abc.jpg" → "app_data/permanent_images/people/abc.jpg"
                 relative_path = parsed.path.replace(
-                    "/public_images", "").lstrip("/")
+                    "/public/people/images", "").lstrip("/")
                 file_path = os.path.join(
-                    SERVER_IMAGE_STORAGE_ROOT, relative_path)
+                    SERVER_PERSON_IMAGE_ROOT, relative_path)
 
                 abs_path = os.path.abspath(file_path)
                 if os.path.exists(abs_path):

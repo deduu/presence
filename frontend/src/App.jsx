@@ -8,6 +8,7 @@ import FacesPage from "./features/faces/FacesPage";
 import ImageRecordsPage from "./features/imageRecords/ImageRecordsPage";
 import ImageCountsPage from "./features/imageCounts/ImageCountsPage";
 import PersonDetailPage from "./features/people/PersonDetailPage";
+import FaceDetailPage from "./features/faces/FaceDetailPage";
 // import ReportsPage from "./features/ReportsPage";
 
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
           <Route path="/image-records" element={<ImageRecordsPage />} />
           <Route path="/image-counts" element={<ImageCountsPage />} />
           <Route path="/people/:id" element={<PersonDetailPage />} />
+          <Route path="/faces/:face_id" element={<FaceDetailPage />} />
           {/* <Route path="/reports" element={<ReportsPage />} /> */}
         </Routes>
       </main>

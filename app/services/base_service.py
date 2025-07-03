@@ -9,6 +9,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 class BaseService:
     def __init__(self, db: AsyncSession, model: Type[Any]):
         self.db = db
@@ -27,10 +28,11 @@ class BaseService:
                 )
             return item
         except Exception as e:
-            logger.error(f"Error fetching {self.model.__name__} by ID {item_id}: {e}")
+            logger.error(
+                f"Error fetching {self.model.__name__} by ID {item_id}: {e}")
             raise
 
-    async def list(self, filters:Dict= None)-> List[Any]:
+    async def list(self, filters: Dict = None) -> List[Any]:
         try:
             stmt = select(self.model)
             if filters:
@@ -41,16 +43,18 @@ class BaseService:
         except Exception as e:
             logger.error(f"Error fetching {self.model.__name__}: {e}")
             raise
-    
-    async def get (self, obj_id: int) -> Any:
+
+    async def get(self, obj_id: int) -> Any:
         try:
             res = await self.db.get(self.model, obj_id)
-            if not res: raise ValueError(f"{self.model.__name__} {obj_id} not found")
+            if not res:
+                raise ValueError(f"{self.model.__name__} {obj_id} not found")
             return res
         except Exception as e:
-            logger.error(f"Error fetching {self.model.__name__} by ID {obj_id}: {e}")
+            logger.error(
+                f"Error fetching {self.model.__name__} by ID {obj_id}: {e}")
             raise
-        
+
     async def get_all(self, skip: int = 0, limit: int = 100) -> List[Any]:
         try:
             stmt = select(self.model).offset(skip).limit(limit)
@@ -69,11 +73,13 @@ class BaseService:
             return obj
         except IntegrityError:
             await self.db.rollback()
-            logger.warning(f"Integrity error while creating {self.model.__name__}")
+            logger.warning(
+                f"Integrity error while creating {self.model.__name__}")
             raise HTTPException(status_code=400, detail="Integrity error")
         except Exception as e:
             await self.db.rollback()
-            logger.error(f"Unexpected error while creating {self.model.__name__}: {e}")
+            logger.error(
+                f"Unexpected error while creating {self.model.__name__}: {e}")
             raise HTTPException(status_code=500, detail=str(e))
 
     async def update(self, item_id: int, schema: Any) -> Any:
@@ -87,11 +93,14 @@ class BaseService:
             return obj
         except IntegrityError:
             await self.db.rollback()
-            logger.warning(f"Integrity error while updating {self.model.__name__} with ID {item_id}")
-            raise HTTPException(status_code=400, detail="Update failed due to constraint violation")
+            logger.warning(
+                f"Integrity error while updating {self.model.__name__} with ID {item_id}")
+            raise HTTPException(
+                status_code=400, detail="Update failed due to constraint violation")
         except Exception as e:
             await self.db.rollback()
-            logger.error(f"Unexpected error while updating {self.model.__name__} with ID {item_id}: {e}")
+            logger.error(
+                f"Unexpected error while updating {self.model.__name__} with ID {item_id}: {e}")
             raise HTTPException(status_code=500, detail=str(e))
 
     async def delete(self, item_id: int) -> bool:
@@ -102,8 +111,10 @@ class BaseService:
             return True
         except Exception as e:
             await self.db.rollback()
-            logger.error(f"Failed to delete {self.model.__name__} with ID {item_id}: {e}")
-            raise HTTPException(status_code=500, detail=f"Failed to delete {self.model.__name__}: {e}")
+            logger.error(
+                f"Failed to delete {self.model.__name__} with ID {item_id}: {e}")
+            raise HTTPException(
+                status_code=500, detail=f"Failed to delete {self.model.__name__}: {e}")
 
     async def filter_by(self, filters: Dict[str, Union[str, int, float]]) -> List[Any]:
         try:
@@ -113,5 +124,6 @@ class BaseService:
             result = await self.db.execute(stmt)
             return result.scalars().all()
         except Exception as e:
-            logger.error(f"Error filtering {self.model.__name__} with filters {filters}: {e}")
+            logger.error(
+                f"Error filtering {self.model.__name__} with filters {filters}: {e}")
             raise

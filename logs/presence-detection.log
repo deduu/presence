@@ -606,3 +606,500 @@
 2025-07-01 22:02:13,027 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-01T22:02:12.996700+07:00 for file=foto wedding.jpeg
 2025-07-01 22:02:21,404 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250701220211468347_foto wedding.jpeg
 2025-07-01 22:02:21,418 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250701220213002010_foto wedding.jpeg
+2025-07-02 09:33:18,077 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=Ku3
+2025-07-02 09:33:18,079 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'foto wedding.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': 'Ku3'}
+2025-07-02 09:33:19,998 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-02 09:33:19,999 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-02 09:33:19.998037+07:00 tzinfo=Asia/Bangkok
+2025-07-02 09:33:20,012 - app.services.face_service - INFO - Original filename: original_20250702093318080197_foto wedding.jpeg
+2025-07-02 09:33:20,077 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702093320012099_foto wedding.jpeg
+2025-07-02 09:33:20,078 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702093320012099_foto wedding.jpeg
+2025-07-02 09:33:20,079 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-02T09:33:19.998037+07:00 for file=foto wedding.jpeg
+2025-07-02 09:33:26,110 - app.api.v1.file_router - INFO - [confirm-save] Received data: [ConfirmSaveRequest(original_image_path_server='C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\temp_images\\original_20250702093318080197_foto wedding.jpeg', preview_image_path_server='C:\\Users\\HiDigi\\OneDrive\\Desktop\\WebDev\\FacialRecognition\\app_data\\temp_images\\preview_20250702093320012099_foto wedding.jpeg', detection_time='2025-07-02T09:33:19.998037+07:00', face_detections=[{'face_index': 0, 'suggested_face_id': 10, 'suggested_person_name': 'Evan Lysandra', 'is_new_face_candidate': False, 'face_location': [582, 665, 689, 557], 'face_encoding': [-0.09356160461902618, 0.11831045895814896, 0.0039033093489706516, -0.0839310809969902, -0.1769781857728958, -0.02517963945865631, -0.08188515901565552, -0.15781019628047943, 0.12565810978412628, -0.12391860783100128, 0.17591972649097443, -0.11268732696771622, -0.23237654566764832, -0.03349979966878891, -0.10209691524505615, 0.23478901386260986, -0.15827131271362305, -0.1820230334997177, -0.02363840490579605, -0.027536947280168533, 0.12899695336818695, -0.022594379261136055, -0.0321182943880558, 0.11481249332427979, -0.09410074353218079, -0.28035852313041687, -0.13221514225006104, 0.023197975009679794, -0.04798920825123787, -0.1274963766336441, -0.027115877717733383, 0.12113602459430695, -0.23695127665996552, -0.021862981840968132, -0.00822111964225769, 0.17022491991519928, 0.004335967358201742, -0.11046372354030609, 0.10000662505626678, 0.003245464526116848, -0.2720140516757965, 0.06481307744979858, 0.11478668451309204, 0.2212715595960617, 0.13441170752048492, 0.0010577760403975844, -0.02547205053269863, -0.18301254510879517, 0.07050532847642899, -0.1263546347618103, 0.0762377381324768, 0.1761385053396225, 0.062476497143507004, 0.07255258411169052, -0.022489134222269058, -0.12870466709136963, 0.055510811507701874, 0.11645984649658203, -0.15489459037780762, -0.044914040714502335, 0.15945301949977875, -0.09886129200458527, -0.006873673293739557, -0.21863946318626404, 0.19119031727313995, 0.14092054963111877, -0.0728626400232315, -0.2312530279159546, 0.13329404592514038, -0.14996443688869476, -0.11717186123132706, 0.09861402958631516, -0.13003109395503998, -0.15993472933769226, -0.3076535165309906, 0.03403310477733612, 0.36559510231018066, 0.15316498279571533, -0.1460966318845749, 0.06513390690088272, -0.008590074256062508, -0.058472342789173126, 0.06817828118801117, 0.17494432628154755, 0.018313908949494362, 0.06200499087572098, -0.0879259929060936, 0.08144989609718323, 0.23222987353801727, -0.0323861688375473, -0.003036605194211006, 0.2297951877117157, 0.01780286245048046, 0.04114197939634323, 0.01329260878264904, 0.02656896971166134, -0.08550867438316345, 0.0635366216301918, -0.14832819998264313, -0.00946667417883873, -0.062152355909347534, -0.0424300953745842, -0.06566591560840607, 0.09120497852563858, -0.08798933029174805, 0.12170790880918503, 0.009322553873062134, 0.0009485958144068718, -0.0875350832939148, -0.02724594622850418, -0.1096673533320427, -0.03862135857343674, 0.1368376463651657, -0.23386076092720032, 0.17875219881534576, 0.10886015743017197, 0.10216698050498962, 0.08124381303787231, 0.13397850096225739, 0.18663454055786133, -0.011412926949560642, -0.12203202396631241, -0.21685481071472168, 0.023422356694936752, 0.16775795817375183, -0.097234807908535, 0.09907366335391998, 0.04423806816339493], 'image_width': 1066, 'image_height': 1600, 'batch_tag': 'Ku3'}, {'face_index': 1, 'suggested_face_id': 9, 'suggested_person_name': 'Dedy Ariansyah', 'is_new_face_candidate': False, 'face_location': [712, 526, 841, 397], 'face_encoding': [-0.1072390004992485, 0.06961607933044434, -0.03868839144706726, -0.022046785801649094, -0.11710648238658905, -0.10055022686719894, -0.029660962522029877, -0.13609343767166138, 0.11401750892400742, -0.06077592074871063, 0.25176241993904114, -0.059688374400138855, -0.20515823364257812, -0.09730619192123413, -0.046884238719940186, 0.1980673223733902, -0.2404787540435791, -0.0881350189447403, -0.062378279864788055, -0.04099642112851143, 0.07302165776491165, -0.04445763677358627, 0.01910489983856678, 0.05768603831529617, -0.10839632153511047, -0.3508714735507965, -0.05680707097053528, -0.13847295939922333, 0.009116506204009056, -0.021961720660328865, 0.006298854481428862, 0.06818459182977676, -0.18020223081111908, -0.09846625477075577, 0.027447279542684555, 0.09427771717309952, -0.02576921135187149, -0.028849152848124504, 0.1933743804693222, -0.03008660301566124, -0.2195490598678589, -0.01807677373290062, 0.05563779175281525, 0.25636979937553406, 0.16789871454238892, 0.05224800109863281, 0.051795054227113724, -0.10474896430969238, 0.12540951371192932, -0.19850410521030426, 0.014681735076010227, 0.1137392520904541, 0.07700929790735245, 0.050290245562791824, -0.0035576410591602325, -0.11510211229324341, 0.06710201501846313, 0.11740472912788391, -0.21060830354690552, -0.0016311716753989458, 0.12451894581317902, -0.09718722105026245, -0.000652075745165348, -0.05176033079624176, 0.3171076774597168, 0.07469042390584946, -0.15292829275131226, -0.07271101325750351, 0.13058096170425415, -0.12928512692451477, -0.0789760872721672, -0.014499783515930176, -0.1374354213476181, -0.20658056437969208, -0.3852453827857971, 0.03296784684062004, 0.42225244641304016, 0.08169251680374146, -0.13993243873119354, 0.03650270402431488, -0.06143307313323021, -0.01054295152425766, 0.16979727149009705, 0.14656174182891846, -0.0031519848853349686, -0.010536749847233295, -0.09200980514287949, 0.019625794142484665, 0.205721914768219, -0.08973608165979385, -0.03683758154511452, 0.18914036452770233, -0.0398622527718544, 0.062240902334451675, 0.006081712897866964, 0.06690538674592972, -0.08262698352336884, 0.055384937673807144, -0.08212290704250336, 0.0705975890159607, 0.06462171673774719, -0.057484909892082214, 0.02408657968044281, 0.07333492487668991, -0.11022390425205231, 0.0624416247010231, -0.008426569402217865, 0.044611379504203796, 0.002245049923658371, -0.03833809122443199, -0.12789586186408997, -0.0892784520983696, 0.12507104873657227, -0.21962900459766388, 0.2818884253501892, 0.1879139095544815, 0.025906069204211235, 0.13720937073230743, 0.10815708339214325, 0.042700499296188354, -0.014524650759994984, -0.025754649192094803, -0.21674169600009918, -0.017674550414085388, 0.1102013811469078, -0.02793312631547451, 0.09388432651758194, 0.009572139009833336], 'image_width': 1066, 'image_height': 1600, 'batch_tag': 'Ku3'}], batch_tag=None)]
+2025-07-02 09:33:26,116 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250702093318080197_foto wedding.jpeg
+2025-07-02 09:33:26,143 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702093320012099_foto wedding.jpeg
+2025-07-02 09:38:00,993 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-02 09:38:00,994 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'foto wedding.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-02 09:38:02,591 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-02 09:38:02,593 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-02 09:38:02.593145+07:00 tzinfo=Asia/Bangkok
+2025-07-02 09:38:02,600 - app.services.face_service - INFO - Original filename: original_20250702093800994337_foto wedding.jpeg
+2025-07-02 09:38:02,632 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702093802601155_foto wedding.jpeg
+2025-07-02 09:38:02,633 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702093802601155_foto wedding.jpeg
+2025-07-02 09:38:02,635 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-02T09:38:02.593145+07:00 for file=foto wedding.jpeg
+2025-07-02 09:39:10,122 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=Ku2
+2025-07-02 09:39:10,123 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'foto wedding.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': 'Ku2'}
+2025-07-02 09:39:11,902 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-02 09:39:11,902 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-02 09:39:11.902942+07:00 tzinfo=Asia/Bangkok
+2025-07-02 09:39:12,005 - app.services.face_service - INFO - Original filename: original_20250702093910123225_foto wedding.jpeg
+2025-07-02 09:39:12,044 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702093912005200_foto wedding.jpeg
+2025-07-02 09:39:12,044 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702093912005200_foto wedding.jpeg
+2025-07-02 09:39:12,046 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-02T09:39:11.902942+07:00 for file=foto wedding.jpeg
+2025-07-02 09:39:36,565 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=Ku2
+2025-07-02 09:39:36,566 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'foto wedding.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': 'Ku2'}
+2025-07-02 09:39:38,182 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-02 09:39:38,183 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-02 09:39:38.183252+07:00 tzinfo=Asia/Bangkok
+2025-07-02 09:39:38,271 - app.services.face_service - INFO - Original filename: original_20250702093936567545_foto wedding.jpeg
+2025-07-02 09:39:38,304 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702093938272507_foto wedding.jpeg
+2025-07-02 09:39:38,304 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702093938272507_foto wedding.jpeg
+2025-07-02 09:39:38,305 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-02T09:39:38.183252+07:00 for file=foto wedding.jpeg
+2025-07-02 09:39:40,455 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250702093936567545_foto wedding.jpeg
+2025-07-02 09:39:40,472 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702093938272507_foto wedding.jpeg
+2025-07-02 09:41:10,380 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=Ku2
+2025-07-02 09:41:10,381 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'WhatsApp Image 2025-03-06 at 19.44.58.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': 'Ku2'}
+2025-07-02 09:41:11,695 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-02 09:41:11,696 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-02 09:41:11.696330+07:00 tzinfo=Asia/Bangkok
+2025-07-02 09:41:11,698 - app.services.face_service - INFO - Original filename: original_20250702094110381759_WhatsApp Image 2025-03-06 at 19.44.58.jpeg
+2025-07-02 09:41:11,727 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702094111699477_WhatsApp Image 2025-03-06 at 19.44.58.jpeg
+2025-07-02 09:41:11,727 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702094111699477_WhatsApp Image 2025-03-06 at 19.44.58.jpeg
+2025-07-02 09:41:11,728 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-02T09:41:11.696330+07:00 for file=WhatsApp Image 2025-03-06 at 19.44.58.jpeg
+2025-07-02 09:41:17,162 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250702094110381759_WhatsApp Image 2025-03-06 at 19.44.58.jpeg
+2025-07-02 09:41:17,189 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702094111699477_WhatsApp Image 2025-03-06 at 19.44.58.jpeg
+2025-07-02 11:33:26,924 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=Ku2
+2025-07-02 11:33:26,928 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'WhatsApp Image 2025-03-06 at 19.44.58.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': 'Ku2'}
+2025-07-02 11:33:28,430 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-02 11:33:28,431 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-02 11:33:28.430298+07:00 tzinfo=Asia/Bangkok
+2025-07-02 11:33:28,441 - app.services.face_service - INFO - Original filename: original_20250702113326928000_WhatsApp Image 2025-03-06 at 19.44.58.jpeg
+2025-07-02 11:33:28,499 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702113328442176_WhatsApp Image 2025-03-06 at 19.44.58.jpeg
+2025-07-02 11:33:28,499 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702113328442176_WhatsApp Image 2025-03-06 at 19.44.58.jpeg
+2025-07-02 11:33:28,500 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-02T11:33:28.430298+07:00 for file=WhatsApp Image 2025-03-06 at 19.44.58.jpeg
+2025-07-02 11:33:48,816 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250702113326928000_WhatsApp Image 2025-03-06 at 19.44.58.jpeg
+2025-07-02 11:33:48,840 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702113328442176_WhatsApp Image 2025-03-06 at 19.44.58.jpeg
+2025-07-02 11:39:25,372 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-02 11:39:25,373 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'WhatsApp Image 2025-03-06 at 19.44.58.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-02 11:39:26,736 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-02 11:39:26,736 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-02 11:39:26.736767+07:00 tzinfo=Asia/Bangkok
+2025-07-02 11:39:26,741 - app.services.face_service - INFO - Original filename: original_20250702113925374127_WhatsApp Image 2025-03-06 at 19.44.58.jpeg
+2025-07-02 11:39:26,767 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702113926741763_WhatsApp Image 2025-03-06 at 19.44.58.jpeg
+2025-07-02 11:39:26,768 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702113926741763_WhatsApp Image 2025-03-06 at 19.44.58.jpeg
+2025-07-02 11:39:26,769 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-02T11:39:26.736767+07:00 for file=WhatsApp Image 2025-03-06 at 19.44.58.jpeg
+2025-07-02 11:39:36,101 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250702113925374127_WhatsApp Image 2025-03-06 at 19.44.58.jpeg
+2025-07-02 11:39:36,109 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702113926741763_WhatsApp Image 2025-03-06 at 19.44.58.jpeg
+2025-07-02 12:00:50,317 - app.services.face_service - ERROR - Original temp file not found: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\original_20250702113925374127_WhatsApp Image 2025-03-06 at 19.44.58.jpeg
+2025-07-02 12:01:12,324 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-02 12:01:12,325 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'PHR03.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-02 12:01:13,791 - app.functions.image_processor - INFO - Detected 3 face(s).
+2025-07-02 12:01:13,792 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-02 12:01:13.792396+07:00 tzinfo=Asia/Bangkok
+2025-07-02 12:01:13,800 - app.services.face_service - INFO - Original filename: original_20250702120112325336_PHR03.jpeg
+2025-07-02 12:01:13,812 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702120113800412_PHR03.jpeg
+2025-07-02 12:01:13,813 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702120113800412_PHR03.jpeg
+2025-07-02 12:01:13,814 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-02T12:01:13.792396+07:00 for file=PHR03.jpeg
+2025-07-02 12:01:50,318 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-02 12:01:50,318 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'foto wedding.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-02 12:01:51,898 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-02 12:01:51,899 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-02 12:01:51.899219+07:00 tzinfo=Asia/Bangkok
+2025-07-02 12:01:51,904 - app.services.face_service - INFO - Original filename: original_20250702120150318614_foto wedding.jpeg
+2025-07-02 12:01:51,930 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702120151904217_foto wedding.jpeg
+2025-07-02 12:01:51,930 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702120151904217_foto wedding.jpeg
+2025-07-02 12:01:51,931 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-02T12:01:51.899219+07:00 for file=foto wedding.jpeg
+2025-07-02 12:02:00,828 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-02 12:02:00,829 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'WhatsApp Image 2025-03-06 at 19.44.58.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-02 12:02:02,141 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-02 12:02:02,142 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-02 12:02:02.142033+07:00 tzinfo=Asia/Bangkok
+2025-07-02 12:02:02,145 - app.services.face_service - INFO - Original filename: original_20250702120200829306_WhatsApp Image 2025-03-06 at 19.44.58.jpeg
+2025-07-02 12:02:02,174 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702120202146568_WhatsApp Image 2025-03-06 at 19.44.58.jpeg
+2025-07-02 12:02:02,175 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702120202146568_WhatsApp Image 2025-03-06 at 19.44.58.jpeg
+2025-07-02 12:02:02,176 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-02T12:02:02.142033+07:00 for file=WhatsApp Image 2025-03-06 at 19.44.58.jpeg
+2025-07-02 12:02:14,259 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250702120200829306_WhatsApp Image 2025-03-06 at 19.44.58.jpeg
+2025-07-02 12:02:14,267 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702120202146568_WhatsApp Image 2025-03-06 at 19.44.58.jpeg
+2025-07-02 12:04:12,270 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-02 12:04:12,271 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'PHR03.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-02 12:04:13,741 - app.functions.image_processor - INFO - Detected 3 face(s).
+2025-07-02 12:04:13,742 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-02 12:04:13.742419+07:00 tzinfo=Asia/Bangkok
+2025-07-02 12:04:13,748 - app.services.face_service - INFO - Original filename: original_20250702120412271597_PHR03.jpeg
+2025-07-02 12:04:13,759 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702120413748418_PHR03.jpeg
+2025-07-02 12:04:13,759 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702120413748418_PHR03.jpeg
+2025-07-02 12:04:13,760 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-02T12:04:13.742419+07:00 for file=PHR03.jpeg
+2025-07-02 12:04:29,071 - app.services.people_service - WARNING - Image file not found for deletion: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\public\people\images\people\2\08bce891adfc4915b9d6fed04c317367.png
+2025-07-02 12:04:46,179 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-02 12:04:46,180 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'foto wedding.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-02 12:04:47,813 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-02 12:04:47,814 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-02 12:04:47.814527+07:00 tzinfo=Asia/Bangkok
+2025-07-02 12:04:47,819 - app.services.face_service - INFO - Original filename: original_20250702120446180878_foto wedding.jpeg
+2025-07-02 12:04:47,844 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702120447820398_foto wedding.jpeg
+2025-07-02 12:04:47,844 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702120447820398_foto wedding.jpeg
+2025-07-02 12:04:47,846 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-02T12:04:47.814527+07:00 for file=foto wedding.jpeg
+2025-07-02 13:04:23,514 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-02 13:04:23,516 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'najwa_first_frame.png', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-02 13:04:24,397 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-02 13:04:24,397 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-02 13:04:24.397078+07:00 tzinfo=Asia/Bangkok
+2025-07-02 13:04:24,401 - app.services.face_service - INFO - Original filename: original_20250702130423516361_najwa_first_frame.png
+2025-07-02 13:04:24,416 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702130424401097_frame.png
+2025-07-02 13:04:24,416 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702130424401097_frame.png
+2025-07-02 13:04:24,417 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-02T13:04:24.397078+07:00 for file=najwa_first_frame.png
+2025-07-02 13:05:01,389 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-02 13:05:01,390 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'najwa_first_frame.png', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-02 13:05:02,215 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-02 13:05:02,215 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-02 13:05:02.215396+07:00 tzinfo=Asia/Bangkok
+2025-07-02 13:05:02,304 - app.services.face_service - INFO - Original filename: original_20250702130501390089_najwa_first_frame.png
+2025-07-02 13:05:02,321 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702130502305944_frame.png
+2025-07-02 13:05:02,322 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702130502305944_frame.png
+2025-07-02 13:05:02,323 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-02T13:05:02.215396+07:00 for file=najwa_first_frame.png
+2025-07-02 13:05:08,300 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250702130501390089_najwa_first_frame.png
+2025-07-02 13:05:08,317 - app.services.face_service - ERROR - Error inserting new face: too many values to unpack (expected 4)
+2025-07-02 13:05:08,318 - app.services.face_service - ERROR - Error saving confirmed face data for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\original_20250702130501390089_najwa_first_frame.png: too many values to unpack (expected 4)
+2025-07-02 13:05:08,319 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702130502305944_frame.png
+2025-07-02 13:09:04,505 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-02 13:09:04,506 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'najwa_first_frame.png', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-02 13:09:05,329 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-02 13:09:05,329 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-02 13:09:05.329633+07:00 tzinfo=Asia/Bangkok
+2025-07-02 13:09:05,332 - app.services.face_service - INFO - Original filename: original_20250702130904506961_najwa_first_frame.png
+2025-07-02 13:09:05,352 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702130905333693_frame.png
+2025-07-02 13:09:05,352 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702130905333693_frame.png
+2025-07-02 13:09:05,353 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-02T13:09:05.329633+07:00 for file=najwa_first_frame.png
+2025-07-02 13:09:07,609 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250702130904506961_najwa_first_frame.png
+2025-07-02 13:09:07,615 - app.services.face_service - INFO - Saving face crop for face 13
+2025-07-02 13:09:07,629 - app.services.face_service - ERROR - Error inserting new face: too many values to unpack (expected 4)
+2025-07-02 13:09:07,630 - app.services.face_service - ERROR - Error saving confirmed face data for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\original_20250702130904506961_najwa_first_frame.png: too many values to unpack (expected 4)
+2025-07-02 13:09:07,631 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702130905333693_frame.png
+2025-07-02 13:19:35,866 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-02 13:19:35,866 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'najwa_first_frame.png', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-02 13:19:36,717 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-02 13:19:36,717 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-02 13:19:36.717914+07:00 tzinfo=Asia/Bangkok
+2025-07-02 13:19:36,722 - app.services.face_service - INFO - Original filename: original_20250702131935867482_najwa_first_frame.png
+2025-07-02 13:19:36,739 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702131936722013_frame.png
+2025-07-02 13:19:36,739 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702131936722013_frame.png
+2025-07-02 13:19:36,740 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-02T13:19:36.717914+07:00 for file=najwa_first_frame.png
+2025-07-02 13:19:39,381 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250702131935867482_najwa_first_frame.png
+2025-07-02 13:19:39,390 - app.services.face_service - ERROR - Error inserting new face: string indices must be integers
+2025-07-02 13:19:39,391 - app.services.face_service - ERROR - Error saving confirmed face data for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\original_20250702131935867482_najwa_first_frame.png: string indices must be integers
+2025-07-02 13:19:39,391 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702131936722013_frame.png
+2025-07-02 13:21:35,938 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-02 13:21:35,938 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'najwa_first_frame.png', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-02 13:21:36,803 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-02 13:21:36,803 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-02 13:21:36.803915+07:00 tzinfo=Asia/Bangkok
+2025-07-02 13:21:36,807 - app.services.face_service - INFO - Original filename: original_20250702132135939247_najwa_first_frame.png
+2025-07-02 13:21:36,827 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702132136807916_frame.png
+2025-07-02 13:21:36,827 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702132136807916_frame.png
+2025-07-02 13:21:36,828 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-02T13:21:36.803915+07:00 for file=najwa_first_frame.png
+2025-07-02 13:21:38,833 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250702132135939247_najwa_first_frame.png
+2025-07-02 13:21:38,839 - app.services.face_service - ERROR - Error inserting new face: string indices must be integers
+2025-07-02 13:21:38,840 - app.services.face_service - ERROR - Error saving confirmed face data for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\original_20250702132135939247_najwa_first_frame.png: string indices must be integers
+2025-07-02 13:21:38,841 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702132136807916_frame.png
+2025-07-02 13:25:29,273 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-02 13:25:29,274 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'najwa_first_frame.png', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-02 13:25:30,153 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-02 13:25:30,154 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-02 13:25:30.154783+07:00 tzinfo=Asia/Bangkok
+2025-07-02 13:25:30,157 - app.services.face_service - INFO - Original filename: original_20250702132529274641_najwa_first_frame.png
+2025-07-02 13:25:30,175 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702132530157787_frame.png
+2025-07-02 13:25:30,175 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702132530157787_frame.png
+2025-07-02 13:25:30,177 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-02T13:25:30.154783+07:00 for file=najwa_first_frame.png
+2025-07-02 13:25:31,864 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250702132529274641_najwa_first_frame.png
+2025-07-02 13:25:31,871 - app.services.face_service - INFO - Face location: [125, 712, 254, 583]
+2025-07-02 13:25:31,871 - app.services.face_service - INFO - Saving face crop for face 16
+2025-07-02 13:25:31,885 - app.services.face_service - ERROR - Error inserting new face: too many values to unpack (expected 4)
+2025-07-02 13:25:31,886 - app.services.face_service - ERROR - Error saving confirmed face data for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\original_20250702132529274641_najwa_first_frame.png: too many values to unpack (expected 4)
+2025-07-02 13:25:31,887 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702132530157787_frame.png
+2025-07-02 13:30:22,984 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-02 13:30:22,985 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'najwa_first_frame.png', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-02 13:30:23,840 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-02 13:30:23,841 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-02 13:30:23.841528+07:00 tzinfo=Asia/Bangkok
+2025-07-02 13:30:23,844 - app.services.face_service - INFO - Original filename: original_20250702133022986950_najwa_first_frame.png
+2025-07-02 13:30:23,862 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702133023845925_frame.png
+2025-07-02 13:30:23,863 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702133023845925_frame.png
+2025-07-02 13:30:23,864 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-02T13:30:23.841528+07:00 for file=najwa_first_frame.png
+2025-07-02 13:30:25,794 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250702133022986950_najwa_first_frame.png
+2025-07-02 13:30:25,801 - app.services.face_service - INFO - [insert_new_face] Face inserted with ID: 17
+2025-07-02 13:30:25,801 - app.services.face_service - INFO - [insert_new_face] Face location (raw): [125, 712, 254, 583] | type=<class 'str'>
+2025-07-02 13:30:25,801 - app.services.face_service - INFO - [insert_new_face] Preparing to save face crop for face_id 17
+2025-07-02 13:30:25,814 - app.services.face_service - ERROR - [insert_new_face] Failed during cropping/saving: face_location is not list/tuple: <class 'str'>
+2025-07-02 13:30:25,815 - app.services.face_service - ERROR - [insert_new_face] Error inserting new face: face_location is not list/tuple: <class 'str'>
+2025-07-02 13:30:25,816 - app.services.face_service - ERROR - Error saving confirmed face data for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\original_20250702133022986950_najwa_first_frame.png: face_location is not list/tuple: <class 'str'>
+2025-07-02 13:30:25,816 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702133023845925_frame.png
+2025-07-02 13:32:20,594 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-02 13:32:20,595 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'najwa_first_frame.png', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-02 13:32:21,549 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-02 13:32:21,549 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-02 13:32:21.549913+07:00 tzinfo=Asia/Bangkok
+2025-07-02 13:32:21,553 - app.services.face_service - INFO - Original filename: original_20250702133220596508_najwa_first_frame.png
+2025-07-02 13:32:21,576 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702133221553453_frame.png
+2025-07-02 13:32:21,576 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702133221553453_frame.png
+2025-07-02 13:32:21,577 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-02T13:32:21.549913+07:00 for file=najwa_first_frame.png
+2025-07-02 13:32:23,699 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250702133220596508_najwa_first_frame.png
+2025-07-02 13:32:23,708 - app.services.face_service - INFO - [insert_new_face] Face inserted with ID: 18
+2025-07-02 13:32:23,708 - app.services.face_service - INFO - [insert_new_face] Face location (raw): [125, 712, 254, 583] | type=<class 'list'>
+2025-07-02 13:32:23,709 - app.services.face_service - INFO - [insert_new_face] Preparing to save face crop for face_id 18
+2025-07-02 13:32:23,729 - app.services.face_service - INFO - [insert_new_face] Saved face crop at: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\face_crops\face_18.jpg
+2025-07-02 13:32:23,730 - app.services.face_service - INFO - New face detected: <app.db.models.attendance.Face object at 0x0000025B0D97D1B0>
+2025-07-02 13:32:23,737 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702133221553453_frame.png
+2025-07-02 13:42:19,389 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-02 13:42:34,755 - app.services.face_service - INFO - Face ID 19 disassociated.
+2025-07-02 13:43:31,682 - app.services.face_service - INFO - Face ID 18 associated with Person ID 4.
+2025-07-02 13:43:44,568 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-02 13:43:44,570 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'najwa_first_frame.png', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-02 13:43:45,483 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-02 13:43:45,483 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-02 13:43:45.483752+07:00 tzinfo=Asia/Bangkok
+2025-07-02 13:43:45,490 - app.services.face_service - INFO - Original filename: original_20250702134344570022_najwa_first_frame.png
+2025-07-02 13:43:45,503 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702134345491407_frame.png
+2025-07-02 13:43:45,503 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702134345491407_frame.png
+2025-07-02 13:43:45,504 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-02T13:43:45.483752+07:00 for file=najwa_first_frame.png
+2025-07-02 14:00:00,122 - app.services.people_service - WARNING - Image file not found for deletion: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\public\people\images\people\4\49d4c8ef380340e9b10bf08fc4ebd037.png
+2025-07-02 14:54:00,282 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-02 14:54:00,283 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'foto wedding.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-02 14:54:02,094 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-02 14:54:02,095 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-02 14:54:02.095760+07:00 tzinfo=Asia/Bangkok
+2025-07-02 14:54:02,104 - app.services.face_service - INFO - Original filename: original_20250702145400283038_foto wedding.jpeg
+2025-07-02 14:54:02,156 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702145402105654_foto wedding.jpeg
+2025-07-02 14:54:02,156 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702145402105654_foto wedding.jpeg
+2025-07-02 14:54:02,157 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-02T14:54:02.095760+07:00 for file=foto wedding.jpeg
+2025-07-02 14:54:11,035 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250702145400283038_foto wedding.jpeg
+2025-07-02 14:54:11,044 - app.services.face_service - INFO - [insert_new_face] Face inserted with ID: 20
+2025-07-02 14:54:11,045 - app.services.face_service - INFO - [insert_new_face] Face location (raw): [582, 665, 689, 557] | type=<class 'list'>
+2025-07-02 14:54:11,046 - app.services.face_service - INFO - [insert_new_face] Preparing to save face crop for face_id 20
+2025-07-02 14:54:11,062 - app.services.face_service - INFO - [insert_new_face] Saved face crop at: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\face_crops\face_20.jpg
+2025-07-02 14:54:11,062 - app.services.face_service - INFO - New face detected: <app.db.models.attendance.Face object at 0x000001D87FE4E2C0>
+2025-07-02 14:54:11,078 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702145402105654_foto wedding.jpeg
+2025-07-02 14:55:04,431 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-02 14:55:27,827 - app.services.face_service - INFO - Face ID 20 associated with Person ID 5.
+2025-07-02 14:57:05,065 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-02 14:57:05,065 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'KTP evan.PNG', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-02 14:57:05,759 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-02 14:57:05,759 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-02 14:57:05.759073+07:00 tzinfo=Asia/Bangkok
+2025-07-02 14:57:05,764 - app.services.face_service - INFO - Original filename: original_20250702145705066000_KTP evan.PNG
+2025-07-02 14:57:05,796 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702145705764061_KTP evan.PNG
+2025-07-02 14:57:05,796 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702145705764061_KTP evan.PNG
+2025-07-02 14:57:05,797 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-02T14:57:05.759073+07:00 for file=KTP evan.PNG
+2025-07-02 14:57:19,286 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250702145705066000_KTP evan.PNG
+2025-07-02 14:57:19,295 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702145705764061_KTP evan.PNG
+2025-07-02 14:59:00,051 - app.services.people_service - WARNING - Image file not found for deletion: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\public\people\images\people\5\03230b72a2104891b8e369350cfab605.png
+2025-07-02 15:10:12,290 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-02 15:10:12,291 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'foto wedding.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-02 15:10:14,030 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-02 15:10:14,031 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-02 15:10:14.031139+07:00 tzinfo=Asia/Bangkok
+2025-07-02 15:10:14,037 - app.services.face_service - INFO - Original filename: original_20250702151012292543_foto wedding.jpeg
+2025-07-02 15:10:14,069 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702151014037145_foto wedding.jpeg
+2025-07-02 15:10:14,069 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702151014037145_foto wedding.jpeg
+2025-07-02 15:10:14,071 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-02T15:10:14.031139+07:00 for file=foto wedding.jpeg
+2025-07-02 15:10:16,789 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250702151012292543_foto wedding.jpeg
+2025-07-02 15:10:16,794 - app.services.face_service - INFO - [insert_new_face] Face inserted with ID: 22
+2025-07-02 15:10:16,795 - app.services.face_service - INFO - [insert_new_face] Face location (raw): [582, 665, 689, 557] | type=<class 'list'>
+2025-07-02 15:10:16,795 - app.services.face_service - INFO - [insert_new_face] Preparing to save face crop for face_id 22
+2025-07-02 15:10:16,813 - app.services.face_service - INFO - [insert_new_face] Saved face crop at: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\face_crops\face_22.jpg
+2025-07-02 15:10:16,813 - app.services.face_service - INFO - New face detected: <app.db.models.attendance.Face object at 0x0000024440B83A30>
+2025-07-02 15:10:16,828 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702151014037145_foto wedding.jpeg
+2025-07-02 15:10:53,837 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-02 15:10:53,838 - app.services.face_service - INFO - Person ID: 6
+2025-07-02 15:10:53,841 - app.services.face_service - INFO - Existing face: None
+2025-07-02 15:43:28,550 - app.services.face_service - INFO - Transferring encoding from face 23 to 22
+2025-07-02 15:43:28,551 - app.services.face_service - INFO - Deleted old face 23
+2025-07-02 15:43:28,561 - app.services.face_service - INFO - Face 22 now associated with person 6
+2025-07-02 15:48:55,448 - app.services.people_service - ERROR - Error listing people with face counts: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedTableError'>: relation "people" does not exist
+[SQL: SELECT people.person_id, people.name, people.date_of_birth, people.address, people.contact_number, people.image_path, people.registered_at, people.updated_at, count(faces_1.face_id) AS face_count 
+FROM people LEFT OUTER JOIN faces AS faces_1 ON people.person_id = faces_1.person_id GROUP BY people.person_id]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-07-02 16:00:39,241 - app.main - INFO - Initializing database...
+2025-07-02 16:00:39,434 - app.main - INFO - Database initialized.
+2025-07-02 16:02:17,310 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-02 16:02:17,311 - app.services.face_service - INFO - Person ID: 1
+2025-07-02 16:02:17,315 - app.services.face_service - INFO - Existing face: None
+2025-07-02 16:03:21,766 - app.main - INFO - Shutting down...
+2025-07-02 16:03:26,107 - app.main - INFO - Initializing database...
+2025-07-02 16:03:26,186 - app.main - INFO - Database initialized.
+2025-07-02 16:03:48,191 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-02 16:03:48,191 - app.services.face_service - INFO - Person ID: 2
+2025-07-02 16:03:48,196 - app.services.face_service - INFO - Existing face: None
+2025-07-02 16:03:53,169 - app.services.people_service - WARNING - Image file not found for deletion: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\public\people\images\people\1\a672aa7380f2412e91505319ff291561.jpeg
+2025-07-02 16:03:54,391 - app.services.people_service - WARNING - Image file not found for deletion: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\public\people\images\people\2\9f30f49f15184c5fa22947de134426a7.jpeg
+2025-07-02 16:04:14,167 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-02 16:04:14,168 - app.services.face_service - INFO - Person ID: 3
+2025-07-02 16:04:14,170 - app.services.face_service - INFO - Existing face: None
+2025-07-02 16:10:06,249 - app.main - INFO - Shutting down...
+2025-07-02 16:20:03,725 - app.main - INFO - Initializing database...
+2025-07-02 16:20:03,812 - app.main - INFO - Database initialized.
+2025-07-02 16:20:40,011 - app.services.base_service - WARNING - Integrity error while creating Person
+2025-07-02 16:21:15,872 - app.services.base_service - WARNING - Integrity error while creating Person
+2025-07-02 16:23:18,502 - app.services.base_service - WARNING - Integrity error while creating Person
+2025-07-02 16:26:44,347 - app.main - INFO - Shutting down...
+2025-07-02 16:26:48,044 - app.main - INFO - Initializing database...
+2025-07-02 16:26:48,119 - app.main - INFO - Database initialized.
+2025-07-02 16:26:53,297 - app.services.people_service - ERROR - Unexpected error while creating Person: 409: Person with same name, date of birth, and contact number already exists.
+2025-07-02 16:27:22,742 - app.services.people_service - ERROR - Unexpected error while creating Person: 409: Person with same name, date of birth, and contact number already exists.
+2025-07-02 16:29:02,075 - app.main - INFO - Shutting down...
+2025-07-02 16:29:05,436 - app.main - INFO - Initializing database...
+2025-07-02 16:29:05,525 - app.main - INFO - Database initialized.
+2025-07-02 16:32:09,065 - app.main - INFO - Shutting down...
+2025-07-02 16:32:12,505 - app.main - INFO - Initializing database...
+2025-07-02 16:32:12,593 - app.main - INFO - Database initialized.
+2025-07-02 16:32:22,999 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-02 16:32:22,999 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'foto wedding.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-02 16:32:24,755 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-02 16:32:24,756 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-02 16:32:24.756938+07:00 tzinfo=Asia/Bangkok
+2025-07-02 16:32:24,767 - app.services.face_service - INFO - Original filename: original_20250702163223000327_foto wedding.jpeg
+2025-07-02 16:32:24,821 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702163224768888_foto wedding.jpeg
+2025-07-02 16:32:24,822 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702163224768888_foto wedding.jpeg
+2025-07-02 16:32:24,823 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-02T16:32:24.756938+07:00 for file=foto wedding.jpeg
+2025-07-02 16:32:41,746 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250702163223000327_foto wedding.jpeg
+2025-07-02 16:32:41,758 - app.services.face_service - INFO - [insert_new_face] Face inserted with ID: 3
+2025-07-02 16:32:41,758 - app.services.face_service - INFO - [insert_new_face] Face location (raw): [582, 665, 689, 557] | type=<class 'list'>
+2025-07-02 16:32:41,759 - app.services.face_service - INFO - [insert_new_face] Preparing to save face crop for face_id 3
+2025-07-02 16:32:41,775 - app.services.face_service - INFO - [insert_new_face] Saved face crop at: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\face_crops\face_3.jpg
+2025-07-02 16:32:41,776 - app.services.face_service - INFO - New face detected: <app.db.models.attendance.Face object at 0x000001B0B4996410>
+2025-07-02 16:32:41,790 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702163224768888_foto wedding.jpeg
+2025-07-02 16:32:55,073 - app.services.face_service - INFO - Face 3 now associated with person 6
+2025-07-02 16:33:48,692 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-02 16:33:48,693 - app.services.face_service - INFO - Person ID: 6
+2025-07-02 16:33:48,696 - app.services.face_service - INFO - Existing face: <app.db.models.attendance.Face object at 0x000001B0B4995090>
+2025-07-02 16:33:48,697 - app.services.face_service - INFO - Overwriting existing face for person_id 6
+2025-07-02 16:35:10,173 - app.services.people_service - WARNING - Image file not found for deletion: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\public\people\images\people\6\7b3a04c41c1d4873a7a9c2edccbf4bf7.png
+2025-07-02 16:35:10,182 - app.services.base_service - ERROR - Failed to delete Person with ID 6: (sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.NotNullViolationError'>: null value in column "face_id" of relation "image_records" violates not-null constraint
+DETAIL:  Failing row contains (1, C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_da..., null, 2025-07-02 16:32:24.756938+07, [582, 665, 689, 557], 1066, 1600, ).
+[SQL: UPDATE image_records SET face_id=$1::INTEGER WHERE image_records.record_id = $2::INTEGER]
+[parameters: (None, 1)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-07-02 16:38:57,242 - app.main - INFO - Shutting down...
+2025-07-02 16:40:03,935 - app.main - INFO - Initializing database...
+2025-07-02 16:40:04,022 - app.main - INFO - Database initialized.
+2025-07-02 16:40:10,646 - app.services.people_service - WARNING - Image file not found for deletion: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\public\people\images\people\6\7b3a04c41c1d4873a7a9c2edccbf4bf7.png
+2025-07-02 16:40:10,668 - app.services.base_service - ERROR - Failed to delete Person with ID 6: (sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.NotNullViolationError'>: null value in column "face_id" of relation "image_records" violates not-null constraint
+DETAIL:  Failing row contains (1, C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_da..., null, 2025-07-02 16:32:24.756938+07, [582, 665, 689, 557], 1066, 1600, ).
+[SQL: UPDATE image_records SET face_id=$1::INTEGER WHERE image_records.record_id = $2::INTEGER]
+[parameters: (None, 1)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-07-02 16:41:30,381 - app.main - INFO - Shutting down...
+2025-07-02 16:43:32,786 - app.main - INFO - Initializing database...
+2025-07-02 16:43:32,864 - app.main - INFO - Database initialized.
+2025-07-02 16:43:38,140 - app.services.people_service - WARNING - Image file not found for deletion: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\public\people\images\people\6\7b3a04c41c1d4873a7a9c2edccbf4bf7.png
+2025-07-02 16:43:38,151 - app.services.base_service - ERROR - Failed to delete Person with ID 6: (sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.NotNullViolationError'>: null value in column "face_id" of relation "image_records" violates not-null constraint
+DETAIL:  Failing row contains (1, C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_da..., null, 2025-07-02 16:32:24.756938+07, [582, 665, 689, 557], 1066, 1600, ).
+[SQL: UPDATE image_records SET face_id=$1::INTEGER WHERE image_records.record_id = $2::INTEGER]
+[parameters: (None, 1)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-07-02 20:08:35,602 - app.main - INFO - Initializing database...
+2025-07-02 20:08:35,733 - app.main - INFO - Database initialized.
+2025-07-02 20:43:16,193 - app.main - INFO - Shutting down...
+2025-07-02 20:43:24,858 - app.main - INFO - Initializing database...
+2025-07-02 20:43:24,944 - app.main - INFO - Database initialized.
+2025-07-02 20:43:34,793 - app.services.people_service - INFO - Deleted image file: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\public_people_images\people\6\7b3a04c41c1d4873a7a9c2edccbf4bf7.png
+2025-07-02 20:43:34,810 - app.services.base_service - ERROR - Failed to delete Person with ID 6: (sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.NotNullViolationError'>: null value in column "face_id" of relation "image_records" violates not-null constraint
+DETAIL:  Failing row contains (1, C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_da..., null, 2025-07-02 16:32:24.756938+07, [582, 665, 689, 557], 1066, 1600, ).
+[SQL: UPDATE image_records SET face_id=$1::INTEGER WHERE image_records.record_id = $2::INTEGER]
+[parameters: (None, 1)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2025-07-02 20:48:23,832 - app.main - INFO - Shutting down...
+2025-07-02 20:49:30,612 - app.main - INFO - Initializing database...
+2025-07-02 20:49:30,687 - app.main - INFO - Database initialized.
+2025-07-02 20:49:42,726 - app.services.people_service - WARNING - Image file not found for deletion: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\public_people_images\people\6\7b3a04c41c1d4873a7a9c2edccbf4bf7.png
+2025-07-02 21:06:44,200 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-02 21:06:44,201 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'foto wedding.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-02 21:06:46,063 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-02 21:06:46,064 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-02 21:06:46.064378+07:00 tzinfo=Asia/Bangkok
+2025-07-02 21:06:46,070 - app.services.face_service - INFO - Original filename: original_20250702210644201247_foto wedding.jpeg
+2025-07-02 21:06:46,127 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702210646070320_foto wedding.jpeg
+2025-07-02 21:06:46,127 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702210646070320_foto wedding.jpeg
+2025-07-02 21:06:46,128 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-02T21:06:46.064378+07:00 for file=foto wedding.jpeg
+2025-07-02 21:06:49,000 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250702210644201247_foto wedding.jpeg
+2025-07-02 21:06:49,014 - app.services.face_service - INFO - [insert_new_face] Face inserted with ID: 4
+2025-07-02 21:06:49,015 - app.services.face_service - INFO - [insert_new_face] Face location (raw): [582, 665, 689, 557] | type=<class 'list'>
+2025-07-02 21:06:49,015 - app.services.face_service - INFO - [insert_new_face] Preparing to save face crop for face_id 4
+2025-07-02 21:06:49,031 - app.services.face_service - INFO - [insert_new_face] Saved face crop at: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\face_crops\face_4.jpg
+2025-07-02 21:06:49,032 - app.services.face_service - INFO - New face detected: <app.db.models.attendance.Face object at 0x0000019667E830D0>
+2025-07-02 21:06:49,044 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702210646070320_foto wedding.jpeg
+2025-07-02 21:17:29,836 - app.main - INFO - Shutting down...
+2025-07-02 21:18:30,759 - app.main - INFO - Initializing database...
+2025-07-02 21:18:30,839 - app.main - INFO - Database initialized.
+2025-07-02 21:18:45,811 - app.services.base_service - ERROR - Error fetching Face by ID 6: 404: Face with ID 6 not found
+2025-07-02 21:19:50,454 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-02 21:19:50,455 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'foto wedding.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-02 21:19:51,975 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-02 21:19:51,977 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-02 21:19:51.977320+07:00 tzinfo=Asia/Bangkok
+2025-07-02 21:19:51,984 - app.services.face_service - INFO - Original filename: original_20250702211950455955_foto wedding.jpeg
+2025-07-02 21:19:52,015 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702211951984628_foto wedding.jpeg
+2025-07-02 21:19:52,016 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702211951984628_foto wedding.jpeg
+2025-07-02 21:19:52,017 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-02T21:19:51.977320+07:00 for file=foto wedding.jpeg
+2025-07-02 21:19:55,054 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250702211950455955_foto wedding.jpeg
+2025-07-02 21:19:55,061 - app.services.face_service - INFO - [insert_new_face] Face inserted with ID: 5
+2025-07-02 21:19:55,061 - app.services.face_service - INFO - [insert_new_face] Face location (raw): [582, 665, 689, 557] | type=<class 'list'>
+2025-07-02 21:19:55,062 - app.services.face_service - INFO - [insert_new_face] Preparing to save face crop for face_id 5
+2025-07-02 21:19:55,077 - app.services.face_service - INFO - [insert_new_face] Saved face crop at: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\face_crops\face_5.jpg
+2025-07-02 21:19:55,078 - app.services.face_service - INFO - New face detected: <app.db.models.attendance.Face object at 0x0000025CCBFD45B0>
+2025-07-02 21:19:55,089 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250702211951984628_foto wedding.jpeg
+2025-07-03 09:20:02,710 - app.main - INFO - Initializing database...
+2025-07-03 09:20:03,315 - app.main - INFO - Database initialized.
+2025-07-03 09:34:19,878 - app.main - INFO - Shutting down...
+2025-07-03 09:34:24,582 - app.main - INFO - Initializing database...
+2025-07-03 09:34:24,685 - app.main - INFO - Database initialized.
+2025-07-03 09:36:58,441 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-03 09:36:58,442 - app.services.face_service - INFO - Person ID: 10
+2025-07-03 09:36:58,445 - app.services.face_service - INFO - Existing face: None
+2025-07-03 09:37:06,113 - app.services.face_service - INFO - Transferring encoding from face 6 to 5
+2025-07-03 09:37:06,114 - app.services.face_service - INFO - Deleted old face 6
+2025-07-03 09:37:06,121 - app.services.face_service - INFO - Face 5 now associated with person 10
+2025-07-03 10:10:29,419 - app.main - INFO - Shutting down...
+2025-07-03 10:10:37,915 - app.main - INFO - Initializing database...
+2025-07-03 10:10:38,009 - app.main - INFO - Database initialized.
+2025-07-03 10:10:50,655 - app.services.people_service - INFO - Deleted image file: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\public_people_images\people\10\1e95c938755c44598e2643f064751635.png
+2025-07-03 10:11:12,812 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-03 10:11:12,813 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'foto wedding.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-03 10:11:14,477 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-03 10:11:14,477 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-03 10:11:14.477487+07:00 tzinfo=Asia/Bangkok
+2025-07-03 10:11:14,484 - app.services.face_service - INFO - Original filename: original_20250703101112814946_foto wedding.jpeg
+2025-07-03 10:11:14,534 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703101114484501_foto wedding.jpeg
+2025-07-03 10:11:14,536 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703101114484501_foto wedding.jpeg
+2025-07-03 10:11:14,537 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-03T10:11:14.477487+07:00 for file=foto wedding.jpeg
+2025-07-03 10:11:32,188 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703101112814946_foto wedding.jpeg
+2025-07-03 10:11:32,199 - app.services.face_service - INFO - [insert_new_face] Face inserted with ID: 7
+2025-07-03 10:11:32,200 - app.services.face_service - INFO - [insert_new_face] Face location (raw): [582, 665, 689, 557] | type=<class 'list'>
+2025-07-03 10:11:32,200 - app.services.face_service - INFO - [insert_new_face] Preparing to save face crop for face_id 7
+2025-07-03 10:11:32,216 - app.services.face_service - INFO - [insert_new_face] Saved face crop at: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\face_crops\face_7.jpg
+2025-07-03 10:11:32,217 - app.services.face_service - INFO - New face detected: <app.db.models.attendance.Face object at 0x000002DCF4F550F0>
+2025-07-03 10:11:32,228 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703101114484501_foto wedding.jpeg
+2025-07-03 10:12:04,108 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-03 10:12:04,108 - app.services.face_service - INFO - Person ID: 11
+2025-07-03 10:12:04,110 - app.services.face_service - INFO - Existing face: None
+2025-07-03 10:12:13,951 - app.services.face_service - INFO - Transferring encoding from face 8 to 7
+2025-07-03 10:12:13,951 - app.services.face_service - WARNING - No crop image to copy from face 8
+2025-07-03 10:12:13,952 - app.services.face_service - INFO - Deleted old face 8
+2025-07-03 10:12:13,957 - app.services.face_service - INFO - Face 7 now associated with person 11
+2025-07-03 10:14:13,183 - app.main - INFO - Shutting down...
+2025-07-03 10:14:16,835 - app.main - INFO - Initializing database...
+2025-07-03 10:14:16,919 - app.main - INFO - Database initialized.
+2025-07-03 10:14:21,383 - app.services.people_service - INFO - Deleted image file: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\public_people_images\people\11\e2cd744024c84ef8a28b9e2ebc0cde31.png
+2025-07-03 10:14:34,637 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-03 10:14:34,638 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'foto wedding.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-03 10:14:36,338 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-03 10:14:36,338 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-03 10:14:36.338351+07:00 tzinfo=Asia/Bangkok
+2025-07-03 10:14:36,345 - app.services.face_service - INFO - Original filename: original_20250703101434638626_foto wedding.jpeg
+2025-07-03 10:14:36,377 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703101436345351_foto wedding.jpeg
+2025-07-03 10:14:36,377 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703101436345351_foto wedding.jpeg
+2025-07-03 10:14:36,379 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-03T10:14:36.338351+07:00 for file=foto wedding.jpeg
+2025-07-03 10:14:42,880 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703101434638626_foto wedding.jpeg
+2025-07-03 10:14:42,890 - app.services.face_service - INFO - [insert_new_face] Face inserted with ID: 9
+2025-07-03 10:14:42,890 - app.services.face_service - INFO - [insert_new_face] Face location (raw): [582, 665, 689, 557] | type=<class 'list'>
+2025-07-03 10:14:42,891 - app.services.face_service - INFO - [insert_new_face] Preparing to save face crop for face_id 9
+2025-07-03 10:14:42,911 - app.services.face_service - INFO - [insert_new_face] Saved face crop at: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\face_crops\face_9.jpg
+2025-07-03 10:14:42,911 - app.services.face_service - INFO - New face detected: <app.db.models.attendance.Face object at 0x0000022B383CC3D0>
+2025-07-03 10:14:42,923 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703101436345351_foto wedding.jpeg
+2025-07-03 10:15:18,827 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-03 10:15:18,827 - app.services.face_service - INFO - Person ID: 12
+2025-07-03 10:15:18,830 - app.services.face_service - INFO - Existing face: None
+2025-07-03 10:15:35,126 - app.services.face_service - INFO - Transferring encoding from face 10 to 9
+2025-07-03 10:15:35,127 - app.services.face_service - INFO - Copying crop image from C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\face_crops\face_10.jpg to 9
+2025-07-03 10:15:35,128 - app.services.face_service - INFO - Copying crop image from C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\face_crops\face_10.jpg to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\face_crops\face_9.jpg
+2025-07-03 10:15:35,129 - app.services.face_service - INFO - Copied crop image from face 10 to 9 as .jpg
+2025-07-03 10:15:35,130 - app.services.face_service - INFO - Deleted original crop image for face 10
+2025-07-03 10:15:35,130 - app.services.face_service - INFO - Deleted old face 10
+2025-07-03 10:15:35,136 - app.services.face_service - INFO - Face 9 now associated with person 12
+2025-07-03 10:22:57,405 - app.services.people_service - INFO - Deleted image file: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\public_people_images\people\12\734dbd85e1ef43eeafded3cc5d3760d8.png
+2025-07-03 10:23:07,753 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-07-03 10:23:07,754 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'foto wedding.jpeg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-07-03 10:23:09,300 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-03 10:23:09,301 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-03 10:23:09.301246+07:00 tzinfo=Asia/Bangkok
+2025-07-03 10:23:09,304 - app.services.face_service - INFO - Original filename: original_20250703102307754503_foto wedding.jpeg
+2025-07-03 10:23:09,328 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703102309305245_foto wedding.jpeg
+2025-07-03 10:23:09,329 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703102309305245_foto wedding.jpeg
+2025-07-03 10:23:09,331 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-03T10:23:09.301246+07:00 for file=foto wedding.jpeg
+2025-07-03 10:23:12,171 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250703102307754503_foto wedding.jpeg
+2025-07-03 10:23:12,175 - app.services.face_service - INFO - [insert_new_face] Face inserted with ID: 11
+2025-07-03 10:23:12,175 - app.services.face_service - INFO - [insert_new_face] Face location (raw): [582, 665, 689, 557] | type=<class 'list'>
+2025-07-03 10:23:12,176 - app.services.face_service - INFO - [insert_new_face] Preparing to save face crop for face_id 11
+2025-07-03 10:23:12,196 - app.services.face_service - INFO - [insert_new_face] Saved face crop at: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\face_crops\face_11.jpg
+2025-07-03 10:23:12,197 - app.services.face_service - INFO - New face detected: <app.db.models.attendance.Face object at 0x0000022B384B8AF0>
+2025-07-03 10:23:12,213 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250703102309305245_foto wedding.jpeg
+2025-07-03 10:23:34,865 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-03 10:23:34,866 - app.services.face_service - INFO - Person ID: 13
+2025-07-03 10:23:34,868 - app.services.face_service - INFO - Existing face: None
+2025-07-03 10:23:42,117 - app.services.face_service - INFO - Transferring encoding from face 12 to 11
+2025-07-03 10:23:42,118 - app.services.face_service - INFO - Copying crop image from C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\face_crops\face_12.jpg to 11
+2025-07-03 10:23:42,119 - app.services.face_service - INFO - Copying crop image from C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\face_crops\face_12.jpg to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\face_crops\face_11.jpg
+2025-07-03 10:23:42,120 - app.services.face_service - INFO - Copied crop image from face 12 to 11 as .jpg
+2025-07-03 10:23:42,121 - app.services.face_service - INFO - Deleted original crop image for face 12
+2025-07-03 10:23:42,122 - app.services.face_service - INFO - Deleted old face 12
+2025-07-03 10:23:42,126 - app.services.face_service - INFO - Face 11 now associated with person 13
+2025-07-03 11:41:51,947 - app.main - INFO - Shutting down...

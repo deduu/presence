@@ -12,10 +12,13 @@ export default function ImageReviewCard({
   const originalUrl = `${import.meta.env.VITE_API_BASE_URL}${
     file.original_image_url
   }`;
+  // useEffect(() => {
+  //   console.log("[ImageReviewCard] file.batch_tag =", file.batch_tag);
+  // }, [file]);
 
   useEffect(() => {
     const img = imgRef.current;
-    console.log("Original image URL:", originalUrl);
+    // console.log("Original image URL:", originalUrl);
     if (img) {
       const updateSize = () =>
         setImgDims({ width: img.offsetWidth, height: img.offsetHeight });
@@ -28,12 +31,12 @@ export default function ImageReviewCard({
   return (
     <div className="border p-4 bg-white rounded shadow relative">
       <h2 className="font-semibold mb-2">{file.original_filename}</h2>
-      <div className="absolute top-2 left-2 text-sm bg-gray-800 text-white px-2 py-1 rounded">
-        {file.batch_tag || "No Tag"}
-      </div>
+      <div className="absolute top-2 right-2 flex items-center space-x-2">
+        {/* Batch Tag */}
+        <div className="text-xs bg-gray-800 text-white px-2 py-1 rounded">
+          {file.batch_tag || "No Tag"}
+        </div>
 
-      {/* Icon actions */}
-      <div className="absolute top-2 right-2 flex space-x-2">
         {/* Zoom */}
         <button
           onClick={() => window.open(originalUrl, "_blank")}
@@ -52,7 +55,7 @@ export default function ImageReviewCard({
           🗑
         </button>
 
-        {/* Edit (placeholder for batch tag editing) */}
+        {/* Edit (tag) */}
         <button
           onClick={onEditTag}
           className="bg-white p-1 rounded-full shadow hover:bg-gray-200"

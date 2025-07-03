@@ -67,6 +67,13 @@ export default function ImageReviewPage() {
     updated[editingFace.fileIndex].face_detections[
       editingFace.faceIndex
     ].is_new_face_candidate = false;
+    setResults(updated);
+    console.log(
+      "[handleSaveName] Updated name:",
+      updated[editingFace.fileIndex].face_detections[editingFace.faceIndex]
+        .suggested_person_name
+    );
+
     closeModal();
   };
 
@@ -189,9 +196,6 @@ export default function ImageReviewPage() {
         results[editingFace.fileIndex].original_image_url.replace(/\\/g, "/")
       )
     : "";
-
-  // Log it for debugging
-  console.log("FaceEditModal imageUrl:", imageUrl);
 
   return (
     <div className="space-y-6">

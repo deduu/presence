@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import Table from "../../components/Table";
 import Pagination from "../../components/Pagination";
+import EditTagModal from "../../components/EditTagModal";
+import FaceEditModal from "../../components/FaceEditModal";
 import {
   fetchImageRecords,
   deleteImageRecords,
 } from "../../services/imageRecordApi";
 import ImageReviewCard from "../../components/ImageReviewCard";
+import { usePeopleSuggestions } from "../../services/usePeopleSuggestionApi";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -17,7 +20,16 @@ export default function ImageRecordsPage() {
   const [selectedIds, setSelectedIds] = useState([]);
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
-  const [viewMode, setViewMode] = useState("table"); // "table" or "thumbnail"
+  const [viewMode, setViewMode] = useState("thumbnail");
+  const [tag, setTag] = useState("");
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const [editingFace, setEditingFace] = useState(null);
+
+  const [tagModalOpen, setTagModalOpen] = useState(false);
+  const [editingTagFileIndex, setEditingTagFileIndex] = useState(null);
+
+  const { people } = usePeopleSuggestions();
 
   const fetchData = () => {
     fetchImageRecords({
@@ -25,6 +37,7 @@ export default function ImageRecordsPage() {
       person: name,
       start_time: startTime?.toISOString(),
       end_time: endTime?.toISOString(),
+      batch_tag: tag,
     })
       .then((r) => {
         setRows(r.data);
@@ -35,7 +48,7 @@ export default function ImageRecordsPage() {
 
   useEffect(() => {
     fetchData();
-  }, [page, name]);
+  }, [page, name, tag, startTime, endTime]); // ✅ added missing deps
 
   const groupedImages = rows.reduce((acc, record) => {
     const key = record.image_url;
@@ -44,19 +57,74 @@ export default function ImageRecordsPage() {
         original_filename: record.image_path.split("\\").pop(),
         original_image_url: record.image_url,
         face_detections: [],
+        batch_tag: record.batch_tag,
       };
     }
 
     acc[key].face_detections.push({
-      record_id: record.record_id, // <-- Needed for delete/edit
+      record_id: record.record_id,
       face_location: record.face_location,
       suggested_person_name: record.person_name,
       image_width: record.image_width,
       image_height: record.image_height,
+      batch_tag: record.batch_tag,
     });
 
     return acc;
   }, {});
+
+  // ✅ MODAL HANDLERS
+  const openEditTagModal = (fileIndex) => {
+    setEditingTagFileIndex(fileIndex);
+    setTagModalOpen(true);
+  };
+  const closeEditTagModal = () => {
+    setTagModalOpen(false);
+    setEditingTagFileIndex(null);
+  };
+
+  const openEditModal = (fileIndex, faceIndex) => {
+    setEditingFace({ fileIndex, faceIndex });
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+    setEditingFace(null);
+  };
+
+  const handleSaveTag = (newTag) => {
+    // TODO: Implement save logic if in-memory editing is required
+    console.log("Save tag:", newTag, "on group index", editingTagFileIndex);
+    closeEditTagModal();
+  };
+
+  const handleSaveName = (newName) => {
+    console.log("Save name:", newName, "at", editingFace);
+    closeModal();
+  };
+
+  const getCurrentName = () => {
+    if (!editingFace) return "";
+    const file = Object.values(groupedImages)[editingFace.fileIndex];
+    const face = file?.face_detections[editingFace.faceIndex];
+    return face?.suggested_person_name || "Anonymous";
+  };
+
+  const getFaceLocation = () => {
+    if (!editingFace) return [0, 0, 0, 0];
+    const file = Object.values(groupedImages)[editingFace.fileIndex];
+    const face = file?.face_detections[editingFace.faceIndex];
+    return face?.face_location || [0, 0, 0, 0];
+  };
+
+  const getFaceImageUrl = () => {
+    if (!editingFace) return "";
+    const file = Object.values(groupedImages)[editingFace.fileIndex];
+    return (
+      import.meta.env.VITE_API_BASE_URL +
+      encodeURI(file?.original_image_url.replace(/\\/g, "/"))
+    );
+  };
 
   const handleDelete = async () => {
     if (selectedIds.length === 0) return;
@@ -142,6 +210,16 @@ export default function ImageRecordsPage() {
 
       <div className="flex flex-wrap gap-4 mb-4">
         <input
+          placeholder="Filter by tag…"
+          className="border px-2 py-1 w-64"
+          value={tag}
+          onChange={(e) => {
+            setTag(e.target.value);
+            setPage(0);
+          }}
+        />
+
+        <input
           placeholder="Filter by person name…"
           className="border px-2 py-1 w-64"
           value={name}
@@ -173,22 +251,24 @@ export default function ImageRecordsPage() {
         </div>
       </div>
 
-      <button
-        onClick={handleDelete}
-        disabled={selectedIds.length === 0}
-        className="mb-4 px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700"
-      >
-        Delete Selected
-      </button>
+      <div className="flex flex-wrap gap-4 mb-4">
+        <button
+          onClick={handleDelete}
+          disabled={selectedIds.length === 0}
+          className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 disabled:opacity-50"
+        >
+          🗑️ Delete Selected
+        </button>
 
-      <button
-        onClick={() =>
-          setViewMode(viewMode === "table" ? "thumbnail" : "table")
-        }
-        className="mb-4 px-3 py-1 bg-gray-600 text-white rounded"
-      >
-        {viewMode === "table" ? "🖼️ Thumbnail View" : "📋 Table View"}
-      </button>
+        <button
+          onClick={() =>
+            setViewMode(viewMode === "table" ? "thumbnail" : "table")
+          }
+          className="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700"
+        >
+          {viewMode === "table" ? "🖼️ Thumbnail View" : "📋 Table View"}
+        </button>
+      </div>
 
       {viewMode === "table" ? (
         <Table columns={columns} data={rows} />
@@ -201,6 +281,7 @@ export default function ImageRecordsPage() {
                 original_image_url: group.original_image_url,
                 original_filename: group.original_filename,
                 face_detections: group.face_detections,
+                batch_tag: group.batch_tag,
                 status: "success",
               }}
               onDelete={() => {
@@ -212,14 +293,35 @@ export default function ImageRecordsPage() {
                   );
                 });
               }}
-              onEditName={() => {}}
-              onEditTag={() => {}}
+              onEditName={(faceIdx) => openEditModal(index, faceIdx)}
+              onEditTag={() => openEditTagModal(index)}
             />
           ))}
         </div>
       )}
 
       <Pagination page={page} total={total} onPage={setPage} />
+      <FaceEditModal
+        isOpen={modalOpen}
+        onClose={closeModal}
+        onSave={handleSaveName}
+        faceIndex={editingFace?.faceIndex}
+        initialName={getCurrentName()}
+        faceLocation={getFaceLocation()}
+        faceCropUrl={getFaceImageUrl()}
+        suggestions={people}
+      />
+
+      <EditTagModal
+        isOpen={tagModalOpen}
+        onClose={closeEditTagModal}
+        onSave={handleSaveTag}
+        initialTag={
+          editingTagFileIndex != null
+            ? Object.values(groupedImages)[editingTagFileIndex]?.batch_tag
+            : ""
+        }
+      />
     </div>
   );
 }

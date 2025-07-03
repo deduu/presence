@@ -11,6 +11,7 @@ export function useUploadPreview() {
     const formData = new FormData();
     files.forEach((file) => formData.append("files", file));
     formData.append("batch_tag", batchTag);
+    console.log("Uploading with batch_tag:", batchTag);
 
     setLoading(true);
     try {

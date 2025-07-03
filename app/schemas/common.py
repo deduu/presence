@@ -1,6 +1,6 @@
 # schemas/face.py
 
-from pydantic import BaseModel, Field, field_serializer
+from pydantic import BaseModel, Field, field_serializer, field_validator
 from datetime import datetime
 from typing import Optional, List
 
@@ -57,7 +57,7 @@ class ImageRecordInDB(ImageRecordBase):
         return dt.isoformat()
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class ImageRecordOut(BaseModel):
@@ -71,13 +71,14 @@ class ImageRecordOut(BaseModel):
     image_width: int
     image_height: int
     person_name: str | None = None
+    batch_tag: str | None = None
 
     @field_serializer("detection_time")
     def ser_dt(self, dt: datetime) -> str:      # <- converts for JSON
         return dt.isoformat()
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 # schemas/image_count.py
@@ -97,7 +98,7 @@ class ImageCountInDB(ImageCountBase):
     image_id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class ImageCountOut(BaseModel):

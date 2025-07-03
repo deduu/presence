@@ -2,12 +2,13 @@
 import pytz
 import numpy as np
 import logging
+import json
 import os  # Added for path manipulation
 import shutil  # Added for file copying/deleting
 import aiofiles
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func
-from sqlalchemy.orm import joinedload
+from sqlalchemy.orm import joinedload, selectinload
 from typing import List, Tuple, Optional, Dict, Any
 from fastapi import HTTPException, status, UploadFile
 from datetime import datetime
@@ -17,6 +18,7 @@ from PIL import Image
 from app.services.base_service import BaseService
 from app.services.image_record_service import ImageRecordService
 from app.db.models.attendance import Face, Person, ImageRecord
+from app.schemas.common import ImageRecordOut
 
 # Import ImageProcessor (ensure it's accessible, e.g., in the same directory or a common module)
 # Adjust import path as needed
@@ -62,6 +64,9 @@ class FaceService(BaseService):
         encoding: np.ndarray,
         current_time: datetime,
         person_id: Optional[int] = None,
+        save_crop: bool = True,
+        image_path: Optional[str] = None,
+        face_location: Optional[tuple] = None,  # (top, right, bottom, left)
     ):
         try:
             encoding_bytes = encoding.tobytes()
@@ -74,10 +79,67 @@ class FaceService(BaseService):
             self.db.add(face)
             await self.db.commit()
             await self.db.refresh(face)
+
+            logger.info(
+                f"[insert_new_face] Face inserted with ID: {face.face_id}")
+            logger.info(
+                f"[insert_new_face] Face location (raw): {face_location} | type={type(face_location)}")
+
+            # Save face crop (if image and location are available)
+            if save_crop and image_path and face_location:
+                logger.info(
+                    f"[insert_new_face] Preparing to save face crop for face_id {face.face_id}")
+
+                image = self.image_processor.load_image(image_path)
+                if image is None:
+                    logger.warning(
+                        f"[insert_new_face] Failed to load image for face crop: {image_path}")
+                    return face
+
+                # Log more details about face_location
+                logger.debug(
+                    f"[insert_new_face] face_location: {face_location} (len={len(face_location) if hasattr(face_location, '__len__') else 'N/A'})")
+
+                # Unpack face_location safely
+                try:
+                    if isinstance(face_location, (list, tuple)):
+                        if len(face_location) == 4:
+                            top, right, bottom, left = face_location
+                        elif len(face_location) == 1 and isinstance(face_location[0], (list, tuple)) and len(face_location[0]) == 4:
+                            top, right, bottom, left = face_location[0]
+                        else:
+                            raise ValueError(
+                                f"Unsupported face_location structure: {face_location}")
+                    else:
+                        raise TypeError(
+                            f"face_location is not list/tuple: {type(face_location)}")
+
+                    logger.debug(
+                        f"[insert_new_face] Cropping face at (top={top}, right={right}, bottom={bottom}, left={left})")
+
+                    # Convert to integers just in case
+                    cropped_face = image[int(top):int(
+                        bottom), int(left):int(right)]
+
+                    os.makedirs(PUBLIC_FACE_CROP_PREFIX, exist_ok=True)
+                    filename = f"face_{face.face_id}.jpg"
+                    full_path = os.path.join(
+                        SERVER_FACE_CROP_STORAGE_ROOT, filename)
+                    Image.fromarray(cropped_face).save(full_path)
+
+                    logger.info(
+                        f"[insert_new_face] Saved face crop at: {full_path}")
+
+                except Exception as crop_err:
+                    logger.error(
+                        f"[insert_new_face] Failed during cropping/saving: {crop_err}")
+                    raise
+
             return face
+
         except Exception as e:
             await self.db.rollback()
-            logger.error(f"Error inserting new face: {e}")
+            logger.error(f"[insert_new_face] Error inserting new face: {e}")
             raise
 
     async def add_portrait_face(
@@ -104,14 +166,13 @@ class FaceService(BaseService):
 
         encoding_np = res["face_encodings"][0]
         location = res["face_locations"][0]
-
+        logger.info(f"Person ID: {person_id}")
         existing_face = await self.get_face_by_person_id(person_id)
+        logger.info(f"Existing face: {existing_face}")
 
         if existing_face:
             # Overwrite encoding
             existing_face.face_encoding = encoding_np.tobytes()
-            existing_face.first_seen = None
-            existing_face.last_seen = None
             face = existing_face
             logger.info(f"Overwriting existing face for person_id {person_id}")
         else:
@@ -207,14 +268,31 @@ class FaceService(BaseService):
             "person_name": face.person.name if face.person else None,
         }
 
-    async def records_for_face(self, face_id: int):
+    async def records_for_face(self, face_id: int) -> list[ImageRecordOut]:
         stmt = (
             select(ImageRecord)
+            .options(selectinload(ImageRecord.face).selectinload(Face.person))
             .where(ImageRecord.face_id == face_id)
             .order_by(ImageRecord.detection_time.desc())
         )
-        res = await self.db.execute(stmt)
-        return res.scalars().all()
+        rows = (await self.db.execute(stmt)).scalars().all()
+
+        return [
+            ImageRecordOut(
+                record_id=r.record_id,
+                face_id=r.face_id,
+                image_path=r.image_path,
+                image_url=self.image_record_service._get_image_url_from_path(
+                    r.image_path),
+                detection_time=r.detection_time,
+                face_location=json.loads(r.face_location or "[]"),
+                image_width=r.image_width,
+                image_height=r.image_height,
+                person_name=getattr(r.face.person, "name", None),
+                batch_tag=r.batch_tag,
+            )
+            for r in rows
+        ]
 
     async def associate(self, face_id: int, person_id: int):
         face = await self.get_by_id(face_id)
@@ -227,6 +305,57 @@ class FaceService(BaseService):
         else:
             logger.warning(
                 f"Face with ID {face_id} not found for association.")
+
+    async def associate_transfer_then_delete(
+        self, new_face_id: int, person_id: int
+    ):
+        # Face that will be kept (face_id = 22)
+        new_face = await self.get_by_id(new_face_id)
+        if not new_face:
+            logger.warning(f"Face ID {new_face_id} not found.")
+            return
+
+        # Existing face already associated with the person (face_id = 23)
+        stmt = (
+            select(Face)
+            .where(Face.person_id == person_id, Face.face_id != new_face_id)
+        )
+        res = await self.db.execute(stmt)
+        old_face = res.scalars().first()
+
+        if old_face:
+            logger.info(
+                f"Transferring encoding from face {old_face.face_id} to {new_face.face_id}"
+            )
+
+            try:
+                copy_face_crop_image(
+                    old_face.face_id, new_face.face_id, delete_original=True)
+            except FileNotFoundError:
+                logger.warning(
+                    f"No crop image to copy from face {old_face.face_id}")
+            except Exception as e:
+                logger.error(f"Unexpected error during crop copy: {e}")
+
+            if old_face.face_encoding:
+                new_face.face_encoding = old_face.face_encoding
+
+            # Assign person_id to the new face
+            new_face.person_id = person_id
+
+            # Delete the old face
+            await self.db.delete(old_face)
+
+            logger.info(f"Deleted old face {old_face.face_id}")
+        else:
+            # Just associate if there's no existing face for this person
+            new_face.person_id = person_id
+
+        await self.db.commit()
+        await self.db.refresh(new_face)
+
+        logger.info(
+            f"Face {new_face.face_id} now associated with person {person_id}")
 
     async def disassociate(self, face_id: int):
         face = await self.get_by_id(face_id)
@@ -583,7 +712,11 @@ class FaceService(BaseService):
                         face_encoding_np,
                         detection_time,
                         person_id=person_id_from_client,
+                        image_path=permanent_image_path,
+                        face_location=face_data["face_location"],
                     )
+
+                    logger.info(f"New face detected: {new_face}")
                     final_face_id = new_face.face_id
                     final_person_id = person_id_from_client
 
@@ -595,7 +728,7 @@ class FaceService(BaseService):
                     face_location=face_location_str,
                     image_width=face_data.get("image_width"),
                     image_height=face_data.get("image_height"),
-                    batch_tag=confirmed_data.get("batch_tag")
+                    batch_tag=face_data.get("batch_tag")
                 )
 
                 saved_results.append(
@@ -714,3 +847,49 @@ def _get_person_image_url(image_path: Optional[str]) -> Optional[str]:
     if not image_path:
         return None
     return os.path.join(PUBLIC_PERSON_IMAGE_PREFIX, image_path)
+
+
+def copy_face_crop_image(old_face_id: int, new_face_id: int, storage_root=SERVER_FACE_CROP_STORAGE_ROOT, delete_original: bool = False) -> None:
+    """
+    Copy the cropped face image from old_face_id to new_face_id.
+    Supports .jpg and .png. Optionally deletes the original after copy.
+
+    Args:
+        old_face_id (int): ID of the face to copy from.
+        new_face_id (int): ID of the face to copy to.
+        storage_root (str): Base directory where face crops are stored.
+        delete_original (bool): If True, delete the original after copying.
+
+    Raises:
+        FileNotFoundError: If the source crop image doesn't exist.
+        Exception: For other unexpected file-related errors.
+    """
+    for ext in [".jpg", ".png"]:
+        old_crop_rel_path = f"face_{old_face_id}{ext}"
+        old_crop_abs_path = os.path.join(storage_root, old_crop_rel_path)
+        logger.info(
+            f"Copying crop image from {old_crop_abs_path} to {new_face_id}")
+        if os.path.exists(old_crop_abs_path):
+            new_crop_rel_path = f"face_{new_face_id}{ext}"
+            new_crop_abs_path = os.path.join(storage_root, new_crop_rel_path)
+            logger.info(
+                f"Copying crop image from {old_crop_abs_path} to {new_crop_abs_path}")
+            try:
+                shutil.copy2(old_crop_abs_path, new_crop_abs_path)
+                logger.info(
+                    f"Copied crop image from face {old_face_id} to {new_face_id} as {ext}")
+
+                if delete_original:
+                    os.remove(old_crop_abs_path)
+                    logger.info(
+                        f"Deleted original crop image for face {old_face_id}")
+                return  # Done, exit the function after first match
+
+            except Exception as e:
+                logger.error(
+                    f"Failed to copy face crop from {old_face_id} to {new_face_id}: {e}")
+                raise
+
+    # If we reach here, no supported file was found
+    raise FileNotFoundError(
+        f"No crop image (.jpg or .png) found for face {old_face_id}")

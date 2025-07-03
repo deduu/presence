@@ -26,7 +26,8 @@ router = APIRouter()
 # ---- dependency ----
 async def svc(
     session: AsyncSession = Depends(get_db_session),
-    image_record_service: ImageRecordService = Depends(get_image_record_service),
+    image_record_service: ImageRecordService = Depends(
+        get_image_record_service),
 ):
     return FaceService(session, image_record_service)
 
@@ -66,6 +67,18 @@ async def associate_face(
     await service.associate(face_id, body.person_id)
 
 
+@router.post("/{face_id}/associate-unique", status_code=status.HTTP_204_NO_CONTENT)
+async def associate_face(
+    face_id: int, body: _AssociateBody, service: FaceService = Depends(svc)
+):
+    await service.associate_transfer_then_delete(face_id, body.person_id)
+
+
 @router.post("/{face_id}/disassociate", status_code=status.HTTP_204_NO_CONTENT)
 async def disassociate_face(face_id: int, service: FaceService = Depends(svc)):
     await service.disassociate(face_id)
+
+
+@router.delete("/{face_id}", status_code=status.HTTP_204_NO_CONTENT)
+async def delete_face(face_id: int, service: FaceService = Depends(svc)):
+    await service.delete(face_id)
