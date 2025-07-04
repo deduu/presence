@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import Dropzone from "react-dropzone";
 import { saveAs } from "file-saver";
 
-import { useUploadPreview } from "../../services/uploadPreviewApi";
+// import { useUploadPreview } from "../../services/uploadPreviewApi";
+import { useUploadPreviewContext } from "../../services/UploadPreviewContext";
 import FaceEditModal from "../../components/FaceEditModal";
 import ImageReviewCard from "../../components/ImageReviewCard";
 import EditTagModal from "../../components/EditTagModal";
@@ -10,7 +11,9 @@ import { usePeopleSuggestions } from "../../services/usePeopleSuggestionApi";
 
 export default function ImageReviewPage() {
   const [selectedFiles, setSelectedFiles] = useState([]);
-  const { results, uploadImages, loading, setResults } = useUploadPreview();
+  // const { results, uploadImages, loading, setResults } = useUploadPreview();
+  const { results, uploadImages, loading, setResults } =
+    useUploadPreviewContext();
 
   const [modalOpen, setModalOpen] = useState(false);
   const [editingFace, setEditingFace] = useState(null); // { fileIndex, faceIndex }

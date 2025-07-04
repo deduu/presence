@@ -518,7 +518,7 @@ class FaceService(BaseService):
 
             if known_face_encodings:
                 matches = self.image_processor.compare_faces(
-                    known_face_encodings, face_encoding, tolerance=0.6
+                    known_face_encodings, face_encoding, tolerance=0.4
                 )  # Use default tolerance or pass it
                 if True in matches:
                     first_match_index = np.where(matches)[0][0]

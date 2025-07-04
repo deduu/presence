@@ -11,7 +11,7 @@ export default function FaceEditModal({
   faceCropUrl, // full image
   suggestions, // [{ name, image_path }]
 }) {
-  const [name, setName] = useState(initialName || "");
+  const [name, setName] = useState(initialName || "Anonymous");
   const [faceThumb, setFaceThumb] = useState(null);
   const [filteredSuggestions, setFilteredSuggestions] = useState([]);
 
@@ -83,25 +83,18 @@ export default function FaceEditModal({
         </div>
 
         {/* Input and suggestions */}
-        <input
+        <select
           className="w-full border px-3 py-2 rounded"
-          placeholder="Enter person's name"
           value={name}
-          onChange={(e) => handleInputChange(e.target.value)}
-        />
-        {filteredSuggestions.length > 0 && (
-          <div className="border rounded mt-1 bg-white shadow text-sm z-10 max-h-40 overflow-y-auto">
-            {filteredSuggestions.map((s, i) => (
-              <div
-                key={i}
-                onClick={() => setName(s.name)}
-                className="px-3 py-1 hover:bg-blue-100 cursor-pointer"
-              >
-                {s.name}
-              </div>
-            ))}
-          </div>
-        )}
+          onChange={(e) => setName(e.target.value)}
+        >
+          <option value="Anonymous">-- Anonymous --</option>
+          {suggestions.map((s, i) => (
+            <option key={i} value={s.name}>
+              {s.name}
+            </option>
+          ))}
+        </select>
 
         {/* Action buttons */}
         <div className="flex justify-end mt-4 space-x-2">
@@ -110,7 +103,10 @@ export default function FaceEditModal({
           </button>
           <button
             className="px-4 py-2 bg-blue-600 text-white rounded"
-            onClick={() => onSave(name)}
+            onClick={() => {
+              const finalName = name || "Anonymous";
+              onSave(finalName);
+            }}
           >
             Save
           </button>
