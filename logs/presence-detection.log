@@ -6792,3 +6792,317 @@ starlette.websockets.WebSocketDisconnect
 2025-07-04 16:37:49,361 - app.main - INFO - CCTV System shutting down...
 2025-07-04 16:37:49,618 - app.main - INFO - Cleanup complete
 2025-07-04 16:37:49,619 - app.main - INFO - Shutting down...
+2025-07-04 19:50:54,331 - app.main - INFO - Ensuring C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\static\images exists…
+2025-07-04 19:50:54,370 - app.main - INFO - Initializing database...
+2025-07-04 19:50:54,494 - app.main - INFO - CCTV System starting up...
+2025-07-04 19:53:47,629 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-07-04 19:54:05,305 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-07-04 19:54:06,404 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-07-04 19:54:39,003 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-07-04 19:54:40,508 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-07-04 19:55:00,863 - app.services.camera_manager - INFO - Camera webcam1 added (web)
+2025-07-04 19:55:05,125 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-07-04 19:55:05,654 - app.services.camera_manager - INFO - [webcam1] entering stream loop (fps=15)
+2025-07-04 19:55:06,005 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-07-04 19:55:28,041 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-07-04 19:55:32,861 - app.services.camera_manager - INFO - Camera webcam1 added (web)
+2025-07-04 19:55:33,276 - app.services.camera_manager - INFO - [webcam1] entering stream loop (fps=15)
+2025-07-04 19:55:36,500 - app.services.camera_manager - INFO - Camera webcam1 added (web)
+2025-07-04 19:55:36,948 - app.services.camera_manager - INFO - [webcam1] entering stream loop (fps=15)
+2025-07-04 19:55:37,372 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-07-04 19:58:21,068 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=webcam1
+2025-07-04 19:58:21,069 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'webcam1_1751633900558.jpg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': 'webcam1'}
+2025-07-04 19:58:21,642 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-04 19:58:21,642 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-04 19:58:21.642751+07:00 tzinfo=Asia/Bangkok
+2025-07-04 19:58:21,708 - app.services.face_service - INFO - Original filename: original_20250704195821069719_webcam1_1751633900558.jpg
+2025-07-04 19:58:21,729 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250704195821708208_1751633900558.jpg
+2025-07-04 19:58:21,730 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250704195821708208_1751633900558.jpg
+2025-07-04 19:58:21,730 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-04T19:58:21.642751+07:00 for file=webcam1_1751633900558.jpg
+2025-07-04 19:58:23,277 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-07-04 19:58:30,303 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250704195821069719_webcam1_1751633900558.jpg
+2025-07-04 19:58:30,940 - app.services.face_service - INFO - ImageCount stored for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250704195821069719_webcam1_1751633900558.jpg
+2025-07-04 19:58:30,941 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250704195821708208_1751633900558.jpg
+2025-07-04 19:58:35,773 - app.services.camera_manager - INFO - Camera webcam1 added (web)
+2025-07-04 19:58:36,342 - app.services.camera_manager - INFO - [webcam1] entering stream loop (fps=15)
+2025-07-04 19:58:36,470 - app.services.camera_manager - INFO - [webcam1] entering stream loop (fps=15)
+2025-07-04 19:58:36,965 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-07-04 19:59:01,253 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=webcam1
+2025-07-04 19:59:01,254 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'webcam1_1751633940718.jpg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': 'webcam1'}
+2025-07-04 19:59:02,103 - app.functions.image_processor - INFO - Detected 2 face(s).
+2025-07-04 19:59:02,104 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-04 19:59:02.104572+07:00 tzinfo=Asia/Bangkok
+2025-07-04 19:59:02,375 - app.services.face_service - INFO - Original filename: original_20250704195901255644_webcam1_1751633940718.jpg
+2025-07-04 19:59:02,381 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250704195902375321_1751633940718.jpg
+2025-07-04 19:59:02,382 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250704195902375321_1751633940718.jpg
+2025-07-04 19:59:02,382 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-04T19:59:02.104572+07:00 for file=webcam1_1751633940718.jpg
+2025-07-04 19:59:06,709 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-07-04 19:59:16,326 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250704195901255644_webcam1_1751633940718.jpg
+2025-07-04 19:59:18,325 - app.services.face_service - INFO - [insert_new_face] Face inserted with ID: 17
+2025-07-04 19:59:18,326 - app.services.face_service - INFO - [insert_new_face] Face location (raw): [57, 283, 242, 97] | type=<class 'list'>
+2025-07-04 19:59:18,327 - app.services.face_service - INFO - [insert_new_face] Preparing to save face crop for face_id 17
+2025-07-04 19:59:18,334 - app.services.face_service - INFO - [insert_new_face] Saved face crop at: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\face_crops\face_17.jpg
+2025-07-04 19:59:18,334 - app.services.face_service - INFO - New face detected: <app.db.models.attendance.Face object at 0x00000211AAA12740>
+2025-07-04 19:59:19,584 - app.services.face_service - INFO - ImageCount stored for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250704195901255644_webcam1_1751633940718.jpg
+2025-07-04 19:59:19,585 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250704195902375321_1751633940718.jpg
+2025-07-04 20:00:03,023 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-04 20:00:03,023 - app.services.face_service - INFO - Person ID: 15
+2025-07-04 20:00:03,272 - app.services.face_service - INFO - Existing face: None
+2025-07-04 20:00:11,449 - app.services.camera_manager - INFO - Camera webcam1 added (web)
+2025-07-04 20:00:12,196 - app.services.camera_manager - INFO - [webcam1] entering stream loop (fps=15)
+2025-07-04 20:00:12,931 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-07-04 20:00:15,188 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-07-04 20:00:57,547 - app.services.camera_manager - INFO - Camera webcam1 added (web)
+2025-07-04 20:00:57,552 - app.services.camera_manager - INFO - [webcam1] entering stream loop (fps=15)
+2025-07-04 20:00:57,867 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-07-04 20:01:08,287 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-07-04 20:01:52,268 - app.services.camera_manager - INFO - Camera webcam1 added (web)
+2025-07-04 20:01:52,665 - app.services.camera_manager - INFO - [webcam1] entering stream loop (fps=15)
+2025-07-05 17:00:24,730 - app.main - INFO - Ensuring C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\static\images exists…
+2025-07-05 17:00:24,786 - app.main - INFO - Initializing database...
+2025-07-05 17:00:24,950 - app.main - INFO - CCTV System starting up...
+2025-07-05 18:28:01,943 - app.main - INFO - Ensuring C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\static\images exists…
+2025-07-05 18:28:01,998 - app.main - INFO - Initializing database...
+2025-07-05 18:28:02,163 - app.main - INFO - CCTV System starting up...
+2025-07-05 18:31:46,368 - app.services.camera_manager - ERROR - Error adding camera Rka3: Failed to open camera source: rstp://admin@admin:30.100.0.197
+2025-07-05 18:42:36,180 - app.services.camera_manager - INFO - Camera Rka3 added (cctv)
+2025-07-05 18:42:38,616 - app.services.camera_manager - INFO - [Rka3] entering stream loop (fps=15)
+2025-07-05 18:42:39,011 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-07-05 18:43:08,782 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=Rka3
+2025-07-05 18:43:08,783 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'Rka3_1751715788777.jpg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': 'Rka3'}
+2025-07-05 18:43:09,095 - app.functions.image_processor - INFO - Detected 0 face(s).
+2025-07-05 18:43:09,096 - app.services.face_service - INFO - No faces detected in image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\original_20250705184308783617_Rka3_1751715788777.jpg
+2025-07-05 18:43:11,186 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-07-05 18:43:16,271 - app.services.camera_manager - INFO - Camera Rka3 added (cctv)
+2025-07-05 18:43:16,306 - app.services.camera_manager - INFO - [Rka3] entering stream loop (fps=15)
+2025-07-05 18:43:16,666 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-07-05 18:43:24,414 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=Rka3
+2025-07-05 18:43:24,415 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'Rka3_1751715804380.jpg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': 'Rka3'}
+2025-07-05 18:43:24,565 - app.functions.image_processor - INFO - Detected 0 face(s).
+2025-07-05 18:43:24,566 - app.services.face_service - INFO - No faces detected in image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\original_20250705184324416634_Rka3_1751715804380.jpg
+2025-07-05 18:43:27,098 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-07-05 18:43:39,122 - app.services.camera_manager - INFO - Camera Rka3 added (cctv)
+2025-07-05 18:43:39,148 - app.services.camera_manager - INFO - [Rka3] entering stream loop (fps=15)
+2025-07-05 18:43:39,506 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-07-05 18:43:39,705 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-07-05 18:43:40,569 - app.services.camera_manager - INFO - [Rka3] entering stream loop (fps=15)
+2025-07-05 18:43:40,894 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-07-05 18:43:43,454 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=Rka3
+2025-07-05 18:43:43,454 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'Rka3_1751715823449.jpg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': 'Rka3'}
+2025-07-05 18:43:43,609 - app.functions.image_processor - INFO - Detected 0 face(s).
+2025-07-05 18:43:43,610 - app.services.face_service - INFO - No faces detected in image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\original_20250705184343455425_Rka3_1751715823449.jpg
+2025-07-05 18:43:45,326 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-07-05 18:44:12,282 - app.services.camera_manager - INFO - Camera Rka3 added (cctv)
+2025-07-05 18:44:12,296 - app.services.camera_manager - INFO - [Rka3] entering stream loop (fps=15)
+2025-07-05 18:44:12,644 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-07-05 18:44:30,220 - app.services.camera_manager - INFO - Camera Rka3 added (web)
+2025-07-05 18:44:36,754 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-07-05 18:44:38,003 - app.services.camera_manager - INFO - [Rka3] entering stream loop (fps=15)
+2025-07-05 18:44:38,320 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-07-05 18:44:41,189 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=Rka3
+2025-07-05 18:44:41,190 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'Rka3_1751715881184.jpg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': 'Rka3'}
+2025-07-05 18:44:41,717 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-05 18:44:41,718 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-05 18:44:41.718418+07:00 tzinfo=Asia/Bangkok
+2025-07-05 18:44:41,737 - app.services.face_service - INFO - Original filename: original_20250705184441190149_Rka3_1751715881184.jpg
+2025-07-05 18:44:41,747 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250705184441738998_1751715881184.jpg
+2025-07-05 18:44:41,747 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250705184441738998_1751715881184.jpg
+2025-07-05 18:44:41,748 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-05T18:44:41.718418+07:00 for file=Rka3_1751715881184.jpg
+2025-07-05 18:44:43,714 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-07-05 18:44:54,700 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250705184441190149_Rka3_1751715881184.jpg
+2025-07-05 18:44:54,723 - app.services.face_service - INFO - ImageCount stored for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250705184441190149_Rka3_1751715881184.jpg
+2025-07-05 18:44:54,724 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250705184441738998_1751715881184.jpg
+2025-07-05 18:46:07,271 - app.services.face_service - INFO - Transferring encoding from face 18 to 17
+2025-07-05 18:46:07,271 - app.services.face_service - INFO - Copying crop image from C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\face_crops\face_18.jpg to 17
+2025-07-05 18:46:07,272 - app.services.face_service - INFO - Copying crop image from C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\face_crops\face_18.jpg to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\face_crops\face_17.jpg
+2025-07-05 18:46:07,273 - app.services.face_service - INFO - Copied crop image from face 18 to 17 as .jpg
+2025-07-05 18:46:07,274 - app.services.face_service - INFO - Deleted original crop image for face 18
+2025-07-05 18:46:07,274 - app.services.face_service - INFO - Deleted old face 18
+2025-07-05 18:46:07,278 - app.services.face_service - INFO - Face 17 now associated with person 15
+2025-07-05 18:46:35,917 - app.services.camera_manager - INFO - Camera Rka3 added (cctv)
+2025-07-05 18:46:36,828 - app.services.camera_manager - INFO - Camera Rka3 added (web)
+2025-07-05 18:46:37,206 - app.services.camera_manager - INFO - [Rka3] entering stream loop (fps=15)
+2025-07-05 18:46:52,569 - app.services.camera_manager - INFO - Camera Rka3 added (cctv)
+2025-07-05 18:46:53,573 - app.services.camera_manager - INFO - Camera Rka3 added (web)
+2025-07-05 18:46:53,578 - app.services.camera_manager - INFO - [Rka3] entering stream loop (fps=15)
+2025-07-05 18:46:53,935 - app.services.camera_manager - INFO - [Rka3] entering stream loop (fps=15)
+2025-07-05 18:46:54,253 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-07-05 18:46:56,964 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=Rka3
+2025-07-05 18:46:56,965 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'Rka3_1751716016961.jpg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': 'Rka3'}
+2025-07-05 18:46:57,487 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-05 18:46:57,488 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-05 18:46:57.488180+07:00 tzinfo=Asia/Bangkok
+2025-07-05 18:46:57,512 - app.services.face_service - INFO - Original filename: original_20250705184656966566_Rka3_1751716016961.jpg
+2025-07-05 18:46:57,519 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250705184657513198_1751716016961.jpg
+2025-07-05 18:46:57,519 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250705184657513198_1751716016961.jpg
+2025-07-05 18:46:57,519 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-05T18:46:57.488180+07:00 for file=Rka3_1751716016961.jpg
+2025-07-05 18:46:58,875 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-07-05 18:47:05,118 - app.services.camera_manager - INFO - Camera Rka3 added (cctv)
+2025-07-05 18:47:05,927 - app.services.camera_manager - INFO - Camera Rka3 added (web)
+2025-07-05 18:47:06,402 - app.services.camera_manager - INFO - [Rka3] entering stream loop (fps=15)
+2025-07-05 18:47:06,829 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-07-05 18:47:49,133 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-07-05 18:47:51,294 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-07-05 18:48:04,813 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-07-05 18:48:25,626 - app.services.camera_manager - INFO - Camera Rka3 added (cctv)
+2025-07-05 18:48:26,603 - app.services.camera_manager - INFO - Camera Rka3 added (web)
+2025-07-05 18:48:27,169 - app.services.camera_manager - INFO - [Rka3] entering stream loop (fps=15)
+2025-07-05 18:48:27,697 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-07-05 18:48:44,240 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-07-05 18:48:45,057 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-07-05 18:48:48,800 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=Rka3
+2025-07-05 18:48:48,801 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'Rka3_1751716128081.jpg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': 'Rka3'}
+2025-07-05 18:48:49,309 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-07-05 18:48:49,310 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-07-05 18:48:49.310435+07:00 tzinfo=Asia/Bangkok
+2025-07-05 18:48:49,402 - app.services.face_service - INFO - Original filename: original_20250705184848802482_Rka3_1751716128081.jpg
+2025-07-05 18:48:49,408 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250705184849402799_1751716128081.jpg
+2025-07-05 18:48:49,408 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250705184849402799_1751716128081.jpg
+2025-07-05 18:48:49,409 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-07-05T18:48:49.310435+07:00 for file=Rka3_1751716128081.jpg
+2025-07-05 18:48:52,352 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-07-05 18:49:00,290 - app.services.face_service - INFO - Moved original image from temp to permanent: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250705184848802482_Rka3_1751716128081.jpg
+2025-07-05 18:49:00,689 - app.services.face_service - INFO - [insert_new_face] Face inserted with ID: 19
+2025-07-05 18:49:00,690 - app.services.face_service - INFO - [insert_new_face] Face location (raw): [268, 497, 397, 368] | type=<class 'list'>
+2025-07-05 18:49:00,690 - app.services.face_service - INFO - [insert_new_face] Preparing to save face crop for face_id 19
+2025-07-05 18:49:00,704 - app.services.face_service - INFO - [insert_new_face] Saved face crop at: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\face_crops\face_19.jpg
+2025-07-05 18:49:00,704 - app.services.face_service - INFO - New face detected: <app.db.models.attendance.Face object at 0x00000217121F0BB0>
+2025-07-05 18:49:01,344 - app.services.face_service - INFO - ImageCount stored for C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\permanent_images\original_20250705184848802482_Rka3_1751716128081.jpg
+2025-07-05 18:49:01,345 - app.services.face_service - INFO - Deleted temporary preview image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20250705184849402799_1751716128081.jpg
+2025-07-05 18:50:00,576 - app.services.face_service - INFO - Face 19 now associated with person 16
+2025-07-05 18:50:17,762 - app.services.camera_manager - INFO - Camera Rka3 added (cctv)
+2025-07-05 18:50:18,854 - app.services.camera_manager - INFO - Camera Rka3 added (web)
+2025-07-05 18:50:19,515 - app.services.camera_manager - INFO - [Rka3] entering stream loop (fps=15)
+2025-07-05 18:50:20,140 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-07-05 18:51:21,106 - app.services.camera_manager - INFO - Camera Rka added (cctv)
+2025-07-05 18:51:24,159 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-07-05 18:51:24,952 - app.services.camera_manager - INFO - [Rka3] entering stream loop (fps=15)
+2025-07-05 18:51:24,952 - app.services.camera_manager - INFO - [Rka] entering stream loop (fps=25)
+2025-07-05 18:51:25,292 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-07-05 18:51:54,207 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=Rka
+2025-07-05 18:51:54,208 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'Rka_1751716314189.jpg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': 'Rka'}
+2025-07-05 18:51:54,354 - app.functions.image_processor - INFO - Detected 0 face(s).
+2025-07-05 18:51:54,355 - app.services.face_service - INFO - No faces detected in image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\original_20250705185154209241_Rka_1751716314189.jpg
+2025-07-05 18:51:56,554 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-07-05 18:51:59,161 - app.services.camera_manager - INFO - Camera Rka3 added (cctv)
+2025-07-05 18:52:00,300 - app.services.camera_manager - INFO - Camera Rka3 added (web)
+2025-07-05 18:52:00,824 - app.services.camera_manager - INFO - Camera Rka added (cctv)
+2025-07-05 18:52:00,843 - app.services.camera_manager - INFO - [Rka3] entering stream loop (fps=15)
+2025-07-05 18:52:00,865 - app.services.camera_manager - INFO - [Rka] entering stream loop (fps=25)
+2025-07-05 18:52:00,913 - app.services.camera_manager - INFO - [Rka3] entering stream loop (fps=15)
+2025-07-05 18:52:00,919 - app.services.camera_manager - INFO - [Rka] entering stream loop (fps=25)
+2025-07-05 18:52:01,274 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-07-05 18:52:20,090 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-07-05 18:52:21,803 - app.services.camera_manager - INFO - [Rka3] entering stream loop (fps=15)
+2025-07-05 18:52:21,803 - app.services.camera_manager - INFO - [Rka] entering stream loop (fps=25)
+2025-07-05 18:52:22,137 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-07-05 18:52:32,001 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=Rka
+2025-07-05 18:52:32,002 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'Rka_1751716351590.jpg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': 'Rka'}
+2025-07-05 18:52:32,139 - app.functions.image_processor - INFO - Detected 0 face(s).
+2025-07-05 18:52:32,140 - app.services.face_service - INFO - No faces detected in image: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\original_20250705185232002039_Rka_1751716351590.jpg
+2025-07-05 18:52:35,346 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-07-05 18:52:40,089 - app.services.camera_manager - INFO - Camera Rka3 added (cctv)
+2025-07-05 18:52:41,098 - app.services.camera_manager - INFO - Camera Rka3 added (web)
+2025-07-05 18:52:42,022 - app.services.camera_manager - INFO - Camera Rka added (cctv)
+2025-07-05 18:52:42,039 - app.services.camera_manager - INFO - [Rka3] entering stream loop (fps=15)
+2025-07-05 18:52:42,065 - app.services.camera_manager - INFO - [Rka] entering stream loop (fps=25)
+2025-07-05 18:52:42,428 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-07-05 18:52:44,772 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-07-05 18:52:46,602 - app.services.camera_manager - INFO - [Rka3] entering stream loop (fps=15)
+2025-07-05 18:52:46,603 - app.services.camera_manager - INFO - [Rka] entering stream loop (fps=25)
+2025-07-05 18:52:46,933 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-07-05 18:54:25,908 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-07-05 18:54:47,917 - app.services.camera_manager - INFO - Camera Rka3 added (cctv)
+2025-07-05 18:54:48,970 - app.services.camera_manager - INFO - Camera Rka3 added (web)
+2025-07-05 18:54:49,469 - app.services.camera_manager - INFO - Camera Rka added (cctv)
+2025-07-05 18:54:49,491 - app.services.camera_manager - INFO - [Rka3] entering stream loop (fps=15)
+2025-07-05 18:54:49,497 - app.services.camera_manager - INFO - [Rka] entering stream loop (fps=25)
+2025-07-05 18:54:49,866 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-07-05 18:55:46,049 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-09-01 09:47:33,919 - app.main - INFO - Ensuring C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\static\images exists…
+2025-09-01 09:47:33,950 - app.main - INFO - Initializing database...
+2025-09-01 09:47:34,181 - app.main - INFO - CCTV System starting up...
+2025-10-03 22:02:21,682 - app.main - INFO - Ensuring C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\static\images exists…
+2025-10-03 22:02:21,716 - app.main - INFO - Initializing database...
+2025-10-03 22:02:21,883 - app.main - INFO - CCTV System starting up...
+2025-10-03 22:02:44,905 - app.main - INFO - CCTV System shutting down...
+2025-10-03 22:02:44,906 - app.main - INFO - Cleanup complete
+2025-10-03 22:02:44,906 - app.main - INFO - Shutting down...
+2025-10-03 22:02:49,438 - app.main - INFO - Ensuring C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\static\images exists…
+2025-10-03 22:02:49,471 - app.main - INFO - Initializing database...
+2025-10-03 22:02:49,556 - app.main - INFO - CCTV System starting up...
+2025-10-03 22:03:45,018 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-10-03 22:03:50,191 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-10-03 22:04:32,032 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=
+2025-10-03 22:04:32,032 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': 'Gemini_Generated_Image_xoldinxoldinxold.png', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': ''}
+2025-10-03 22:04:33,041 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-10-03 22:04:33,042 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-10-03 22:04:33.042436+07:00 tzinfo=Asia/Bangkok
+2025-10-03 22:04:33,048 - app.services.face_service - INFO - Original filename: original_20251003220432033414_Gemini_Generated_Image_xoldinxoldinxold.png
+2025-10-03 22:04:33,108 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20251003220433049446_xoldinxoldinxold.png
+2025-10-03 22:04:33,109 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20251003220433049446_xoldinxoldinxold.png
+2025-10-03 22:04:33,110 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-10-03T22:04:33.042436+07:00 for file=Gemini_Generated_Image_xoldinxoldinxold.png
+2025-10-03 22:25:06,945 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-10-03 22:25:21,180 - app.services.camera_manager - ERROR - Error adding camera 1: Failed to open camera source: 1
+2025-10-03 22:25:30,373 - app.services.camera_manager - ERROR - Error adding camera 1: Failed to open camera source: 1
+2025-10-03 22:25:38,524 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-10-03 22:25:41,117 - app.services.camera_manager - ERROR - Error adding camera 1: Failed to open camera source: 1
+2025-10-03 22:25:49,655 - app.services.camera_manager - ERROR - Error adding camera 1: Failed to open camera source: 1
+2025-10-03 22:25:49,660 - app.services.camera_manager - ERROR - Error adding camera 1: Failed to open camera source: 1
+2025-10-03 22:25:49,772 - app.services.camera_manager - ERROR - Error adding camera 1: Failed to open camera source: 1
+2025-10-03 22:25:49,972 - app.services.camera_manager - ERROR - Error adding camera 1: Failed to open camera source: 1
+2025-10-03 22:25:50,148 - app.services.camera_manager - ERROR - Error adding camera 1: Failed to open camera source: 1
+2025-10-03 22:25:50,380 - app.services.camera_manager - ERROR - Error adding camera 1: Failed to open camera source: 1
+2025-10-03 22:25:52,781 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-10-03 22:25:55,744 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-10-03 22:25:56,644 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-10-03 22:26:04,917 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-10-03 22:26:28,509 - app.services.camera_manager - ERROR - Error adding camera 1: Failed to open camera source: 1
+2025-10-03 22:26:33,975 - app.services.camera_manager - INFO - Camera 1 added (web)
+2025-10-03 22:26:35,896 - app.services.camera_manager - INFO - [1] entering stream loop (fps=15)
+2025-10-03 22:26:36,224 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-10-03 22:26:43,622 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=1
+2025-10-03 22:26:43,623 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': '1_1759505203616.jpg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': '1'}
+2025-10-03 22:26:44,143 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-10-03 22:26:44,144 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-10-03 22:26:44.144755+07:00 tzinfo=Asia/Bangkok
+2025-10-03 22:26:44,161 - app.services.face_service - INFO - Original filename: original_20251003222643623776_1_1759505203616.jpg
+2025-10-03 22:26:44,167 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20251003222644162776_1759505203616.jpg
+2025-10-03 22:26:44,168 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20251003222644162776_1759505203616.jpg
+2025-10-03 22:26:44,168 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-10-03T22:26:44.144755+07:00 for file=1_1759505203616.jpg
+2025-10-03 22:26:50,091 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=1
+2025-10-03 22:26:50,092 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': '1_1759505209771.jpg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': '1'}
+2025-10-03 22:26:50,596 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-10-03 22:26:50,597 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-10-03 22:26:50.597963+07:00 tzinfo=Asia/Bangkok
+2025-10-03 22:26:50,611 - app.services.face_service - INFO - Original filename: original_20251003222650092253_1_1759505209771.jpg
+2025-10-03 22:26:50,619 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20251003222650611969_1759505209771.jpg
+2025-10-03 22:26:50,620 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20251003222650611969_1759505209771.jpg
+2025-10-03 22:26:50,620 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-10-03T22:26:50.597963+07:00 for file=1_1759505209771.jpg
+2025-10-03 22:26:53,906 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-10-03 22:27:07,530 - app.services.camera_manager - INFO - Camera 1 added (web)
+2025-10-03 22:27:07,991 - app.services.camera_manager - INFO - [1] entering stream loop (fps=15)
+2025-10-03 22:27:08,353 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-10-03 22:27:36,519 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-10-03 22:27:43,951 - app.services.camera_manager - INFO - Camera 1 added (web)
+2025-10-03 22:27:44,425 - app.services.camera_manager - INFO - [1] entering stream loop (fps=15)
+2025-10-03 22:27:44,855 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-10-03 22:27:46,981 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=1
+2025-10-03 22:27:46,982 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': '1_1759505266807.jpg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': '1'}
+2025-10-03 22:27:47,519 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-10-03 22:27:47,520 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-10-03 22:27:47.520565+07:00 tzinfo=Asia/Bangkok
+2025-10-03 22:27:47,582 - app.services.face_service - INFO - Original filename: original_20251003222746983978_1_1759505266807.jpg
+2025-10-03 22:27:47,587 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20251003222747582775_1759505266807.jpg
+2025-10-03 22:27:47,588 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20251003222747582775_1759505266807.jpg
+2025-10-03 22:27:47,588 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-10-03T22:27:47.520565+07:00 for file=1_1759505266807.jpg
+2025-10-03 22:27:49,766 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-10-03 22:27:52,945 - app.services.camera_manager - INFO - Camera 1 added (web)
+2025-10-03 22:27:53,511 - app.services.camera_manager - INFO - [1] entering stream loop (fps=15)
+2025-10-03 22:27:54,040 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-10-03 22:27:56,669 - app.api.v1.file_router - INFO - [upload-preview] Received batch_tag=1
+2025-10-03 22:27:56,670 - app.api.v1.file_router - INFO - [upload-preview] Processed file result: {'original_filename': '1_1759505276305.jpg', 'status': 'processing', 'message': '', 'preview_image_url': None, 'face_detections': [], 'batch_tag': '1'}
+2025-10-03 22:27:57,214 - app.functions.image_processor - INFO - Detected 1 face(s).
+2025-10-03 22:27:57,214 - app.services.face_service - INFO - [process_image_for_review] detection_time=2025-10-03 22:27:57.214894+07:00 tzinfo=Asia/Bangkok
+2025-10-03 22:27:57,286 - app.services.face_service - INFO - Original filename: original_20251003222756670859_1_1759505276305.jpg
+2025-10-03 22:27:57,292 - app.functions.image_processor - INFO - Image saved successfully to: C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20251003222757287743_1759505276305.jpg
+2025-10-03 22:27:57,293 - app.services.face_service - INFO - Preview image saved to C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\app_data\temp_images\preview_20251003222757287743_1759505276305.jpg
+2025-10-03 22:27:57,293 - app.api.v1.file_router - INFO - [upload-preview] Returning detection_time=2025-10-03T22:27:57.214894+07:00 for file=1_1759505276305.jpg
+2025-10-03 22:27:59,750 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-10-03 22:28:04,082 - app.services.camera_manager - INFO - Camera 1 added (web)
+2025-10-03 22:28:04,761 - app.services.camera_manager - INFO - [1] entering stream loop (fps=15)
+2025-10-03 22:28:05,449 - app.api.v1.ws_router - INFO - [WS] Client connected -> total queues = 1
+2025-10-03 22:45:56,562 - app.api.v1.ws_router - INFO - [WS] Client disconnected -> total queues = 0
+2025-10-05 21:09:35,533 - app.main - INFO - Ensuring C:\Users\HiDigi\OneDrive\Desktop\WebDev\FacialRecognition\static\images exists…
+2025-10-05 21:09:35,570 - app.main - INFO - Initializing database...
+2025-10-05 21:09:35,706 - app.main - INFO - CCTV System starting up...
